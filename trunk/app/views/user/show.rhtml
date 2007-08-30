@@ -1,0 +1,16 @@
+<div id="content">
+	<div>
+		<div class="content">
+			<h1 class="title style1">Propriedades do Usuário</h1>
+			<br/>
+			<b>Nome:</b> <%=h @user.send('nome') %>
+			<br/>
+			<b>Login:</b> <%=h @user.send('login') %>
+			<br/>
+			<b>E-mail:</b> <%=h @user.send('email') %>
+			<br/>
+			<b>Administrador:</b> <%=h @user.send('admin') ? 'Sim' : '-' %>
+			<p><%= link_to image_tag("ed.png", :border => 0, :alt => 'Editar'), :action => 'edit', :id => @user %> | <%= link_to image_tag("goBack.gif", :border => 0, :alt => 'Voltar'), :action => 'list' %></p>
+	  	</div>
+	</div>
+</div>

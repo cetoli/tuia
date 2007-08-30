@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-br" lang="pt-br">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>Plataforma TUIA</title>
+  <%= stylesheet_link_tag 'scaffold' %>
+  <%= stylesheet_link_tag 'default' %>
+</head>
+<body>
+<div id="header">
+	<div id="logo">
+		<h1>&nbsp;T&nbsp;U&nbsp;I&nbsp;A</h1>
+		<h2 align="center">Plataforma TUIA</h2>
+	</div>
+	<div id="topmenu">
+		<ul>
+			<li class="first"><span class="style4">Olá, <%= session[:user] ? session[:user].nome : "visitante" %></span></li>
+			<li class="style4"><a href="#">Fale conosco</a></li>
+		</ul>
+	</div>
+</div>
+<div id="header2">
+	<div id="menu">
+		<ul>
+			<li class="first"><%= link_to "Início", :action => "welcome" %></li>
+			<li><%= link_to "Novo usuário", :action => "signup" %></li>
+			<li><a href="#">Cursos oferecidos</a></li>
+			<li><a href="#">Lembrar minha senha</a></li>
+			<li><%= link_to "Sobre a TUIA", :action => "about" %></li>
+		</ul>
+	</div>
+	<div id="splash"><img src="/images/flor_cabec.jpg" alt="" width="560" height="200" /></div>
+</div>
+<hr />
+<div id="page">
+	<p style="color: green"><%= flash[:message] %></p>
+	<p style="color: red"><%= flash[:warning] %></p>
+	<%= @content_for_layout %>
+	<div id="sidebar">
+		<ul>
+			<li>
+				<h2>Links</h2>
+				<ul>
+					<li class="first">
+					  <div align="center"><a href="#"><img src="/images/logo_ONU.jpg" alt="ONU" /></a></div>
+					</li>
+					<li class="first">
+					  <div align="center"><a href="#"><img src="/images/logo_FIOCRUZ.jpg" alt="FIOCRUZ" /></a></div>
+					</li>
+					<li>
+					  <div align="center"><a href="#"><img src="/images/logo_nce.jpg" alt="NCE" /></a></div>
+					</li>
+					<li>
+					  <div align="center"><a href="#"><img src="/images/labase_logo.jpg" alt="LABASE" /></a></div>
+					</li>
+					<li>
+					  <div align="center"><a href="#"><img src="/images/logo_abrapa.jpg" alt="ABRAPA" /></a></div>
+					</li>
+					<li>
+					  <div align="center"><a href="#"><img src="/images/sme2.gif" alt="RIO PREFEITURA" width="149" height="55" border="0" /></a></div>
+					</li>											
+				</ul>
+			</li>
+			<li>
+				&nbsp;@ Plataforma TUIA 2007
+				<p align="center"><b>Powered by: </b><img src="/images/rails.png" alt="Ruby On Rails" /></p>
+			</li>
+	  </ul>
+  	</div>
+</div>
+<hr/>
+</body>
+</html>

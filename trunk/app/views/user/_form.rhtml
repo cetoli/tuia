@@ -1,0 +1,34 @@
+<%= error_messages_for 'user' %>
+
+<!--[form:user]-->
+<p>
+	<label for="user_nome">Nome:</label>
+	<br/>
+	<%= text_field 'user', 'nome', :size => 50, :maxlength => 50 %>
+</p>
+<p>
+	<label for="user_login">Login:</label>
+	<br/>
+	<%= text_field 'user', 'login', :size => 10, :maxlength => 10 %>
+</p>
+<p>
+	<label for="user_senha">Senha:</label>
+	<br/>
+	<%= password_field 'user', 'senha', :size => 10, :maxlength => 10 %>
+</p>
+<p>
+	<label for="user_confirmacao_senha">Confirmar Senha:</label>
+	<br/>
+	<%= password_field 'user', 'confirmacao_senha', :size => 10, :maxlength => 10 %>
+</p>
+<p>
+	<label for="user_email">E-mail:</label>
+	<br/>
+	<%= text_field 'user', 'email', :size => 45, :maxlength => 45 %>
+</p>
+
+<p>
+	<%= check_box 'user', 'admin' %>
+	<label for="user_admin">Administrador</label>
+</p>
+<!--[eoform:user]-->
