@@ -1,0 +1,31 @@
+<div id="content">
+	<div>
+		<div class="content">
+			<h1 class="title style1">Lista de Usuários</h1>
+			<br />
+			<table border>
+				<tr align="center">
+					<th>Nome</th>
+					<th>E-mail</th>
+					<th>Administrador</th>
+					<th colspan="3">Comandos</th>
+				</tr>
+				<% for user in @users %>
+				<tr align="center">
+					<td><%=h user.nome %></td>
+					<td><%=h user.email %></td>
+					<td><%=h user.admin ? 'Sim' : '-' %></td>
+					<td><%= link_to image_tag("opn.png", :border => 0, :alt => 'Mostrar'), :action => 'show', :id => user %></td>
+					<td><%= link_to image_tag("ed.png", :border => 0, :alt => 'Editar'), :action => 'edit', :id => user %></td>
+					<td><%= link_to image_tag("del.png", :border => 0, :alt => 'Apagar'), { :action => 'destroy', :id => user }, :confirm => 'Tem certeza que deseja excluir este usuário?', :post => true %></td>
+				</tr>
+				<% end %>
+			</table>
+			<p>
+				<%= link_to image_tag("PreviousPage.gif", :border => 0, :alt => 'Anterior'), { :page => @user_pages.current.previous } if @user_pages.current.previous %>
+				<%= link_to image_tag("NextPage.gif", :border => 0, :alt => 'Próxima'), { :page => @user_pages.current.next } if @user_pages.current.next %>
+			</p>
+			<p><%= link_to image_tag("add.png", :border => 0, :alt => 'Adicionar usuário'), {:action => 'new'} %> | <%= link_to image_tag("goBack.gif", :border => 0, :alt => 'Voltar'), {:action => 'welcome'} %></p>
+	  	</div>
+	</div>
+</div>
