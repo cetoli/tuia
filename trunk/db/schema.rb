@@ -2,7 +2,7 @@
 # migrations feature of ActiveRecord to incrementally modify your database, and
 # then regenerate this schema definition.
 
-ActiveRecord::Schema.define(:version => 3) do
+ActiveRecord::Schema.define(:version => 1) do
 
   create_table "areas", :force => true do |t|
     t.column "codigo", :string, :limit => 5,  :default => "", :null => false
@@ -28,12 +28,13 @@ ActiveRecord::Schema.define(:version => 3) do
   add_index "documentos", ["user_id"], :name => "FK_Doc_Usr"
 
   create_table "users", :force => true do |t|
-    t.column "nome",  :string,  :limit => 50, :default => "",    :null => false
-    t.column "login", :string,  :limit => 10, :default => "",    :null => false
-    t.column "pass",  :string,  :limit => 40, :default => "",    :null => false
-    t.column "salt",  :string,  :limit => 10, :default => "",    :null => false
-    t.column "email", :string,  :limit => 45, :default => "",    :null => false
-    t.column "admin", :boolean,               :default => false, :null => false
+    t.column "nome",     :string,  :limit => 50, :default => "",    :null => false
+    t.column "login",    :string,  :limit => 10, :default => "",    :null => false
+    t.column "pass",     :string,  :limit => 40, :default => "",    :null => false
+    t.column "salt",     :string,  :limit => 10, :default => "",    :null => false
+    t.column "email",    :string,  :limit => 45, :default => "",    :null => false
+    t.column "admin",    :boolean,               :default => false, :null => false
+    t.column "aprovado", :boolean,               :default => false, :null => false
   end
 
   add_index "users", ["login"], :name => "UsrLogUnqIdx", :unique => true

@@ -6,20 +6,33 @@ class UserController < ApplicationController
   before_filter :set_charset
 
   # GETs should be safe (see http://www.w3.org/2001/tag/doc/whenToUseGet.html)
-  verify :method => :post, :only => [ :destroy, :create, :update, :logout ],
+  verify :method => :post, :only => [ :destroy, :create, :update, :logout, :aprovar ],
          :redirect_to => { :action => :list }
 
   def index
     redirect_to :action => "welcome"
   end
 
+  def aprovar
+    @user = User.find(params[:id])
+    @user.aprovado = true
+    if @user.update
+      flash[:message] = 'Usuário aprovado com sucesso!'
+      redirect_to :action => 'show', :id => @user
+    else
+      flash[:warning] = "Aprovação do usuário não efetuada..."
+      render :action => 'show', :id => @user
+    end
+  end
+
   def signup
     @user = User.new(params[:user])
+    @user.admin = false
+    @user.aprovado = false
     if request.post?  
       if @user.save
-        session[:user] = User.authenticate(@user.login, @user.senha)
-        flash[:message] = "Cadastramento efetuado com sucesso!"
-        redirect_to :action => "welcome"
+        flash[:message] = "Cadastramento efetuado com sucesso! Aguarde confirmação sobre sua aprovação."
+        redirect_to :action => "about"
       else
         flash[:warning] = "Cadastramento não efetuado..."
       end
@@ -68,6 +81,7 @@ class UserController < ApplicationController
 
   def create
     @user = User.new(params[:user])
+    @user.aprovado = true
     if @user.save
       flash[:message] = 'Usuário criado com sucesso!'
       redirect_to :action => 'list'
