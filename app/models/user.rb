@@ -12,11 +12,11 @@ class User < ActiveRecord::Base
   validates_confirmation_of :senha
   validates_format_of :email, :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i, :message => "E-mail inválido!"
 
-  attr_protected :id, :salt
+  attr_protected :id, :salt, :aprovado
   attr_accessor :senha, :confirmacao_senha
 
   def self.authenticate(login, passw)
-    u = find(:first, :conditions=>["login = ?", login])
+    u = find(:first, :conditions => { :login => login, :aprovado => true })
     return nil if u.nil?
     return u if User.encrypt(passw, u.salt) == u.pass
     nil
