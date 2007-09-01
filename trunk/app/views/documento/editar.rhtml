@@ -7,7 +7,7 @@
 			  <%= render :partial => 'formUsr' %>
 			  <%= submit_tag 'Alterar' %>
 			<% end %>
-			<%= link_to image_tag("opn.png", :border => 0, :alt => 'Mostrar'), { :action => 'mostrar', :id => @documento }, :post => true %> | <%= link_to image_tag("goBack.gif", :border => 0, :alt => 'Voltar'), { :action => 'getDocsArea', :id => @documento.area }, :post => true %>
+			<%= link_to image_tag("opn.png", :border => 0, :alt => 'Mostrar'), { :action => 'mostrar', :id => @documento }, :method => "post" %> | <%= link_to image_tag("goBack.gif", :border => 0, :alt => 'Voltar'), { :action => 'getDocsArea', :id => @documento.area }, :method => "post" %>
 	  	</div>
 	</div>
 </div>

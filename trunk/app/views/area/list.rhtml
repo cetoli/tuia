@@ -15,7 +15,7 @@
 					<td><%=h area.nome %></td>
 					<td><%= link_to image_tag("opn.png", :border => 0, :alt => 'Mostrar'), :action => 'show', :id => area %></td>
 					<td><%= link_to image_tag("ed.png", :border => 0, :alt => 'Editar'), :action => 'edit', :id => area %></td>
-					<td><%= link_to image_tag("del.png", :border => 0, :alt => 'Apagar'), { :action => 'destroy', :id => area }, :confirm => 'Tem certeza que deseja excluir esta área?', :post => true %></td>
+					<td><%= link_to image_tag("del.png", :border => 0, :alt => 'Apagar'), { :action => 'destroy', :id => area }, :confirm => 'Tem certeza que deseja excluir esta área?', :method => "post" %></td>
 				</tr>
 				<% end %>
 			</table>
