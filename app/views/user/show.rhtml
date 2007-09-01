@@ -13,7 +13,7 @@
 			<br/>
 			<b>Aprovado:</b> <%=h @user.send('aprovado') ? 'Sim' : '-' %>
 			<p ><% unless @user.send('aprovado') %>
-				<%= link_to image_tag("ok.gif", :border => 0, :alt => 'Aprovar'), { :action => 'aprovar', :id => @user }, :post => true %> | 
+				<%= link_to image_tag("ok.gif", :border => 0, :alt => 'Aprovar'), { :action => 'aprovar', :id => @user }, :method => "post" %> | 
 				<% end %>
 				<%= link_to image_tag("ed.png", :border => 0, :alt => 'Editar'), :action => 'edit', :id => @user %> | 
 				<%= link_to image_tag("goBack.gif", :border => 0, :alt => 'Voltar'), :action => 'list' %>

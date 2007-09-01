@@ -20,10 +20,10 @@
 			<b>Aprovado:</b> <%=h @documento.send('aprovado') ? 'Sim' : '-' %>
 			<br/>
 			<p ><% unless @documento.send('aprovado') %>
-				<%= link_to image_tag("ok.gif", :border => 0, :alt => 'Aprovar'), { :action => 'aprovar', :id => @documento }, :post => true %> | 
+				<%= link_to image_tag("ok.gif", :border => 0, :alt => 'Aprovar'), { :action => 'aprovar', :id => @documento }, :method => "post" %> | 
 				<% end %>
 				<% if @documento.send('nome') %>
-				<%= link_to image_tag("attach.gif", :border => 0, :alt => 'Anexo'), { :action => 'getAnexo', :id => @documento }, :post => true %> | 
+				<%= link_to image_tag("attach.gif", :border => 0, :alt => 'Anexo'), { :action => 'getAnexo', :id => @documento }, :method => "post" %> | 
 				<% end %>
 				<%= link_to image_tag("ed.png", :border => 0, :alt => 'Editar'), :action => 'edit', :id => @documento %> | <%= link_to image_tag("goBack.gif", :border => 0, :alt => 'Voltar'), :action => 'list' %>
 			</p>

@@ -20,12 +20,12 @@
 			<b>Aprovado:</b> <%=h @documento.send('aprovado') ? 'Sim' : '-' %>
 			<br/>
 			<p ><% if @documento.send('nome') %>
-				<%= link_to image_tag("attach.gif", :border => 0, :alt => 'Anexo'), { :action => 'getAnexo', :id => @documento }, :post => true %> | 
+				<%= link_to image_tag("attach.gif", :border => 0, :alt => 'Anexo'), { :action => 'getAnexo', :id => @documento }, :method => "post" %> | 
 				<% end %>
 				<% if @documento.user.login.eql?(session[:user].login) %>
-				<%= link_to image_tag("ed.png", :border => 0, :alt => 'Editar'), { :action => 'editar', :id => @documento }, :post => true %> | 
+				<%= link_to image_tag("ed.png", :border => 0, :alt => 'Editar'), { :action => 'editar', :id => @documento }, :method => "post" %> | 
 				<% end %>
-				<%= link_to image_tag("goBack.gif", :border => 0, :alt => 'Voltar'), { :action => 'getDocsArea', :id => @documento.area }, :post => true %>
+				<%= link_to image_tag("goBack.gif", :border => 0, :alt => 'Voltar'), { :action => 'getDocsArea', :id => @documento.area }, :method => "post" %>
 			</p>
 	  	</div>
 	</div>
