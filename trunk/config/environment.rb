@@ -59,3 +59,13 @@ end
 
 # Include your application configuration below
 require "#{RAILS_ROOT}/app/overrides/messages"
+ActionMailer::Base.delivery_method = :smtp
+ActionMailer::Base.raise_delivery_errors = true
+ActionMailer::Base.smtp_settings = {
+  :address => "smtp.gmail.com",
+  :port => 587,
+  :domain => "tuia.ufrj.br",
+  :authentication => :plain,
+  :user_name => "adm.tuia",
+  :password => "Admin.Tuia-2007"
+}

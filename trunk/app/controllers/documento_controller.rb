@@ -33,6 +33,7 @@ class DocumentoController < ApplicationController
     @documento.aprovado = false
     if @documento.save
       flash[:message] = 'Documento criado com sucesso!'
+      Notifications.deliver_docApproval('adm.tuia@gmail.com')
       redirect_to :action => 'list'
     else
       flash[:warning] = "Cadastramento do documento não efetuado..."
@@ -52,6 +53,7 @@ class DocumentoController < ApplicationController
     @documento.aprovado = false
     if @documento.update_attributes(params[:documento])
       flash[:message] = 'Documento alterado com sucesso!'
+      Notifications.deliver_docApproval('adm.tuia@gmail.com')
       redirect_to :action => 'show', :id => @documento
     else
       flash[:warning] = "Alteração do documento não efetuado..."
@@ -96,6 +98,7 @@ class DocumentoController < ApplicationController
     @documento.aprovado = false
     if @documento.update_attributes(params[:documento])
       flash[:message] = 'Documento alterado com sucesso!'
+      Notifications.deliver_docApproval('adm.tuia@gmail.com')
       redirect_to :action => 'getDocsArea', :id => @documento.area
     else
       flash[:warning] = "Alteração do documento não efetuado..."
@@ -111,6 +114,7 @@ class DocumentoController < ApplicationController
     @documento.aprovado = false
     if @documento.save
       flash[:message] = 'Documento criado com sucesso!'
+      Notifications.deliver_docApproval('adm.tuia@gmail.com')
       redirect_to :action => 'getDocsArea', :id => @documento.area
     else
       flash[:warning] = "Cadastramento do documento não efetuado..."
