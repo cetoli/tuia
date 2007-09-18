@@ -52,8 +52,15 @@ class AreaController < ApplicationController
   end
 
   def destroy
-    Area.find(params[:id]).destroy
-    redirect_to :action => 'list'
+    begin
+      Area.find(params[:id]).destroy
+    rescue ActiveRecord::StatementInvalid
+      flash[:warning] = "Exclusão de área não efetuada. Erro: 'Área possui documento(s) aprovado(s) ou pendente(s) de aprovação. Remova estes documentos antes de excluir a área'..."
+    else
+      flash[:message] = 'Área excluída com sucesso!'
+    ensure
+      redirect_to :action => 'list'
+    end
   end
 
   def listar

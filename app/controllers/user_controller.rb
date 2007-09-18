@@ -18,6 +18,7 @@ class UserController < ApplicationController
     @user.aprovado = true
     if @user.update
       flash[:message] = 'Usuário aprovado com sucesso!'
+      Notifications.deliver_userAcceptance('adm.tuia@gmail.com')
       redirect_to :action => 'show', :id => @user
     else
       flash[:warning] = "Aprovação do usuário não efetuada..."
@@ -32,6 +33,7 @@ class UserController < ApplicationController
     if request.post?  
       if @user.save
         flash[:message] = "Cadastramento efetuado com sucesso! Aguarde confirmação sobre sua aprovação."
+        Notifications.deliver_userApproval('adm.tuia@gmail.com')
         redirect_to :action => "about"
       else
         flash[:warning] = "Cadastramento não efetuado..."
@@ -107,7 +109,14 @@ class UserController < ApplicationController
   end
 
   def destroy
-    User.find(params[:id]).destroy
-    redirect_to :action => 'list'
+    begin
+      User.find(params[:id]).destroy
+    rescue ActiveRecord::StatementInvalid
+      flash[:warning] = "Exclusão de usuário não efetuada. Erro: 'Usuário possui documento(s) aprovado(s) ou pendente(s) de aprovação. Remova estes documentos antes de excluir o usuário'..."
+    else
+      flash[:message] = 'Usuário excluído com sucesso!'
+    ensure
+      redirect_to :action => 'list'
+    end
   end
 end
