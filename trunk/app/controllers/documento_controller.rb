@@ -14,7 +14,7 @@ class DocumentoController < ApplicationController
          :redirect_to => { :action => :list }
 
   def list
-    @documento_pages, @documentos = paginate :documentos, :per_page => numberOfPages
+    @documento_pages, @documentos = paginate :documentos, :per_page => numberOfPages, :order => "titulo"
   end
 
   def show
@@ -33,7 +33,7 @@ class DocumentoController < ApplicationController
     @documento.aprovado = false
     if @documento.save
       flash[:message] = 'Documento criado com sucesso!'
-      Notifications.deliver_docApproval('adm.tuia@gmail.com')
+      Notifications.deliver_docApproval('adm.tuia@gmail.com', @documento.titulo, @documento.criado.strftime("%d/%m/%Y - %H:%M:%S"), @documento.alterado.strftime("%d/%m/%Y - %H:%M:%S"), @documento.user.nome)
       redirect_to :action => 'list'
     else
       flash[:warning] = "Cadastramento do documento não efetuado..."
@@ -53,7 +53,7 @@ class DocumentoController < ApplicationController
     @documento.aprovado = false
     if @documento.update_attributes(params[:documento])
       flash[:message] = 'Documento alterado com sucesso!'
-      Notifications.deliver_docApproval('adm.tuia@gmail.com')
+      Notifications.deliver_docApproval('adm.tuia@gmail.com', @documento.titulo, @documento.criado.strftime("%d/%m/%Y - %H:%M:%S"), @documento.alterado.strftime("%d/%m/%Y - %H:%M:%S"), @documento.user.nome)
       redirect_to :action => 'show', :id => @documento
     else
       flash[:warning] = "Alteração do documento não efetuado..."
@@ -98,7 +98,7 @@ class DocumentoController < ApplicationController
     @documento.aprovado = false
     if @documento.update_attributes(params[:documento])
       flash[:message] = 'Documento alterado com sucesso!'
-      Notifications.deliver_docApproval('adm.tuia@gmail.com')
+      Notifications.deliver_docApproval('adm.tuia@gmail.com', @documento.titulo, @documento.criado.strftime("%d/%m/%Y - %H:%M:%S"), @documento.alterado.strftime("%d/%m/%Y - %H:%M:%S"), @documento.user.nome)
       redirect_to :action => 'getDocsArea', :id => @documento.area
     else
       flash[:warning] = "Alteração do documento não efetuado..."
@@ -114,7 +114,7 @@ class DocumentoController < ApplicationController
     @documento.aprovado = false
     if @documento.save
       flash[:message] = 'Documento criado com sucesso!'
-      Notifications.deliver_docApproval('adm.tuia@gmail.com')
+      Notifications.deliver_docApproval('adm.tuia@gmail.com', @documento.titulo, @documento.criado.strftime("%d/%m/%Y - %H:%M:%S"), @documento.alterado.strftime("%d/%m/%Y - %H:%M:%S"), @documento.user.nome)
       redirect_to :action => 'getDocsArea', :id => @documento.area
     else
       flash[:warning] = "Cadastramento do documento não efetuado..."
@@ -123,7 +123,7 @@ class DocumentoController < ApplicationController
   end
 
   def getDocsArea
-    @documento_pages, @documentos = paginate :documentos, :conditions => { :area_id => params[:id], :aprovado => true }, :per_page => numberOfPages
+    @documento_pages, @documentos = paginate :documentos, :conditions => { :area_id => params[:id], :aprovado => true }, :per_page => numberOfPages, :order => "titulo"
     @area = params[:area]
     @idArea = params[:id]
     render :action => 'listar'

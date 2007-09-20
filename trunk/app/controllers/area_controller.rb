@@ -14,7 +14,7 @@ class AreaController < ApplicationController
          :redirect_to => { :action => :list }
 
   def list
-    @area_pages, @areas = paginate :areas, :per_page => numberOfPages
+    @area_pages, @areas = paginate :areas, :per_page => numberOfPages, :order => "codigo"
   end
 
   def show
@@ -64,6 +64,6 @@ class AreaController < ApplicationController
   end
 
   def listar
-    @area_pages, @areas = paginate :areas, :per_page => numberOfPages
+    @area_pages, @areas = paginate :areas, :per_page => numberOfPages, :order => "codigo"
   end
 end

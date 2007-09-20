@@ -23,11 +23,11 @@
 <div id="header2">
 	<div id="menu">
 		<ul>
-			<li class="first"><%= link_to "Início", :action => "welcome" %></li>
-			<li><%= link_to "Novo usuário", :action => "signup" %></li>
+			<li class="first"><%= link_to "Início", :controller => "user", :action => "welcome" %></li>
+			<li><%= link_to "Novo usuário", :controller => "user", :action => "signup" %></li>
 			<li><a href="#">Cursos oferecidos</a></li>
 			<li><a href="#">Lembrar minha senha</a></li>
-			<li><%= link_to "Sobre a TUIA", :action => "about" %></li>
+			<li><%= link_to "Sobre a TUIA", :controller => "user", :action => "about" %></li>
 		</ul>
 	</div>
 	<div id="splash"><img src="/images/flor_cabec.jpg" alt="" width="560" height="200" /></div>

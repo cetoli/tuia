@@ -3,6 +3,7 @@ class Documento < ActiveRecord::Base
   belongs_to :area
   
   validates_presence_of :titulo, :resenha, :criado, :alterado, :user_id, :area_id
+  validates_uniqueness_of :titulo
   
   attr_protected :id, :criado, :alterado, :nome, :anexo, :aprovado
     
