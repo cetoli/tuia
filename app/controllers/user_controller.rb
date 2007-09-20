@@ -18,7 +18,7 @@ class UserController < ApplicationController
     @user.aprovado = true
     if @user.update
       flash[:message] = 'Usuário aprovado com sucesso!'
-      Notifications.deliver_userAcceptance('adm.tuia@gmail.com')
+      Notifications.deliver_userAcceptance(@user.email, @user.nome, @user.login)
       redirect_to :action => 'show', :id => @user
     else
       flash[:warning] = "Aprovação do usuário não efetuada..."
@@ -33,7 +33,7 @@ class UserController < ApplicationController
     if request.post?  
       if @user.save
         flash[:message] = "Cadastramento efetuado com sucesso! Aguarde confirmação sobre sua aprovação."
-        Notifications.deliver_userApproval('adm.tuia@gmail.com')
+        Notifications.deliver_userApproval('adm.tuia@gmail.com', @user.nome, @user.email)
         redirect_to :action => "about"
       else
         flash[:warning] = "Cadastramento não efetuado..."
@@ -70,7 +70,7 @@ class UserController < ApplicationController
   end
 
   def list
-    @user_pages, @users = paginate :users, :per_page => numberOfPages
+    @user_pages, @users = paginate :users, :per_page => numberOfPages, :order => "nome"
   end
 
   def show
