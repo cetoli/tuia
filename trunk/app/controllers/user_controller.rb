@@ -1,7 +1,7 @@
 class UserController < ApplicationController
   layout "tuia"
 
-  before_filter :login_required, :except => ['login', 'signup', 'about']
+  before_filter :login_required, :except => ['login', 'signup', 'about', 'forgot_password']
   before_filter :is_admin, :only => ['list', 'show', 'new', 'edit']
   before_filter :set_charset
 
@@ -14,30 +14,40 @@ class UserController < ApplicationController
   end
 
   def aprovar
-    @user = User.find(params[:id])
-    @user.aprovado = true
-    if @user.update
-      flash[:message] = 'Usuário aprovado com sucesso!'
-      Notifications.deliver_userAcceptance(@user.email, @user.nome, @user.login)
+    begin
+      @user = User.find(params[:id])
+      @user.aprovado = true
+      if @user.update
+        flash[:message] = 'Usuário aprovado com sucesso!'
+        Notifications.deliver_userAcceptance(@user.email, @user.nome, @user.login)
+        redirect_to :action => 'show', :id => @user
+      else
+        flash[:warning] = "Aprovação do usuário não efetuada..."
+        render :action => 'show', :id => @user
+      end
+    rescue Timeout::Error
+      flash[:warning] = "E-mail de aprovação não enviado. Erro: 'Tempo de operação esgotado'..."
       redirect_to :action => 'show', :id => @user
-    else
-      flash[:warning] = "Aprovação do usuário não efetuada..."
-      render :action => 'show', :id => @user
     end
   end
 
   def signup
-    @user = User.new(params[:user])
-    @user.admin = false
-    @user.aprovado = false
-    if request.post?  
-      if @user.save
-        flash[:message] = "Cadastramento efetuado com sucesso! Aguarde confirmação sobre sua aprovação."
-        Notifications.deliver_userApproval('adm.tuia@gmail.com', @user.nome, @user.email)
-        redirect_to :action => "about"
-      else
-        flash[:warning] = "Cadastramento não efetuado..."
+    begin
+      @user = User.new(params[:user])
+      @user.admin = false
+      @user.aprovado = false
+      if request.post?  
+        if @user.save
+          flash[:message] = "Cadastramento efetuado com sucesso! Aguarde confirmação sobre sua aprovação."
+          Notifications.deliver_userApproval('adm.tuia@gmail.com', @user.nome, @user.email)
+          redirect_to :action => "about"
+        else
+          flash[:warning] = "Cadastramento não efetuado..."
+        end
       end
+    rescue  Timeout::Error
+      flash[:warning] = "Problemas no envio de e-mail de aprovação. Erro: 'Tempo de operação esgotado'..."
+      redirect_to :action => 'about'
     end
   end
 
@@ -56,6 +66,23 @@ class UserController < ApplicationController
     session[:user] = nil
     flash[:message] = 'Logout efetuado com sucesso!'
     redirect_to :action => 'login'
+  end
+
+  def forgot_password
+    begin
+      if request.post?
+        u = User.find_by_email(params[:user][:email])
+        if u and u.send_new_password
+          flash[:message]  = "Uma nova senha foi enviada para seu e-mail!"
+          redirect_to :action => 'login'
+        else
+          flash[:warning]  = "Problemas na geração de uma nova senha..."
+        end
+      end
+    rescue  Timeout::Error
+      flash[:warning] = "Problemas no envio da senha. Erro: 'Tempo de operação esgotado'..."
+      redirect_to :action => 'login'
+    end
   end
 
   def change_password

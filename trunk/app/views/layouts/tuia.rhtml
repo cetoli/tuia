@@ -15,7 +15,7 @@
 <body>
 <div id="header">
 	<div id="logo">
-		<h1><a href="http://">&nbsp;&nbsp; T&nbsp;U&nbsp;I&nbsp;A</a></h1>
+		<h1><%= link_to "&nbsp;&nbsp; T&nbsp;U&nbsp;I&nbsp;A", :controller => "user", :action => "about" %></h1>
 		<h2 align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Plataforma TUIA</h2>
 	</div>
 	<div id="topmenu">
@@ -32,7 +32,7 @@
 			<li class="first"><%= link_to "Início", :controller => "user", :action => "welcome" %></li>
 			<li><%= link_to "Novo usuário", :controller => "user", :action => "signup" %></li>
 			<li><a href="http://">Cursos oferecidos </a></li>
-			<li><a href="http://">Lembrar minha senha </a></li>
+			<li><%= link_to "Lembrar minha senha", :controller => "user", :action => "forgot_password" %></li>
 			<li><a href="http://">Artigos </a></li>			
 			<li><%= link_to "Sobre a TUIA", :controller => "user", :action => "about" %></li>
 	  </ul><!-- InstanceEndEditable -->
@@ -42,9 +42,11 @@
 <hr />
 <div id="page">  
 <!-- InstanceBeginEditable name="Corpo" -->
-	<p style="color: green"><%= flash[:message] %></p>
-	<p style="color: red"><%= flash[:warning] %></p>
-	<%= @content_for_layout %>
+	<div id="content">
+		<p style="color: green"><%= flash[:message] %></p>
+		<p style="color: red"><%= flash[:warning] %></p>
+		<%= @content_for_layout %>
+	</div>
 <!-- InstanceEndEditable -->	
 	<div id="sidebar">
 		<ul>
