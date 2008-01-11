@@ -7,6 +7,8 @@ class CreateDocumentos < ActiveRecord::Migration
       t.column :resenha, :text, :null => false
       t.column :nome, :string
       t.column :anexo, :binary
+      t.column :nomeart, :string
+      t.column :artigo, :binary
       t.column :criado, :datetime, :null => false
       t.column :alterado, :datetime, :null => false
       t.column :aprovado, :boolean, :default => 0, :null => false

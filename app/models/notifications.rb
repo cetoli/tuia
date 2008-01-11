@@ -29,4 +29,14 @@ class Notifications < ActionMailer::Base
     @headers    = {}
     @charset    = 'ISO-8859-1'
   end
+  
+  def forgot_password(to, nome, login, pass, sent_at = Time.now)
+    @subject    = "[T.U.I.A.] - Sua senha é..."
+    @body       = {:nome => nome, :login => login, :pass => pass}
+    @recipients = to
+    @from       = 'adm.tuia@ufrj.br'
+    @sent_on    = sent_at
+    @headers    = {}
+    @charset    = 'ISO-8859-1'
+  end
 end

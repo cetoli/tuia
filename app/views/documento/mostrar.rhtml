@@ -17,10 +17,15 @@
 			<br/>
 			<b>Anexo:</b> <%=h @documento.send('nome') ? @documento.send('nome') : '-' %>
 			<br/>
+			<b>Artigo:</b> <%=h @documento.send('nomeart') ? @documento.send('nomeart') : '-' %>
+			<br/>
 			<b>Aprovado:</b> <%=h @documento.send('aprovado') ? 'Sim' : '-' %>
 			<br/>
 			<p ><% if @documento.send('nome') %>
 				<%= link_to image_tag("attach.gif", :border => 0, :alt => 'Anexo'), { :action => 'getAnexo', :id => @documento }, :method => "post" %> | 
+				<% end %>
+				<% if @documento.send('nomeart') %>
+				<%= link_to image_tag("attach.gif", :border => 0, :alt => 'Artigo'), { :action => 'getArtigo', :id => @documento }, :method => "post" %> | 
 				<% end %>
 				<% if @documento.user.login.eql?(session[:user].login) %>
 				<%= link_to image_tag("ed.png", :border => 0, :alt => 'Editar'), { :action => 'editar', :id => @documento }, :method => "post" %> | 

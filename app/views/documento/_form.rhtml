@@ -17,6 +17,11 @@
 	<%= file_field 'documento', 'anexos' %>
 </p>
 <p>
+	<label for="documento_artigos">Artigo:</label>
+	<br/>
+	<%= file_field 'documento', 'artigos' %>
+</p>
+<p>
 	<label for="documento_user_id">Usuário:</label>
 	<br/>
 	<%= select("documento","user_id", @users ) %>

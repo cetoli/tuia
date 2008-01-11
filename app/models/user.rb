@@ -28,6 +28,13 @@ class User < ActiveRecord::Base
     self.pass = User.encrypt(@senha, self.salt)
   end
 
+  def send_new_password
+    new_pass = User.random_string(10)
+    self.senha = self.confirmacao_senha = new_pass
+    self.save
+    Notifications.deliver_forgot_password(self.email, self.nome, self.login, new_pass)
+  end
+
   protected
 
   def self.encrypt(passw, salt)
