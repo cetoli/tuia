@@ -16,19 +16,21 @@
 	<br/>
 	<%= file_field 'documento', 'anexos' %>
 </p>
+<% if @show %>
 <p>
-	<label for="documento_artigos">Artigo:</label>
+	<label for="documento_artigo_id">Artigo:</label>
 	<br/>
-	<%= file_field 'documento', 'artigos' %>
+	<%= select("documento","artigo_id", @artigos) %>
 </p>
 <p>
 	<label for="documento_user_id">Usuário:</label>
 	<br/>
-	<%= select("documento","user_id", @users ) %>
+	<%= select("documento","user_id", @users) %>
 </p>
 <p>
 	<label for="documento_area_id">Área:</label>
 	<br/>
-	<%= select("documento","area_id", @areas ) %>
+	<%= select("documento","area_id", @areas) %>
 </p>
+<% end %>
 <!--[eoform:documento]-->
