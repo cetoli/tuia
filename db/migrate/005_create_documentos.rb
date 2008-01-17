@@ -3,12 +3,11 @@ class CreateDocumentos < ActiveRecord::Migration
     create_table :documentos do |t|
       t.column :area_id, :int, :null => false
       t.column :user_id, :int, :null => false
+      t.column :artigo_id, :int, :null => false
       t.column :titulo, :string, :null => false
       t.column :resenha, :text, :null => false
       t.column :nome, :string
       t.column :anexo, :binary
-      t.column :nomeart, :string
-      t.column :artigo, :binary
       t.column :criado, :datetime, :null => false
       t.column :alterado, :datetime, :null => false
       t.column :aprovado, :boolean, :default => 0, :null => false
@@ -19,6 +18,8 @@ class CreateDocumentos < ActiveRecord::Migration
             REFERENCES areas (id) ON DELETE RESTRICT ON UPDATE NO ACTION'
     execute 'ALTER TABLE documentos ADD CONSTRAINT FK_Doc_Usr FOREIGN KEY FK_Doc_Usr (user_id)
             REFERENCES users (id) ON DELETE RESTRICT ON UPDATE NO ACTION'
+    execute 'ALTER TABLE documentos ADD CONSTRAINT FK_Doc_Art FOREIGN KEY FK_Doc_Art (artigo_id)
+            REFERENCES artigos (id) ON DELETE RESTRICT ON UPDATE NO ACTION'
   end
 
   def self.down

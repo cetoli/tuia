@@ -23,6 +23,9 @@
 			</table>
 			<p>
 				<%= link_to image_tag("PreviousPage.gif", :border => 0, :alt => 'Anterior'), { :page => @user_pages.current.previous } if @user_pages.current.previous %>
+				<% for page in @user_pages %>
+				    &nbsp;<%= link_to_unless(params[:page].to_i == page.number, page.number, {:params => params.merge('page' => page)}) %>&nbsp;
+				<% end -%>
 				<%= link_to image_tag("NextPage.gif", :border => 0, :alt => 'Próxima'), { :page => @user_pages.current.next } if @user_pages.current.next %>
 			</p>
 			<p><%= link_to image_tag("add.png", :border => 0, :alt => 'Adicionar usuário'), {:action => 'new'} %> | <%= link_to image_tag("goBack.gif", :border => 0, :alt => 'Voltar'), {:action => 'welcome'} %></p>

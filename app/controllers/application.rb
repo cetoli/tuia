@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
   end
 
   def numberOfPages
-    10
+    50
   end
 
   def set_charset

@@ -1,6 +1,7 @@
 require 'digest/sha1'
 
 class User < ActiveRecord::Base
+  has_and_belongs_to_many :roles
   has_many :documentos
 
   validates_length_of :nome, :within => 3..50

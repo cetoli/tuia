@@ -12,6 +12,13 @@
 			<b>Administrador:</b> <%=h @user.send('admin') ? 'Sim' : '-' %>
 			<br/>
 			<b>Aprovado:</b> <%=h @user.send('aprovado') ? 'Sim' : '-' %>
+			<br/>
+			<b>Perfis:</b>
+			<br/>
+			<% @user.roles.each do |r| %>
+				<%=h r.nome %>
+				<br/>
+			<% end %>
 			<p ><% unless @user.send('aprovado') %>
 				<%= link_to image_tag("ok.gif", :border => 0, :alt => 'Aprovar'), { :action => 'aprovar', :id => @user }, :method => "post" %> | 
 				<% end %>

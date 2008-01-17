@@ -16,9 +16,11 @@
 	<br/>
 	<%= file_field 'documento', 'anexos' %>
 </p>
+<% if @show %>
 <p>
-	<label for="documento_artigos">Artigo:</label>
+	<label for="documento_artigo_id">Artigo:</label>
 	<br/>
-	<%= file_field 'documento', 'artigos' %>
+	<%= select("documento","artigo_id", @artigos) %>
 </p>
+<% end %>
 <!--[eoform:documento]-->
