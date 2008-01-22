@@ -18,7 +18,7 @@
 						<%=h '-' %>
 						<% end %>
 					</td>
-					<td><% if documento.artigo.nome %>
+					<td><% unless documento.artigo.isresumo %>
 						<%= link_to documento.artigo.nome, { :controller => "artigo", :action => 'getArtigo', :id => documento.artigo }, :method => "post" %>
 						<% else %>
 						<%=h '-' %>

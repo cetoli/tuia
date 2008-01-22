@@ -12,6 +12,10 @@
 						<td><%= link_to image_tag("docs.gif", :border => 0, :alt => 'Documentos'), {:controller => "area", :action => 'listar'} %></td>
 						<td><%= link_to "Verificar Documentos", :controller => "area", :action => "listar" %></td>
 					</tr>
+					<tr>
+						<td><%= link_to image_tag("script.gif", :border => 0, :alt => 'Artigos'), {:controller => "artigo", :action => 'listar'} %></td>
+						<td><%= link_to "Escolher Artigos", :controller => "artigo", :action => "listar" %></td>
+					</tr>
 				<% if session[:user].admin %>
 					<tr>
 						<td><%= link_to image_tag("listUsers.jpg", :border => 0, :alt => 'Usuários'), {:action => 'list'} %></td>

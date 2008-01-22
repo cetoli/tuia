@@ -3,6 +3,8 @@ class CreateArtigos < ActiveRecord::Migration
     create_table :artigos do |t|
       t.column :nome, :string, :null => false
       t.column :anexo, :binary
+      t.column :resumo, :binary
+      t.column :isresumo, :boolean, :default => 0, :null => false
       t.column :usado, :boolean, :default => 0, :null => false
     end
 

@@ -12,9 +12,11 @@ ActiveRecord::Schema.define(:version => 5) do
   add_index "areas", ["codigo"], :name => "AreCodUnqIdx", :unique => true
 
   create_table "artigos", :force => true do |t|
-    t.column "nome",  :string,  :default => "",    :null => false
-    t.column "anexo", :binary
-    t.column "usado", :boolean, :default => false, :null => false
+    t.column "nome",     :string,  :default => "",    :null => false
+    t.column "anexo",    :binary
+    t.column "resumo",   :binary
+    t.column "isresumo", :boolean, :default => false, :null => false
+    t.column "usado",    :boolean, :default => false, :null => false
   end
 
   add_index "artigos", ["nome"], :name => "ArtNomUnqIdx", :unique => true

@@ -16,6 +16,13 @@
 	<br/>
 	<%= file_field 'documento', 'anexos' %>
 </p>
+<% if @isresumo %>
+<p>
+	<label for="artigo_anexos">Artigo:</label>
+	<br/>
+	<%= file_field 'artigo', 'anexos' %>
+</p>
+<% end %>
 <% if @show %>
 <p>
 	<label for="documento_artigo_id">Artigo:</label>
