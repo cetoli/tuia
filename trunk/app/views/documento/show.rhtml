@@ -17,7 +17,7 @@
 			<br/>
 			<b>Anexo:</b> <%=h @documento.send('nome') ? @documento.send('nome') : '-' %>
 			<br/>
-			<b>Artigo:</b> <%=h @documento.artigo.nome ? @documento.artigo.nome : '-' %>
+			<b>Artigo:</b> <%=h @documento.artigo.nome ? @documento.artigo.nome : '-' %> <%=h @documento.artigo.isresumo ? ' (Resumo)' : ''%>
 			<br/>
 			<b>Aprovado:</b> <%=h @documento.send('aprovado') ? 'Sim' : '-' %>
 			<br/>
@@ -27,7 +27,7 @@
 				<% if @documento.send('nome') %>
 				<%= link_to image_tag("attach.gif", :border => 0, :alt => 'Anexo'), { :action => 'getAnexo', :id => @documento }, :method => "post" %> | 
 				<% end %>
-				<% if @documento.artigo.nome %>
+				<% unless @documento.artigo.isresumo %>
 				<%= link_to image_tag("attach.gif", :border => 0, :alt => 'Artigo'), { :controller => "artigo", :action => 'getArtigo', :id => @documento.artigo }, :method => "post" %> | 
 				<% end %>
 				<%= link_to image_tag("ed.png", :border => 0, :alt => 'Editar'), :action => 'edit', :id => @documento %> | <%= link_to image_tag("goBack.gif", :border => 0, :alt => 'Voltar'), :action => 'list' %>

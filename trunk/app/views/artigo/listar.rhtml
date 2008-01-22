@@ -6,23 +6,17 @@
 			<table border>
 				<tr align="center">
 					<th>Nome</th>
-					<th>Anexo</th>
-					<th>Resumo</th>
-					<th>Usado</th>
-					<th>Excluir</th>
+					<th>Escolher</th>
 				</tr>
 				<% for artigo in @artigos %>
 				<tr align="center">
-					<td><%=h artigo.nome %></td>
 					<td><% if artigo.isresumo %>
 						<%= link_to artigo.nome, { :controller => "artigo", :action => 'getResumo', :id => artigo }, :method => "post" %>
 						<% else %>
 						<%= link_to artigo.nome, { :controller => "artigo", :action => 'getArtigo', :id => artigo }, :method => "post" %>
 						<% end %>
 					</td>
-					<td><%=h artigo.isresumo ? 'Sim' : '-' %></td>
-					<td><%=h artigo.usado ? 'Sim' : '-' %></td>
-					<td><%= link_to image_tag("del.png", :border => 0, :alt => 'Apagar'), { :action => 'destroy', :id => artigo }, :confirm => 'Tem certeza que deseja excluir este artigo?', :method => "post" %></td>
+					<td><%= link_to image_tag("ok.gif", :border => 0, :alt => 'Selecionar'), { :controller => "artigo", :action => 'novo', :id => artigo, :nome => artigo.nome }, :method => "post" %></td>
 				</tr>
 				<% end %>
 			</table>
@@ -33,7 +27,7 @@
 				<% end -%>
 				<%= link_to image_tag("NextPage.gif", :border => 0, :alt => 'Próxima'), { :page => @artigo_pages.current.next } if @artigo_pages.current.next %>
 			</p>
-			<p><%= link_to image_tag("add.png", :border => 0, :alt => 'Adicionar artigo'), {:action => 'new'} %> | <%= link_to image_tag("goBack.gif", :border => 0, :alt => 'Voltar'), {:controller => "user", :action => 'welcome'} %></p>
+			<p><%= link_to image_tag("goBack.gif", :border => 0, :alt => 'Voltar'), {:controller => "user", :action => 'welcome'} %></p>
 	  	</div>
 	</div>
 </div>

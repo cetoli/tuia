@@ -3,7 +3,7 @@ class Artigo < ActiveRecord::Base
 
   validates_presence_of :nome
 
-  attr_protected :id, :nome, :anexo, :usado
+  attr_protected :id, :nome, :anexo, :resumo, :usado
 
   def anexos=(anex_field)
     unless anex_field.instance_of?(''.class)

@@ -2,7 +2,7 @@ class DocumentoController < ApplicationController
   layout "tuia"
 
   before_filter :login_required, :set_charset
-  before_filter :is_admin, :except => ['getDocsArea', 'getAnexo', 'mostrar', 'novo', 'editar', 'updateUsr', 'createUsr']
+  before_filter :is_admin, :except => ['getDocsArea', 'getAnexo', 'mostrar', 'novo', 'editar', 'updateUsr', 'createUsr', 'createUsrArt']
 
   def index
     list
@@ -10,7 +10,7 @@ class DocumentoController < ApplicationController
   end
 
   # GETs should be safe (see http://www.w3.org/2001/tag/doc/whenToUseGet.html)
-  verify :method => :post, :only => [ :destroy, :create, :update, :updateUsr, :createUsr, :getAnexo, :mostrar, :aprovar, :editar, :novo ],
+  verify :method => :post, :only => [ :destroy, :create, :update, :updateUsr, :createUsr, :createUsrArt, :getAnexo, :mostrar, :aprovar, :editar, :novo ],
          :redirect_to => { :action => :list }
 
   def list
@@ -25,18 +25,17 @@ class DocumentoController < ApplicationController
     @documento = Documento.new
     @users = User.find_all.collect{ |t| [t.login, t.id] }
     @areas = Area.find_all.collect{ |c| [c.codigo, c.id] }
-    @artigos = Artigo.find(:all, :conditions => ['usado = :usado', {:usado => false}]).collect{ |a| [a.nome, a.id] }
+    @artigos = Artigo.find(:all, :conditions => ['usado = :usado', {:usado => false}], :order => "nome").collect{ |a| [a.nome, a.id] }
     @show = true
   end
 
   def create
     begin
-      unless @documento.nil?
+      @documento = Documento.new(params[:documento])
+      unless @documento.artigo_id.nil?
         @artigo = Artigo.find(@documento.artigo_id)
         @artigo.usado = true
-        @documento = Documento.new(params[:documento])
         @documento.criado = @documento.alterado = DateTime.now.strftime("%Y-%m-%d %H:%M:%S")
-        @documento.artigo.usado = true
         @documento.aprovado = false
         if (@documento.save && @artigo.save)
           flash[:message] = 'Documento criado com sucesso!'
@@ -47,6 +46,7 @@ class DocumentoController < ApplicationController
           @users = User.find_all.collect{ |t| [t.login, t.id] }
           @areas = Area.find_all.collect{ |c| [c.codigo, c.id] }
           @artigos = Artigo.find(:all, :conditions => ['usado = :usado', {:usado => false}]).collect{ |a| [a.nome, a.id] }
+          @show = true
           render :action => 'new'
         end
       else
@@ -62,6 +62,7 @@ class DocumentoController < ApplicationController
   def edit
     @documento = Documento.find(params[:id])
     @show = false
+    @isresumo = @documento.artigo.isresumo
   end
 
   def update
@@ -69,6 +70,14 @@ class DocumentoController < ApplicationController
       @documento = Documento.find(params[:id])
       @documento.alterado = DateTime.now.strftime("%Y-%m-%d %H:%M:%S")
       @documento.aprovado = false
+      if @documento.artigo.isresumo
+        @artigotmp = Artigo.new(params[:artigo])
+        @artigo = Artigo.find(@documento.artigo_id)
+        @artigo.nome = @artigotmp.nome        
+        @artigo.anexo = @artigotmp.anexo
+        @artigo.isresumo = false
+        @artigo.update
+      end
       if @documento.update_attributes(params[:documento])
         flash[:message] = 'Documento alterado com sucesso!'
         Notifications.deliver_docApproval('adm.tuia@gmail.com', @documento.titulo, @documento.criado.strftime("%d/%m/%Y - %H:%M:%S"), @documento.alterado.strftime("%d/%m/%Y - %H:%M:%S"), @documento.user.nome)
@@ -80,14 +89,25 @@ class DocumentoController < ApplicationController
     rescue Timeout::Error
       flash[:warning] = "E-mail de notificação não enviado. Erro: 'Tempo de operação esgotado'..."
       redirect_to :action => 'show', :id => @documento
+    rescue  ActiveRecord::StatementInvalid
+      flash[:warning] = "Alteração do documento não efetuada. Erro: 'Artigo já existente'..."
+      redirect_to :action => 'show', :id => @documento
     end
   end
 
   def destroy
-    Documento.find(params[:id]).destroy
+    @documento = Documento.find(params[:id])
+    @artigo = Artigo.find(@documento.artigo_id)
+    @artigo.usado = false
+    if @artigo.update
+      @documento.destroy
+      flash[:message] = 'Documento excluído com sucesso!'
+    else
+      flash[:warning] = 'Exclusão do documento não efetuado...'
+    end
     redirect_to :action => 'list'
   end
-  
+
   def aprovar
     @documento = Documento.find(params[:id])
     @documento.aprovado = true
@@ -111,13 +131,14 @@ class DocumentoController < ApplicationController
     @area_id = params[:id]
     @area = params[:area]
     @show = true
-    @artigos = Artigo.find(:all, :conditions => ['usado = :usado', {:usado => false}]).collect{ |a| [a.nome, a.id] }
+    @artigos = Artigo.find(:all, :conditions => ['usado = :usado', {:usado => false}], :order => "nome").collect{ |a| [a.nome, a.id] }
   end
 
   def editar
     @documento = Documento.find(params[:id])
     @area = params[:area]
     @show = false
+    @isresumo = @documento.artigo.isresumo
   end
 
   def updateUsr
@@ -126,6 +147,14 @@ class DocumentoController < ApplicationController
       @documento.alterado = DateTime.now.strftime("%Y-%m-%d %H:%M:%S")
       @documento.aprovado = false
       @area = params[:area]
+      if @documento.artigo.isresumo
+        @artigotmp = Artigo.new(params[:artigo])
+        @artigo = Artigo.find(@documento.artigo_id)
+        @artigo.nome = @artigotmp.nome        
+        @artigo.anexo = @artigotmp.anexo
+        @artigo.isresumo = false
+        @artigo.update
+      end
       if @documento.update_attributes(params[:documento])
         flash[:message] = 'Documento alterado com sucesso!'
         Notifications.deliver_docApproval('adm.tuia@gmail.com', @documento.titulo, @documento.criado.strftime("%d/%m/%Y - %H:%M:%S"), @documento.alterado.strftime("%d/%m/%Y - %H:%M:%S"), @documento.user.nome)
@@ -137,13 +166,16 @@ class DocumentoController < ApplicationController
     rescue Timeout::Error
       flash[:warning] = "E-mail de notificação não enviado. Erro: 'Tempo de operação esgotado'..."
       redirect_to :action => 'getDocsArea', :id => @documento.area
+    rescue  ActiveRecord::StatementInvalid
+      flash[:warning] = "Alteração do documento não efetuada. Erro: 'Artigo já existente'..."
+      redirect_to :action => 'getDocsArea', :id => @documento.area
     end
   end
 
   def createUsr
     begin
-      unless @documento.nil?
-        @documento = Documento.new(params[:documento])
+      @documento = Documento.new(params[:documento])
+      unless @documento.artigo_id.nil?
         @documento.user_id = params[:user_id]
         @documento.area_id = params[:area_id]
         @documento.criado = @documento.alterado = DateTime.now.strftime("%Y-%m-%d %H:%M:%S")
@@ -166,6 +198,37 @@ class DocumentoController < ApplicationController
       else
         flash[:warning] = "Documento não pode ser criado. Erro: 'Não existe artigo disponível'..."
         redirect_to :action => 'list'
+      end
+    rescue Timeout::Error
+      flash[:warning] = "E-mail de notificação não enviado. Erro: 'Tempo de operação esgotado'..."
+      redirect_to :action => 'getDocsArea', :id => @documento.area
+    end
+  end
+
+  def createUsrArt
+    begin
+      @documento = Documento.new(params[:documento])
+      @documento.artigo_id = params[:artigo_id]
+      unless @documento.artigo_id.nil?
+        @artigo = Artigo.find(@documento.artigo_id)
+        @artigo.usado = true
+        @documento.user_id = current_user.id
+        @documento.criado = @documento.alterado = DateTime.now.strftime("%Y-%m-%d %H:%M:%S")
+        @documento.aprovado = false
+        if (@documento.save && @artigo.save)
+          flash[:message] = 'Documento criado com sucesso!'
+          Notifications.deliver_docApproval('adm.tuia@gmail.com', @documento.titulo, @documento.criado.strftime("%d/%m/%Y - %H:%M:%S"), @documento.alterado.strftime("%d/%m/%Y - %H:%M:%S"), @documento.user.nome)
+          redirect_to :action => 'getDocsArea', :id => @documento.area
+        else
+          flash[:warning] = "Cadastramento do documento não efetuado. Erro: 'Os campos Título e Resenha são obrigatórios'..."
+          @artigo_id = params[:artigo_id]
+          @artigo_nome = params[:artigo_nome]
+          @areas = Area.find_all.collect{ |c| [c.codigo, c.id] }
+          redirect_to :back
+        end
+      else
+        flash[:warning] = "Documento não pode ser criado. Erro: 'Não existe artigo disponível'..."
+        redirect_to :controller => "artigo", :action => 'listar'
       end
     rescue Timeout::Error
       flash[:warning] = "E-mail de notificação não enviado. Erro: 'Tempo de operação esgotado'..."
