@@ -2,11 +2,11 @@ class UserController < ApplicationController
   layout "tuia"
 
   before_filter :login_required, :except => ['login', 'signup', 'about', 'forgot_password']
-  before_filter :is_admin, :only => ['list', 'show', 'new', 'edit']
+  before_filter :is_admin, :only => ['list', 'show', 'new', 'edit', 'aprovar', 'doAprove']
   before_filter :set_charset
 
   # GETs should be safe (see http://www.w3.org/2001/tag/doc/whenToUseGet.html)
-  verify :method => :post, :only => [ :destroy, :create, :update, :logout, :aprovar ],
+  verify :method => :post, :only => [ :destroy, :create, :update, :logout, :aprovar, :doAprove ],
          :redirect_to => { :action => :list }
 
   def index
@@ -14,8 +14,15 @@ class UserController < ApplicationController
   end
 
   def aprovar
+    @user = User.find(params[:id])
+  end
+
+  def doAprove
     begin
+      @usrtmp = User.new(params[:user])
       @user = User.find(params[:id])
+      @user.admin = @usrtmp.admin
+      @user.roles = @usrtmp.roles
       @user.aprovado = true
       if @user.update
         flash[:message] = 'Usuário aprovado com sucesso!'

@@ -2,7 +2,7 @@
 # migrations feature of ActiveRecord to incrementally modify your database, and
 # then regenerate this schema definition.
 
-ActiveRecord::Schema.define(:version => 5) do
+ActiveRecord::Schema.define(:version => 6) do
 
   create_table "areas", :force => true do |t|
     t.column "codigo", :string, :limit => 5,  :default => "", :null => false
@@ -38,6 +38,15 @@ ActiveRecord::Schema.define(:version => 5) do
   add_index "documentos", ["area_id"], :name => "FK_Doc_Are"
   add_index "documentos", ["user_id"], :name => "FK_Doc_Usr"
   add_index "documentos", ["artigo_id"], :name => "FK_Doc_Art"
+
+  create_table "modeloprovas", :force => true do |t|
+    t.column "nome",     :string
+    t.column "modelo",   :binary
+    t.column "editavel", :integer,                 :null => false
+    t.column "titulo",   :string,  :default => "", :null => false
+  end
+
+  add_index "modeloprovas", ["titulo"], :name => "MpvTitUnqIdx", :unique => true
 
   create_table "roles", :force => true do |t|
     t.column "nome", :string, :default => "", :null => false
