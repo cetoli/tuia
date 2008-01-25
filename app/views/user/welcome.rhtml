@@ -34,6 +34,10 @@
 						<td><%= link_to "Verificar Artigos", :controller => "artigo", :action => "list" %></td>
 					</tr>
 					<tr>
+						<td><%= link_to image_tag("modelProva.gif", :border => 0, :alt => 'Modelos de Prova'), {:controller => "modeloprova", :action => 'list'} %></td>
+						<td><%= link_to "Verificar Modelos de Prova", :controller => "modeloprova", :action => "list" %></td>
+					</tr>
+					<tr>
 						<td><%= link_to image_tag("perfis.jpg", :border => 0, :alt => 'Perfis'), {:controller => "role", :action => 'list'} %></td>
 						<td><%= link_to "Verificar Perfis", :controller => "role", :action => "list" %></td>
 					</tr>
