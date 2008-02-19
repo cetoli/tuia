@@ -41,6 +41,18 @@
 						<td><%= link_to image_tag("perfis.jpg", :border => 0, :alt => 'Perfis'), {:controller => "role", :action => 'list'} %></td>
 						<td><%= link_to "Verificar Perfis", :controller => "role", :action => "list" %></td>
 					</tr>
+					<tr>
+						<td><%= link_to image_tag("tutorials.png", :border => 0, :alt => 'Turmas'), {:controller => "turma", :action => 'list'} %></td>
+						<td><%= link_to "Verificar Turmas", :controller => "turma", :action => "list" %></td>
+					</tr>
+					<tr>
+						<td><%= link_to image_tag("tutorials.png", :border => 0, :alt => 'Tipos de Cadastro'), {:controller => "cadastro", :action => 'list'} %></td>
+						<td><%= link_to "Verificar Tipos de Cadastro", :controller => "cadastro", :action => "list" %></td>
+					</tr>
+					<tr>
+						<td><%= link_to image_tag("tutorials.png", :border => 0, :alt => 'Plataformas'), {:controller => "plataforma", :action => 'list'} %></td>
+						<td><%= link_to "Verificar Plataformas", :controller => "plataforma", :action => "list" %></td>
+					</tr>
 				<% end %>
 					<tr>
 						<td><%= link_to image_tag("Close.jpg", :border => 0, :alt => 'Sair'), {:action => 'logout'}, :method => "post" %></td>

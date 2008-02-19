@@ -24,6 +24,19 @@
 				<label for="user_email">E-mail:</label>
 				<br/>
 				<%= form.text_field "email", :size => 45, :maxlength => 45 %>
+				<br/>
+				<p>
+					<label for="user_plataforma_id">Plataformas:</label>
+					<br/>
+				<% Plataforma.find(:all).each do |p| %>
+				   	<input type="checkbox" name="user[plataforma_ids][]" value="<%= p.id %>" />
+					<%= p.nome %>
+					<br/>
+				<% end %>
+				</p>
+				<label for="user_cadastro_id">Cadastro:</label>
+				<br/>
+				<%= select("user","cadastro_id", @cadastros) %>
 				<br/><br/>
 				<%= submit_tag "Cadastrar" %>
 			<% end %>

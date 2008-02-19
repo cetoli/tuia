@@ -19,10 +19,8 @@ class UserController < ApplicationController
 
   def doAprove
     begin
-      @usrtmp = User.new(params[:user])
       @user = User.find(params[:id])
-      @user.admin = @usrtmp.admin
-      @user.roles = @usrtmp.roles
+      @user.attributes = params[:user]
       @user.aprovado = true
       if @user.update
         flash[:message] = 'Usuário aprovado com sucesso!'
@@ -40,10 +38,10 @@ class UserController < ApplicationController
 
   def signup
     begin
-      @user = User.new(params[:user])
-      @user.admin = false
-      @user.aprovado = false
       if request.post?  
+        @user = User.new(params[:user])
+        @user.admin = false
+        @user.aprovado = false
         if @user.save
           flash[:message] = "Cadastramento efetuado com sucesso! Aguarde confirmação sobre sua aprovação."
           Notifications.deliver_userApproval('adm.tuia@gmail.com', @user.nome, @user.email)
@@ -51,6 +49,8 @@ class UserController < ApplicationController
         else
           flash[:warning] = "Cadastramento não efetuado..."
         end
+      else
+        @cadastros = Cadastro.find_all.collect{ |t| [t.nome, t.id] }
       end
     rescue  Timeout::Error
       flash[:warning] = "Problemas no envio de e-mail de aprovação. Erro: 'Tempo de operação esgotado'..."
@@ -113,6 +113,7 @@ class UserController < ApplicationController
 
   def new
     @user = User.new
+    @cadastros = Cadastro.find_all.collect{ |t| [t.nome, t.id] }
   end
 
   def create
@@ -129,6 +130,7 @@ class UserController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    @cadastros = Cadastro.find_all.collect{ |t| [t.nome, t.id] }
   end
 
   def update

@@ -1,6 +1,7 @@
 class CreateUsers < ActiveRecord::Migration
   def self.up
     create_table :users do |t|
+      t.column :cadastro_id, :int, :null => false
       t.column :nome, :string, :limit => 50, :null => false
       t.column :login, :string, :limit => 10, :null => false
       t.column :pass, :string, :limit => 40, :null => false
@@ -11,6 +12,8 @@ class CreateUsers < ActiveRecord::Migration
     end
 
     execute 'ALTER TABLE users ADD UNIQUE INDEX UsrLogUnqIdx USING BTREE(login)'
+    execute 'ALTER TABLE users ADD CONSTRAINT FK_Usr_Cad FOREIGN KEY FK_Usr_Cad (cadastro_id)
+            REFERENCES cadastros (id) ON DELETE RESTRICT ON UPDATE NO ACTION'
   end
 
   def self.down
