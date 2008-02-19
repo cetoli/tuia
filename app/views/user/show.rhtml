@@ -9,6 +9,14 @@
 			<br/>
 			<b>E-mail:</b> <%=h @user.send('email') %>
 			<br/>
+			<b>Plataformas:</b>
+			<br/>
+			<% @user.plataformas.each do |p| %>
+				<%=h p.nome %>
+				<br/>
+			<% end %>
+			<b>Tipo de Cadastro:</b> <%=h @user.cadastro.send('nome') %>
+			<br/>
 			<b>Administrador:</b> <%=h @user.send('admin') ? 'Sim' : '-' %>
 			<br/>
 			<b>Aprovado:</b> <%=h @user.send('aprovado') ? 'Sim' : '-' %>

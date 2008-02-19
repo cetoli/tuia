@@ -9,9 +9,9 @@
 			<br/>
 			<b>Criado Por:</b> <%=h @documento.user.nome %>
 			<br/>
-			<b>Data de Criação:</b> <%=h nice_date @documento.send('criado') %>
+			<b>Data de Criação:</b> <%=h nice_date_time @documento.send('criado') %>
 			<br/>
-			<b>Data de Alteração:</b> <%=h nice_date @documento.send('alterado') %>
+			<b>Data de Alteração:</b> <%=h nice_date_time @documento.send('alterado') %>
 			<br/>
 			<b>Área de Criação:</b> <%=h @documento.area.nome %>
 			<br/>

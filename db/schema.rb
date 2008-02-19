@@ -2,7 +2,7 @@
 # migrations feature of ActiveRecord to incrementally modify your database, and
 # then regenerate this schema definition.
 
-ActiveRecord::Schema.define(:version => 6) do
+ActiveRecord::Schema.define(:version => 9) do
 
   create_table "areas", :force => true do |t|
     t.column "codigo", :string, :limit => 5,  :default => "", :null => false
@@ -20,6 +20,14 @@ ActiveRecord::Schema.define(:version => 6) do
   end
 
   add_index "artigos", ["nome"], :name => "ArtNomUnqIdx", :unique => true
+
+  create_table "cadastros", :force => true do |t|
+    t.column "codigo",  :string,  :default => "",   :null => false
+    t.column "nome",    :string,  :default => "",   :null => false
+    t.column "leitura", :boolean, :default => true, :null => false
+  end
+
+  add_index "cadastros", ["codigo"], :name => "CadCodUnqIdx", :unique => true
 
   create_table "documentos", :force => true do |t|
     t.column "area_id",   :integer,                     :null => false
@@ -48,6 +56,17 @@ ActiveRecord::Schema.define(:version => 6) do
 
   add_index "modeloprovas", ["titulo"], :name => "MpvTitUnqIdx", :unique => true
 
+  create_table "plataformas", :force => true do |t|
+    t.column "nome", :string, :default => "", :null => false
+  end
+
+  add_index "plataformas", ["nome"], :name => "PlaNomUnqIdx", :unique => true
+
+  create_table "plataformas_users", :id => false, :force => true do |t|
+    t.column "plataforma_id", :integer
+    t.column "user_id",       :integer
+  end
+
   create_table "roles", :force => true do |t|
     t.column "nome", :string, :default => "", :null => false
   end
@@ -59,16 +78,27 @@ ActiveRecord::Schema.define(:version => 6) do
     t.column "user_id", :integer
   end
 
+  create_table "turmas", :force => true do |t|
+    t.column "codigo",      :string, :default => "", :null => false
+    t.column "nome",        :string, :default => "", :null => false
+    t.column "datainicio",  :date,                   :null => false
+    t.column "datatermino", :date,                   :null => false
+  end
+
+  add_index "turmas", ["codigo"], :name => "TurCodUnqIdx", :unique => true
+
   create_table "users", :force => true do |t|
-    t.column "nome",     :string,  :limit => 50, :default => "",    :null => false
-    t.column "login",    :string,  :limit => 10, :default => "",    :null => false
-    t.column "pass",     :string,  :limit => 40, :default => "",    :null => false
-    t.column "salt",     :string,  :limit => 10, :default => "",    :null => false
-    t.column "email",    :string,  :limit => 45, :default => "",    :null => false
-    t.column "admin",    :boolean,               :default => false, :null => false
-    t.column "aprovado", :boolean,               :default => false, :null => false
+    t.column "cadastro_id", :integer,                                  :null => false
+    t.column "nome",        :string,  :limit => 50, :default => "",    :null => false
+    t.column "login",       :string,  :limit => 10, :default => "",    :null => false
+    t.column "pass",        :string,  :limit => 40, :default => "",    :null => false
+    t.column "salt",        :string,  :limit => 10, :default => "",    :null => false
+    t.column "email",       :string,  :limit => 45, :default => "",    :null => false
+    t.column "admin",       :boolean,               :default => false, :null => false
+    t.column "aprovado",    :boolean,               :default => false, :null => false
   end
 
   add_index "users", ["login"], :name => "UsrLogUnqIdx", :unique => true
+  add_index "users", ["cadastro_id"], :name => "FK_Usr_Cad"
 
 end

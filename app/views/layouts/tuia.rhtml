@@ -11,6 +11,8 @@
   <meta name="description" content="" />
   <%= stylesheet_link_tag 'scaffold' %>
   <%= stylesheet_link_tag 'default' %>
+  <%= stylesheet_link_tag 'date-picker' %>
+  <%= javascript_include_tag "date_picker" %>
 <!-- InstanceBeginEditable name="head" -->
 <!-- InstanceEndEditable -->
 </head>
@@ -22,7 +24,7 @@
 	</div>
 	<div id="topmenu">
 		<ul><!-- InstanceBeginEditable name="EmailSenha" -->
-			<li class="first"><span class="style4">Olá, <%= session[:user] ? session[:user].nome : "visitante" %></span></li>
+			<li class="first"><span class="style4">Olá, <%= session[:user] ? session[:user].login : "visitante" %></span></li>
 			<li class="style4"><a href="http://">Fale conosco</a></li>
 			<!-- InstanceEndEditable -->
 		</ul>

@@ -71,12 +71,13 @@ class DocumentoController < ApplicationController
       @documento.alterado = DateTime.now.strftime("%Y-%m-%d %H:%M:%S")
       @documento.aprovado = false
       if @documento.artigo.isresumo
-        @artigotmp = Artigo.new(params[:artigo])
         @artigo = Artigo.find(@documento.artigo_id)
-        @artigo.nome = @artigotmp.nome        
-        @artigo.anexo = @artigotmp.anexo
-        @artigo.isresumo = false
-        @artigo.update
+        @nome = @artigo.nome
+        @artigo.attributes = params[:artigo]
+        unless @artigo.nome.eql?@nome
+          @artigo.isresumo = false
+          @artigo.update
+        end
       end
       if @documento.update_attributes(params[:documento])
         flash[:message] = 'Documento alterado com sucesso!'
@@ -148,12 +149,13 @@ class DocumentoController < ApplicationController
       @documento.aprovado = false
       @area = params[:area]
       if @documento.artigo.isresumo
-        @artigotmp = Artigo.new(params[:artigo])
         @artigo = Artigo.find(@documento.artigo_id)
-        @artigo.nome = @artigotmp.nome        
-        @artigo.anexo = @artigotmp.anexo
-        @artigo.isresumo = false
-        @artigo.update
+        @nome = @artigo.nome
+        @artigo.attributes = params[:artigo]
+        unless @artigo.nome.eql?@nome
+          @artigo.isresumo = false
+          @artigo.update
+        end
       end
       if @documento.update_attributes(params[:documento])
         flash[:message] = 'Documento alterado com sucesso!'
