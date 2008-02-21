@@ -7,6 +7,15 @@ class CreateUsers < ActiveRecord::Migration
       t.column :pass, :string, :limit => 40, :null => false
       t.column :salt, :string, :limit => 10, :null => false
       t.column :email, :string, :limit => 45, :null => false
+      t.column :sexo, :string, :limit => 1, :null => false
+      t.column :nacionalidade, :string, :limit => 50, :null => false
+      t.column :naturalidade, :string, :limit => 100, :null => false
+      t.column :bairro, :string, :limit => 50, :null => false
+      t.column :cep, :string, :limit => 10, :null => false
+      t.column :telefone, :string, :limit => 13, :null => false
+      t.column :celular, :string, :limit => 13, :null => false
+      t.column :endereco, :string, :null => false
+      t.column :datanascimento, :date, :null => false
       t.column :admin, :boolean, :default => 0, :null => false
       t.column :aprovado, :boolean, :default => 0, :null => false
     end

@@ -22,9 +22,9 @@ ActiveRecord::Schema.define(:version => 9) do
   add_index "artigos", ["nome"], :name => "ArtNomUnqIdx", :unique => true
 
   create_table "cadastros", :force => true do |t|
-    t.column "codigo",  :string,  :default => "",   :null => false
-    t.column "nome",    :string,  :default => "",   :null => false
-    t.column "leitura", :boolean, :default => true, :null => false
+    t.column "codigo",  :string,  :limit => 10, :default => "",   :null => false
+    t.column "nome",    :string,  :limit => 50, :default => "",   :null => false
+    t.column "leitura", :boolean,               :default => true, :null => false
   end
 
   add_index "cadastros", ["codigo"], :name => "CadCodUnqIdx", :unique => true
@@ -57,9 +57,11 @@ ActiveRecord::Schema.define(:version => 9) do
   add_index "modeloprovas", ["titulo"], :name => "MpvTitUnqIdx", :unique => true
 
   create_table "plataformas", :force => true do |t|
-    t.column "nome", :string, :default => "", :null => false
+    t.column "codigo", :string, :limit => 10, :default => "", :null => false
+    t.column "nome",   :string, :limit => 50, :default => "", :null => false
   end
 
+  add_index "plataformas", ["codigo"], :name => "PlaCodUnqIdx", :unique => true
   add_index "plataformas", ["nome"], :name => "PlaNomUnqIdx", :unique => true
 
   create_table "plataformas_users", :id => false, :force => true do |t|
@@ -68,9 +70,11 @@ ActiveRecord::Schema.define(:version => 9) do
   end
 
   create_table "roles", :force => true do |t|
-    t.column "nome", :string, :default => "", :null => false
+    t.column "codigo", :string, :limit => 10, :default => "", :null => false
+    t.column "nome",   :string, :limit => 50, :default => "", :null => false
   end
 
+  add_index "roles", ["codigo"], :name => "RolCodUnqIdx", :unique => true
   add_index "roles", ["nome"], :name => "RolNomUnqIdx", :unique => true
 
   create_table "roles_users", :id => false, :force => true do |t|
@@ -79,23 +83,32 @@ ActiveRecord::Schema.define(:version => 9) do
   end
 
   create_table "turmas", :force => true do |t|
-    t.column "codigo",      :string, :default => "", :null => false
-    t.column "nome",        :string, :default => "", :null => false
-    t.column "datainicio",  :date,                   :null => false
-    t.column "datatermino", :date,                   :null => false
+    t.column "codigo",      :string, :limit => 10, :default => "", :null => false
+    t.column "nome",        :string, :limit => 50, :default => "", :null => false
+    t.column "datainicio",  :date,                                 :null => false
+    t.column "datatermino", :date,                                 :null => false
   end
 
   add_index "turmas", ["codigo"], :name => "TurCodUnqIdx", :unique => true
 
   create_table "users", :force => true do |t|
-    t.column "cadastro_id", :integer,                                  :null => false
-    t.column "nome",        :string,  :limit => 50, :default => "",    :null => false
-    t.column "login",       :string,  :limit => 10, :default => "",    :null => false
-    t.column "pass",        :string,  :limit => 40, :default => "",    :null => false
-    t.column "salt",        :string,  :limit => 10, :default => "",    :null => false
-    t.column "email",       :string,  :limit => 45, :default => "",    :null => false
-    t.column "admin",       :boolean,               :default => false, :null => false
-    t.column "aprovado",    :boolean,               :default => false, :null => false
+    t.column "cadastro_id",    :integer,                                   :null => false
+    t.column "nome",           :string,  :limit => 50,  :default => "",    :null => false
+    t.column "login",          :string,  :limit => 10,  :default => "",    :null => false
+    t.column "pass",           :string,  :limit => 40,  :default => "",    :null => false
+    t.column "salt",           :string,  :limit => 10,  :default => "",    :null => false
+    t.column "email",          :string,  :limit => 45,  :default => "",    :null => false
+    t.column "sexo",           :string,  :limit => 1,   :default => "",    :null => false
+    t.column "nacionalidade",  :string,  :limit => 50,  :default => "",    :null => false
+    t.column "naturalidade",   :string,  :limit => 100, :default => "",    :null => false
+    t.column "bairro",         :string,  :limit => 50,  :default => "",    :null => false
+    t.column "cep",            :string,  :limit => 10,  :default => "",    :null => false
+    t.column "telefone",       :string,  :limit => 13,  :default => "",    :null => false
+    t.column "celular",        :string,  :limit => 13,  :default => "",    :null => false
+    t.column "endereco",       :string,                 :default => "",    :null => false
+    t.column "datanascimento", :date,                                      :null => false
+    t.column "admin",          :boolean,                :default => false, :null => false
+    t.column "aprovado",       :boolean,                :default => false, :null => false
   end
 
   add_index "users", ["login"], :name => "UsrLogUnqIdx", :unique => true

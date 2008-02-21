@@ -5,11 +5,13 @@
 			<br />
 			<table border>
 				<tr align="center">
+					<th>Código</th>
 					<th>Nome</th>
 					<th>Excluir</th>
 				</tr>
 				<% for role in @roles %>
 				<tr align="center">
+					<td><%=h role.codigo %></td>
 					<td><%=h role.nome %></td>
 					<td><%= link_to image_tag("del.png", :border => 0, :alt => 'Apagar'), { :action => 'destroy', :id => role }, :confirm => 'Tem certeza que deseja excluir este perfil?', :method => "post" %></td>
 				</tr>

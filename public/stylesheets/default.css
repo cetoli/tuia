@@ -207,7 +207,6 @@ hr {
 	height: 200px;
 }
 
-
 /* Page */
 
 #page {
@@ -287,11 +286,14 @@ hr {
 
 #sidebar li {
 	margin-bottom: 10px;
-	background: #F8F4E4 url(../images/img07.gif) no-repeat right bottom;
+	background: url(../images/img07.gif) repeat-y right;
+	background-repeat: url(../images/img07.gif) repeat-y;
 }
 
 #sidebar li ul {
-	padding: 10 px 20 px;
+	padding: 10px 20px;
+	background: url(../images/img07.gif) repeat-y right;
+	background-repeat: url(../images/img07.gif) repeat-y;	
 	font-size: 92%;
 }
 
@@ -311,6 +313,7 @@ hr {
 	font-weight: bold;
 	color: #765E1E;
 }
+
 #sidebar h21 {
 	height: 10px;
 	margin: 0;
@@ -350,6 +353,7 @@ hr {
 	text-decoration: none;
 	border: none;
 }
+
 /* Footer */
 
 #footer-wrapper {
@@ -459,15 +463,12 @@ hr {
   border:0px dashed #cccccc;
   height: 44px;
   clear:both;
-  /** background: #E8E8E8 url(images/menu_bg.gif) bottom left no-repeat; **/
 }
 
 #navcontainer ul {
   padding-left: 0;
   margin-left: 0;
   margin-top:0px;
-  /** background-color: #CDCDCD; **/
-  /** background: url(images/botao.gif) top right no-repeat;  **/
   color: #666666;
   float: left;
   width: 100%;
@@ -481,25 +482,18 @@ hr {
 #navcontainer ul li a {
   padding-left: 0;
   margin-left: 0;
- 
-  
   margin-top:0px;
   padding-top: 0px;
-  /** padding-bottom: 7px; **/
   padding-left:1px;
   padding-right:1px;
   background-color: transparent;
   color: #4E4E4E;
   text-decoration: none;
   float: left;
-  /** border-right: 1px solid #FFCC33;  **/
 }
 
 #navcontainer ul li a:hover {
   margin-top:0px;
-  /** background-color: #BFC5A3; **/
-  /** background: url(images/bar_bg_hover.gif) bottom left repeat-x; **/
-  /** color: #666666;**/
 }
 
 #linklist {
@@ -508,7 +502,6 @@ hr {
   padding-bottom: 7px;
   padding-left: 0;
   margin-left: 0;
-  /** border-bottom: 1px solid #D1D9C4; **/
   width: 140px;
 }
 
@@ -537,7 +530,7 @@ hr {
   border:0px dashed #cccccc;
   height:31px;
   clear:both;
-  background: #FFFFFF url(images/menu_bg.gif) bottom left no-repeat;
+  background: #FFFFFF url(../images/menu_bg.gif) bottom left no-repeat;
 }
 
 /* Menu */
@@ -546,7 +539,7 @@ hr {
 	float: left;
 	width: 200px;
 	height: 200px;
-	background: url(images/img03.jpg);
+	background: url(../images/img03.jpg);
 }
 
 #menu ul {
@@ -563,7 +556,7 @@ hr {
 #menu a {
 	display: block;
 	padding: 8px 8px;
-	background: url(images/img05.gif) repeat-x;
+	background: url(../images/img05.gif) repeat-x;
 	text-decoration: none;
 	font-size: 80%;
 	font-weight: bold;

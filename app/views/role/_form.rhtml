@@ -2,6 +2,11 @@
 
 <!--[form:role]-->
 <p>
+	<label for="role_codigo">Código:</label>
+	<br/>
+	<%= text_field 'role', 'codigo', :size => 10, :maxlength => 10 %>
+</p>
+<p>
 	<label for="role_nome">Nome:</label>
 	<br/>
 	<%= text_field 'role', 'nome', :size => 50, :maxlength => 50 %>
