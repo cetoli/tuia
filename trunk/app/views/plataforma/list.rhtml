@@ -5,11 +5,13 @@
 			<br />
 			<table border>
 				<tr align="center">
+					<th>Código</th>
 					<th>Nome</th>
 					<th>Excluir</th>
 				</tr>
 				<% for plataforma in @plataformas %>
 				<tr align="center">
+					<td><%=h plataforma.codigo %></td>
 					<td><%=h plataforma.nome %></td>
 					<td><%= link_to image_tag("del.png", :border => 0, :alt => 'Apagar'), { :action => 'destroy', :id => plataforma }, :confirm => 'Tem certeza que deseja excluir esta plataforma?', :method => "post" %></td>
 				</tr>

@@ -5,9 +5,27 @@
 			<br/>
 			<b>Nome:</b> <%=h @user.send('nome') %>
 			<br/>
-			<b>Login:</b> <%=h @user.send('login') %>
+			<b>Data de nascimento:</b> <%=h short_date @user.send('datanascimento') %>
+			<br/>
+			<b>Sexo:</b> <%=h @user.send('sexo').upcase.eql?('F') ? 'Feminino' : 'Masculino' %>
+			<br/>
+			<b>Nacionalidade:</b> <%=h @user.send('nacionalidade') %>
+			<br/>
+			<b>Naturalidade:</b> <%=h @user.send('naturalidade') %>
+			<br/>
+			<b>Endereço:</b> <%=h @user.send('endereco') %>
+			<br/>
+			<b>Bairro:</b> <%=h @user.send('bairro') %>
+			<br/>
+			<b>CEP:</b> <%=h @user.send('cep') %>
+			<br/>
+			<b>Telefone:</b> <%=h @user.send('telefone') %>
+			<br/>
+			<b>Celular:</b> <%=h @user.send('celular') %>
 			<br/>
 			<b>E-mail:</b> <%=h @user.send('email') %>
+			<br/>
+			<b>Login:</b> <%=h @user.send('login') %>
 			<br/>
 			<b>Plataformas:</b>
 			<br/>
@@ -19,14 +37,14 @@
 			<br/>
 			<b>Administrador:</b> <%=h @user.send('admin') ? 'Sim' : '-' %>
 			<br/>
-			<b>Aprovado:</b> <%=h @user.send('aprovado') ? 'Sim' : '-' %>
-			<br/>
 			<b>Perfis:</b>
 			<br/>
 			<% @user.roles.each do |r| %>
 				<%=h r.nome %>
 				<br/>
 			<% end %>
+			<b>Aprovado:</b> <%=h @user.send('aprovado') ? 'Sim' : '-' %>
+			<br/>
 			<p ><% unless @user.send('aprovado') %>
 				<%= link_to image_tag("ok.gif", :border => 0, :alt => 'Aprovar'), { :action => 'aprovar', :id => @user }, :method => "post" %> | 
 				<% end %>

@@ -10,13 +10,20 @@ class User < ActiveRecord::Base
   validates_length_of :login, :within => 5..10
   validates_length_of :senha, :within => 5..10
   validates_length_of :email, :maximum => 45
-  validates_presence_of :nome, :login, :senha, :confirmacao_senha, :salt, :email
+  validates_length_of :nacionalidade, :within => 3..50
+  validates_length_of :naturalidade, :within => 3..100
+  validates_length_of :bairro, :within => 3..50
+  validates_length_of :cep, :is => 10
+  validates_length_of :telefone, :is => 13
+  validates_length_of :celular, :is => 13
+  validates_presence_of :nome, :login, :senha, :senha_confirmation, :salt, :email, :sexo, :nacionalidade, :naturalidade, :bairro, :cep, :telefone, :celular, :endereco
+  validates_date :datanascimento, :before => Date.today, :before_message => 'deve ser anterior a hoje!'
   validates_uniqueness_of :login, :email
   validates_confirmation_of :senha
   validates_format_of :email, :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i, :message => "E-mail inválido!"
 
   attr_protected :id, :salt, :aprovado
-  attr_accessor :senha, :confirmacao_senha
+  attr_accessor :senha, :senha_confirmation
 
   def self.authenticate(login, passw)
     u = find(:first, :conditions => { :login => login, :aprovado => true })

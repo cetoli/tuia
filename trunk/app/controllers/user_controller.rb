@@ -47,9 +47,11 @@ class UserController < ApplicationController
           Notifications.deliver_userApproval('adm.tuia@gmail.com', @user.nome, @user.email)
           redirect_to :action => "about"
         else
+          @cadastros = Cadastro.find_all.collect{ |t| [t.nome, t.id] }
           flash[:warning] = "Cadastramento não efetuado..."
         end
       else
+        @user = User.new
         @cadastros = Cadastro.find_all.collect{ |t| [t.nome, t.id] }
       end
     rescue  Timeout::Error
@@ -95,7 +97,7 @@ class UserController < ApplicationController
   def change_password
     @user = session[:user]
     if request.post?
-      if @user.update_attributes(:senha => params[:user][:senha], :confirmacao_senha => params[:user][:confirmacao_senha])
+      if @user.update_attributes(:senha => params[:user][:senha], :senha_confirmation => params[:user][:senha_confirmation])
         flash[:message] = "Senha alterada!"
       else
         flash[:warning] = "Problemas na alteração da senha..."
@@ -123,6 +125,7 @@ class UserController < ApplicationController
       flash[:message] = 'Usuário criado com sucesso!'
       redirect_to :action => 'list'
     else
+      @cadastros = Cadastro.find_all.collect{ |t| [t.nome, t.id] }
       flash[:warning] = "Problemas na criação do usuário..."
       render :action => 'new'
     end
@@ -139,6 +142,7 @@ class UserController < ApplicationController
       flash[:message] = 'Usuário alterado com sucesso!'
       redirect_to :action => 'show', :id => @user
     else
+      @cadastros = Cadastro.find_all.collect{ |t| [t.nome, t.id] }
       flash[:warning] = "Problemas na alteração do usuário..."
       render :action => 'edit'
     end
