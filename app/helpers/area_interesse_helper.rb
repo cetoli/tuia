@@ -1,0 +1,2 @@
+module AreaInteresseHelper
+end

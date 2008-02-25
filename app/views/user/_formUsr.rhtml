@@ -39,7 +39,7 @@
 <%= check_box 'user', 'admin' %>
 <label for="user_admin">Administrador</label>
 <br/>
-<% Role.find(:all).each do |r| %>
+<% Role.find(:all, :order => :nome).each do |r| %>
    	<input type="checkbox" name="user[role_ids][]" value="<%= r.id %>" <% if @user.roles.include?(r) %> checked="checked" <% end %> />
 	<%= r.nome %>
 	<br/>

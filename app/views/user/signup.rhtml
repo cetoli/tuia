@@ -66,7 +66,7 @@
 				<p>
 					<label for="user_plataforma_id">Plataformas:</label>
 					<br/>
-				<% Plataforma.find(:all).each do |p| %>
+				<% Plataforma.find(:all, :order => :nome).each do |p| %>
 				   	<input type="checkbox" name="user[plataforma_ids][]" value="<%= p.id %>" <% if p.codigo.upcase.eql?'TUIA' %> checked="checked" <% end %> />
 					<%= p.nome %>
 					<br/>

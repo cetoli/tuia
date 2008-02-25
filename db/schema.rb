@@ -2,7 +2,20 @@
 # migrations feature of ActiveRecord to incrementally modify your database, and
 # then regenerate this schema definition.
 
-ActiveRecord::Schema.define(:version => 9) do
+ActiveRecord::Schema.define(:version => 12) do
+
+  create_table "area_interesses", :force => true do |t|
+    t.column "codigo", :string, :limit => 10, :default => "", :null => false
+    t.column "nome",   :string, :limit => 50, :default => "", :null => false
+  end
+
+  add_index "area_interesses", ["codigo"], :name => "AitCodUnqIdx", :unique => true
+  add_index "area_interesses", ["nome"], :name => "AitNomUnqIdx", :unique => true
+
+  create_table "area_interesses_dado_academicos", :id => false, :force => true do |t|
+    t.column "area_interesse_id", :integer
+    t.column "dado_academico_id", :integer
+  end
 
   create_table "areas", :force => true do |t|
     t.column "codigo", :string, :limit => 5,  :default => "", :null => false
@@ -22,9 +35,9 @@ ActiveRecord::Schema.define(:version => 9) do
   add_index "artigos", ["nome"], :name => "ArtNomUnqIdx", :unique => true
 
   create_table "cadastros", :force => true do |t|
-    t.column "codigo",  :string,  :limit => 10, :default => "",   :null => false
-    t.column "nome",    :string,  :limit => 50, :default => "",   :null => false
-    t.column "leitura", :boolean,               :default => true, :null => false
+    t.column "codigo",  :string,  :limit => 10, :default => "",    :null => false
+    t.column "nome",    :string,  :limit => 50, :default => "",    :null => false
+    t.column "leitura", :boolean,               :default => false, :null => false
   end
 
   add_index "cadastros", ["codigo"], :name => "CadCodUnqIdx", :unique => true
@@ -46,6 +59,29 @@ ActiveRecord::Schema.define(:version => 9) do
   add_index "documentos", ["area_id"], :name => "FK_Doc_Are"
   add_index "documentos", ["user_id"], :name => "FK_Doc_Usr"
   add_index "documentos", ["artigo_id"], :name => "FK_Doc_Art"
+
+  create_table "escolaridades", :force => true do |t|
+    t.column "codigo", :string, :limit => 10, :default => "", :null => false
+    t.column "nome",   :string, :limit => 50, :default => "", :null => false
+  end
+
+  add_index "escolaridades", ["codigo"], :name => "EscCodUnqIdx", :unique => true
+  add_index "escolaridades", ["nome"], :name => "EscNomUnqIdx", :unique => true
+
+  create_table "linha_pesquisas", :force => true do |t|
+    t.column "codigo",    :string, :limit => 10,  :default => "", :null => false
+    t.column "nome",      :string, :limit => 150, :default => "", :null => false
+    t.column "nomeAnexo", :string
+    t.column "anexo",     :binary
+  end
+
+  add_index "linha_pesquisas", ["codigo"], :name => "LpsCodUnqIdx", :unique => true
+  add_index "linha_pesquisas", ["nome"], :name => "LpsNomUnqIdx", :unique => true
+
+  create_table "linha_pesquisas_dado_academicos", :id => false, :force => true do |t|
+    t.column "linha_pesquisa_id", :integer
+    t.column "dado_academico_id", :integer
+  end
 
   create_table "modeloprovas", :force => true do |t|
     t.column "nome",     :string
