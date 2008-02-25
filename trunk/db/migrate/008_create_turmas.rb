@@ -8,6 +8,9 @@ class CreateTurmas < ActiveRecord::Migration
     end
 
     execute 'ALTER TABLE turmas ADD UNIQUE INDEX TurCodUnqIdx USING BTREE(codigo)'
+
+    # Populate with Default Values
+    Turma.create :codigo => 'DEF', :nome => 'Visitante', :datainicio => Date.new(2008, 01, 01), :datatermino => Date.new(2008, 12, 31)
   end
 
   def self.down

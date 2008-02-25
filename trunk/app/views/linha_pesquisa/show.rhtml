@@ -1,0 +1,17 @@
+<div id="content">
+	<div>
+		<div class="content">
+			<h1 class="title style1">Propriedades da Linha de Pesquisa</h1>
+			<br/>
+			<b>Código:</b> <%=h @linhaPesquisa.send('codigo') %>
+			<br/>
+			<b>Nome:</b> <%=h @linhaPesquisa.send('nome') %>
+			<br/>
+			<b>Ícone:</b>
+			<br/>
+			<img src="<%=h url_for(:action => 'showLinhaPesquisa', :id => @linhaPesquisa) %>" width="100%"/>
+			<br/>
+			<p><%= link_to image_tag("ed.png", :border => 0, :alt => 'Editar'), :action => 'edit', :id => @linhaPesquisa %> | <%= link_to image_tag("goBack.gif", :border => 0, :alt => 'Voltar'), :action => 'list' %></p>
+	  	</div>
+	</div>
+</div>
