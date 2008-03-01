@@ -9,7 +9,7 @@
 			<br/>
 			<b>Ícone:</b>
 			<br/>
-			<img src="<%=h url_for(:action => 'showLinhaPesquisa', :id => @linhaPesquisa) %>" width="100%"/>
+			<img src="<%=h url_for(:action => 'showLinhaPesquisa', :id => @linhaPesquisa) %>"/>
 			<br/>
 			<p><%= link_to image_tag("ed.png", :border => 0, :alt => 'Editar'), :action => 'edit', :id => @linhaPesquisa %> | <%= link_to image_tag("goBack.gif", :border => 0, :alt => 'Voltar'), :action => 'list' %></p>
 	  	</div>

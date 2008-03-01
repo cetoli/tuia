@@ -35,6 +35,42 @@
 			<% end %>
 			<b>Tipo de Cadastro:</b> <%=h @user.cadastro.send('nome') %>
 			<br/>
+			<b>Categoria:</b> <%=h @dadoAcademico.escolaridade.send('nome') %>
+			<br/>
+			<b>Turma:</b> <%=h @dadoAcademico.turma.send('nome') %>
+			<br/>
+			<b>Instituição:</b> <%=h @dadoAcademico.send('instituicao') %>
+			<br/>
+			<b>Matrícula:</b> <%=h @dadoAcademico.send('matricula') %>
+			<br/>
+			<b>Especialidade:</b> <%=h @dadoAcademico.send('especialidade') %>
+			<br/>
+			<b>Período:</b> <%=h @dadoAcademico.send('periodo') %>
+			<br/>
+			<b>Data de Início:</b> <%=h short_date @dadoAcademico.send('datainicio') %>
+			<br/>
+			<b>Data de Término:</b> <%=h short_date @dadoAcademico.send('datatermino') %>
+			<br/>
+			<b>Título da Pesquisa:</b> <%=h @dadoAcademico.send('titulo') %>
+			<br/>
+			<b>Horário:</b> <%=h @dadoAcademico.send('horario') %>
+			<br/>
+			<b>Orientador Externo:</b> <%=h @dadoAcademico.send('orientadorexterno') %>
+			<br/>
+			<b>Orientador Interno:</b> <%=h @dadoAcademico.send('orientadorinterno') %>
+			<br/>
+			<b>Áreas de Interesse:</b>
+			<br/>
+			<% @dadoAcademico.area_interesses.each do |ai| %>
+				- <%= ai.nome %>
+				<br/>
+			<% end %>
+			<b>Linhas de Pesquisa:</b>
+			<br/>
+			<% @dadoAcademico.linha_pesquisas.each do |lp| %>
+				<img src="<%=h url_for(:controller => :linha_pesquisa, :action => 'showLinhaPesquisa', :id => lp) %>" width="10%" align="center"/> <%= lp.nome %>
+				<br/>
+			<% end %>
 			<b>Administrador:</b> <%=h @user.send('admin') ? 'Sim' : '-' %>
 			<br/>
 			<b>Perfis:</b>

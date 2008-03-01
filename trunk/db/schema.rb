@@ -2,7 +2,7 @@
 # migrations feature of ActiveRecord to incrementally modify your database, and
 # then regenerate this schema definition.
 
-ActiveRecord::Schema.define(:version => 12) do
+ActiveRecord::Schema.define(:version => 13) do
 
   create_table "area_interesses", :force => true do |t|
     t.column "codigo", :string, :limit => 10, :default => "", :null => false
@@ -13,7 +13,7 @@ ActiveRecord::Schema.define(:version => 12) do
   add_index "area_interesses", ["nome"], :name => "AitNomUnqIdx", :unique => true
 
   create_table "area_interesses_dado_academicos", :id => false, :force => true do |t|
-    t.column "area_interesse_id", :integer
+    t.column "area_interess_id",  :integer
     t.column "dado_academico_id", :integer
   end
 
@@ -41,6 +41,31 @@ ActiveRecord::Schema.define(:version => 12) do
   end
 
   add_index "cadastros", ["codigo"], :name => "CadCodUnqIdx", :unique => true
+
+  create_table "dado_academicos", :force => true do |t|
+    t.column "user_id",           :integer,                                :null => false
+    t.column "turma_id",          :integer,                                :null => false
+    t.column "escolaridade_id",   :integer,                                :null => false
+    t.column "instituicao",       :string,  :limit => 100, :default => "", :null => false
+    t.column "matricula",         :string,  :limit => 20,  :default => "", :null => false
+    t.column "especialidade",     :string,                 :default => "", :null => false
+    t.column "periodo",           :integer,                                :null => false
+    t.column "datainicio",        :date,                                   :null => false
+    t.column "datatermino",       :date,                                   :null => false
+    t.column "titulo",            :string,                 :default => "", :null => false
+    t.column "horario",           :string,                 :default => "", :null => false
+    t.column "orientadorexterno", :string,                 :default => "", :null => false
+    t.column "orientadorinterno", :string,                 :default => "", :null => false
+  end
+
+  add_index "dado_academicos", ["user_id"], :name => "FK_Dac_Usr"
+  add_index "dado_academicos", ["turma_id"], :name => "FK_Dac_Tur"
+  add_index "dado_academicos", ["escolaridade_id"], :name => "FK_Dac_Esc"
+
+  create_table "dado_academicos_linha_pesquisas", :id => false, :force => true do |t|
+    t.column "linha_pesquisa_id", :integer
+    t.column "dado_academico_id", :integer
+  end
 
   create_table "documentos", :force => true do |t|
     t.column "area_id",   :integer,                     :null => false
@@ -77,11 +102,6 @@ ActiveRecord::Schema.define(:version => 12) do
 
   add_index "linha_pesquisas", ["codigo"], :name => "LpsCodUnqIdx", :unique => true
   add_index "linha_pesquisas", ["nome"], :name => "LpsNomUnqIdx", :unique => true
-
-  create_table "linha_pesquisas_dado_academicos", :id => false, :force => true do |t|
-    t.column "linha_pesquisa_id", :integer
-    t.column "dado_academico_id", :integer
-  end
 
   create_table "modeloprovas", :force => true do |t|
     t.column "nome",     :string
