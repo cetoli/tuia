@@ -15,6 +15,7 @@ class UserController < ApplicationController
 
   def aprovar
     @user = User.find(params[:id])
+    @dadoAcademico = DadoAcademico.find(:first, :conditions => ['user_id = :user_id', {:user_id => params[:id]}])
   end
 
   def doAprove
@@ -43,9 +44,14 @@ class UserController < ApplicationController
         @user.admin = false
         @user.aprovado = false
         if @user.save
-          flash[:message] = "Cadastramento efetuado com sucesso! Aguarde confirmação sobre sua aprovação."
+          flash[:message] = 'Por favor, preencha os dados abaixo para completar sua inscrição.'
           Notifications.deliver_userApproval('adm.tuia@gmail.com', @user.nome, @user.email)
-          redirect_to :action => "about"
+          case @user.cadastro.codigo.upcase
+            when 'PROF'
+              redirect_to :controller => :dado_academico, :action => :new, :id => @user.id
+            else
+              redirect_to :action => 'about'
+          end
         else
           @cadastros = Cadastro.find_all.collect{ |t| [t.nome, t.id] }
           flash[:warning] = "Cadastramento não efetuado..."
@@ -111,6 +117,7 @@ class UserController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @dadoAcademico = DadoAcademico.find(:first, :conditions => ['user_id = :user_id', {:user_id => params[:id]}])
   end
 
   def new
@@ -122,8 +129,13 @@ class UserController < ApplicationController
     @user = User.new(params[:user])
     @user.aprovado = true
     if @user.save
-      flash[:message] = 'Usuário criado com sucesso!'
-      redirect_to :action => 'list'
+      flash[:message] = 'Por favor, preencha os dados abaixo para completar a inscrição do usuário.'
+      case @user.cadastro.codigo.upcase
+        when 'PROF'
+          redirect_to :controller => :dado_academico, :action => :new, :id => @user.id
+        else
+          redirect_to :action => 'list'
+      end
     else
       @cadastros = Cadastro.find_all.collect{ |t| [t.nome, t.id] }
       flash[:warning] = "Problemas na criação do usuário..."
@@ -139,8 +151,13 @@ class UserController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(params[:user])
-      flash[:message] = 'Usuário alterado com sucesso!'
-      redirect_to :action => 'show', :id => @user
+      flash[:message] = 'Por favor, valide os dados abaixo para completar a alteração do usuário.'
+      case @user.cadastro.codigo.upcase
+        when 'PROF'
+          redirect_to :controller => :dado_academico, :action => :edit, :id => @user.id
+        else
+          redirect_to :action => 'list'
+      end
     else
       @cadastros = Cadastro.find_all.collect{ |t| [t.nome, t.id] }
       flash[:warning] = "Problemas na alteração do usuário..."

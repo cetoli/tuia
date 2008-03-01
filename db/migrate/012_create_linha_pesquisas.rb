@@ -1,6 +1,6 @@
 class CreateLinhaPesquisas < ActiveRecord::Migration
   def self.up
-    create_table :linha_pesquisas_dado_academicos, :id => false do |t|
+    create_table :dado_academicos_linha_pesquisas, :id => false do |t|
       t.column :linha_pesquisa_id, :integer
       t.column :dado_academico_id, :integer
     end
@@ -27,7 +27,7 @@ class CreateLinhaPesquisas < ActiveRecord::Migration
   end
 
   def self.down
-    drop_table :linha_pesquisas_dado_academicos
+    drop_table :dado_academicos_linha_pesquisas
     drop_table :linha_pesquisas
   end
 end

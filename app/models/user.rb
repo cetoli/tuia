@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :roles
   has_and_belongs_to_many :plataformas
   has_many :documentos
+  has_many :dado_academicos
 
   validates_length_of :nome, :within => 3..50
   validates_length_of :login, :within => 5..10

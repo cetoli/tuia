@@ -1,5 +1,5 @@
 class Turma < ActiveRecord::Base
-#  has_many :users
+  has_many :dado_academicos
 
   validates_presence_of :nome, :codigo
   validates_uniqueness_of :codigo
