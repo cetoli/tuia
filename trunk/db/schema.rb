@@ -2,7 +2,7 @@
 # migrations feature of ActiveRecord to incrementally modify your database, and
 # then regenerate this schema definition.
 
-ActiveRecord::Schema.define(:version => 13) do
+ActiveRecord::Schema.define(:version => 14) do
 
   create_table "area_interesses", :force => true do |t|
     t.column "codigo", :string, :limit => 10, :default => "", :null => false
@@ -102,6 +102,18 @@ ActiveRecord::Schema.define(:version => 13) do
 
   add_index "linha_pesquisas", ["codigo"], :name => "LpsCodUnqIdx", :unique => true
   add_index "linha_pesquisas", ["nome"], :name => "LpsNomUnqIdx", :unique => true
+
+  create_table "livros", :force => true do |t|
+    t.column "titulo",   :string, :default => "", :null => false
+    t.column "nomeCapa", :string, :default => "", :null => false
+    t.column "nomeCont", :string, :default => "", :null => false
+    t.column "capa",     :binary
+    t.column "conteudo", :binary
+  end
+
+  add_index "livros", ["titulo"], :name => "LivTitUnqIdx", :unique => true
+  add_index "livros", ["nomeCapa"], :name => "LivNcaUnqIdx", :unique => true
+  add_index "livros", ["nomeCont"], :name => "LivNcoUnqIdx", :unique => true
 
   create_table "modeloprovas", :force => true do |t|
     t.column "nome",     :string
