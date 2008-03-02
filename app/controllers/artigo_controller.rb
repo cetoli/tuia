@@ -4,11 +4,6 @@ class ArtigoController < ApplicationController
   before_filter :login_required, :set_charset
   before_filter :is_admin, :except => ['getArtigo', 'getResumo', 'listar', 'novo']
 
-  def index
-    list
-    render :action => 'list'
-  end
-
   # GETs should be safe (see http://www.w3.org/2001/tag/doc/whenToUseGet.html)
   verify :method => :post, :only => [ :destroy, :create, :getResumo, :getArtigo, :show ],
          :redirect_to => { :action => :list }
