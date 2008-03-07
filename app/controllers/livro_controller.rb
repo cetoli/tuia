@@ -26,7 +26,7 @@ class LivroController < ApplicationController
         render :action => 'new'
       end
     rescue ActiveRecord::StatementInvalid
-      flash[:warning] = "Cadastramento do livro não efetuado. Erro: 'Livro já existente no Banco de Dados'..."
+      flash[:warning] = "Cadastramento do livro não efetuado. Erro: 'Erro no Banco de Dados'..."
       render :action => 'new'
     end
   end

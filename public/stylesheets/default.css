@@ -282,6 +282,8 @@ hr {
 	margin: 0;
 	padding: 10px;
 	list-style: none;
+	background: url(../images/img07.gif) repeat-y right;
+	background-repeat: url(../images/img07.gif) repeat-y;
 }
 
 #sidebar li {
@@ -299,9 +301,9 @@ hr {
 
 #sidebar li li {
 	margin: 0;
-	padding: 10 px 0;
+	padding: 5 px 0;
 	background: none;
-	border-top: 1px dotted #CDCDCD;
+	border-bottom: 1px dotted #CDCDCD;
 }
 
 #sidebar h2 {
@@ -309,6 +311,7 @@ hr {
 	margin: 0;
 	padding: 6px 0 0 10px;
 	background: url(../images/img06.gif) no-repeat;
+	background-repeat: url(../images/img07.gif) repeat-y;
 	font-size: 100%;
 	font-weight: bold;
 	color: #765E1E;

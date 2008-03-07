@@ -6,14 +6,12 @@
 			<table border>
 				<tr align="center">
 					<th>Nome</th>
-					<th>Anexo</th>
 					<th>Resumo</th>
 					<th>Usado</th>
 					<th>Excluir</th>
 				</tr>
 				<% for artigo in @artigos %>
 				<tr align="center">
-					<td><%=h artigo.nome %></td>
 					<td><% if artigo.isresumo %>
 						<%= link_to artigo.nome, { :controller => "artigo", :action => 'getResumo', :id => artigo }, :method => "post" %>
 						<% else %>

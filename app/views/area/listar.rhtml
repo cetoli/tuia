@@ -4,7 +4,11 @@
 			<h1 class="title style1">Áreas</h1>
 			<br />
 			<% for area in @areas %>
+				<% if @id.eql? 'doc'%>
 				<%= link_to area.nome, { :controller => "documento", :action => 'getDocsArea', :id => area, :area => area.codigo }, :method => "post" %><br />
+				<% else %>
+				<%= link_to area.nome, { :controller => "seminario", :action => 'getSemsArea', :id => area, :area => area.codigo }, :method => "post" %><br />
+				<% end %>
 			<% end %>
 			<p>
 				<%= link_to image_tag("PreviousPage.gif", :border => 0, :alt => 'Anterior'), { :page => @area_pages.current.previous } if @area_pages.current.previous %>

@@ -2,7 +2,7 @@ class CreateModeloprovas < ActiveRecord::Migration
   def self.up
     create_table :modeloprovas do |t|
       t.column :nome, :string
-      t.column :modelo, :binary
+      t.column :modelo, :binary, :limit => 5.megabytes
       t.column :editavel, :int, :null => false
       t.column :titulo, :string, :null => false
     end

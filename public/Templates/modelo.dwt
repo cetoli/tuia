@@ -75,7 +75,7 @@
 <!-- TemplateEndEditable -->	
 	<div id="sidebar">
 		<ul>
-			<li>
+			
 				
 				<ul>
 					<li class="first">
@@ -96,7 +96,7 @@
 					<li>
 					  <div align="center"><a href="http://www.abrapabr.org.br/plataformas/neurolog/index.html" target="_self"><img src="../images/logo_neurolog.jpg" alt="" width="138" height="79" border="0" /></a></div>
 					</li>
-					<li>					
+										
 					<li>
 					  <div align="center"><a href="http://labase.nce.ufrj.br/" target="_self"><img src="../images/labase_logo.jpg" alt="" width="138" height="74" border="0" /></a></div>
 					</li>
@@ -138,31 +138,38 @@
 					</li>
 					<li>
 					  <div align="center"><a href="http://www.abrapabr.org.br/plataformas/neurolab/index.html" target="_self"><img src="../images/logo_neurolab.gif" alt="" width="138" height="165" border="0" /></a></div>
-					</li>																														
-				</ul>
-			</li>
-			<li>
+					</li>
+                    																														
+				 
+               </ul>
+              
+			
+				<li>
 				<h2>Links</h2>
 				<ul>
-       <li><a href='http://www.unicrio.org.br/' target="_self">ONU</a></li>
-        <li><a href='http://www.ufrj.br/' target="_self">UFRJ</a></li>
-		<li><a href='http://www.nce.ufrj.br/' target="_self">NCE</a></li>
-        <li><a href='http://labase.nce.ufrj.br/' target="_self">LABASE</a></li>
-		 <li><a href='http://www.fiocruz.br/' target="_self">FIOCRUZ</a></li>
-		  <li><a href='http://www.rio.rj.gov.br/sme/' target="_self">SME-RJ</a></li>
-        <li><a href='http://www.abrapabr.org.br/plataformas/cristaal/index.html' target="_self">Plataforma CRISTAAL</a></li>
+       				<li><a href='http://www.unicrio.org.br/' target="_self">ONU</a></li>
+        			<li><a href='http://www.ufrj.br/' target="_self">UFRJ</a></li>
+					<li><a href='http://www.nce.ufrj.br/' target="_self">NCE</a></li>
+       			 	<li><a href='http://labase.nce.ufrj.br/' target="_self">LABASE</a></li>
+       			 	<li><a href='http://www.abrapabr.org.br/plataformas/neurolog/index.html' target="_self">Neurolog REDE</a></li>                    
+		 			<li><a href='http://www.fiocruz.br/' target="_self">FIOCRUZ</a></li>
+		  			<li><a href='http://www.rio.rj.gov.br/sme/' target="_self">SME-RJ</a></li>
+        			<li><a href='http://www.abrapabr.org.br/plataformas/cristaal/index.html' target="_self">Plataforma CRISTAAL</a></li>
        
-		<li><a href='http://www.abrapabr.org.br/plataformas/esgrima/index.html' target="_self">Plataforma EsGRIMA</a></li>
-		<li><a href='http://www.abrapabr.org.br/plataformas/ouro/index.html' target="_self">Plataforma OURO</a></li>		  
-        <li><a href='http://www.abrapabr.org.br/plataformas/ibc/index.html' target="_self">Plataforma IBC</a></li>
-        <li><a href='http://www.abrapabr.org.br/plataformas/ines/index.html' target="_self">Plataforma INES</a></li>
-        <li><a href='http://www.abrapabr.org.br/plataformas/neurolab/index2.html' target="_self">Neurolab IBC</a></li>
-        <li><a href='http://www.abrapabr.org.br/plataformas/neurolab/index.html' target="_self">Neurolab INES</a></li>
+					<li><a href='http://www.abrapabr.org.br/plataformas/esgrima/index.html' target="_self">Plataforma EsGRIMA</a></li>
+					<li><a href='http://www.abrapabr.org.br/plataformas/ouro/index.html' target="_self">Plataforma OURO</a></li>		  
+        			<li><a href='http://www.abrapabr.org.br/plataformas/ibc/index.html' target="_self">Plataforma IBC</a></li>
+       				<li><a href='http://www.abrapabr.org.br/plataformas/ines/index.html' target="_self">Plataforma INES</a></li>
+        			<li><a href='http://www.abrapabr.org.br/plataformas/neurolab/index2.html' target="_self">Neurolab IBC</a></li>
+       				<li><a href='http://www.abrapabr.org.br/plataformas/neurolab/index.html' target="_self">Neurolab INES</a></li>
 
-        <li><a href='http://www.abrapabr.org.br/plataformas/paz/index.html' target="_self">Sala da PAZ</a></li>	
+       				<li><a href='http://www.abrapabr.org.br/plataformas/paz/index.html' target="_self">Sala da PAZ</a></li>	
 				</ul>
-			</li>
+              </li>
+			
+         
 	  </ul>
+      
   </div>
 	<div class="style8" id="sidebar">@ Plataforma TUIA 2007-2008</div>
 </div>
