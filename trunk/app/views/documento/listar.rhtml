@@ -34,7 +34,7 @@
 				<% end -%>
 				<%= link_to image_tag("NextPage.gif", :border => 0, :alt => 'Próxima'), { :page => @documento_pages.current.next } if @documento_pages.current.next %>
 			</p>
-			<p><%= link_to image_tag("add.png", :border => 0, :alt => 'Adicionar documento'), {:action => 'novo', :id => @idArea, :area => @area}, :method => "post" %> | <%= link_to image_tag("goBack.gif", :border => 0, :alt => 'Voltar'), {:controller => "area", :action => 'listar'} %></p>
+			<p><%= link_to image_tag("add.png", :border => 0, :alt => 'Adicionar documento'), {:action => 'novo', :id => @idArea, :area => @area}, :method => "post" %> | <%= link_to image_tag("goBack.gif", :border => 0, :alt => 'Voltar'), {:controller => "area", :action => 'listar', :id => 'doc'} %></p>
 	  	</div>
 	</div>
 </div>

@@ -1,0 +1,33 @@
+<div id="content">
+	<div>
+		<div class="content">
+			<h1 class="title style1">Propriedades do Seminário</h1>
+			<br/>
+			<b>Título:</b> <%=h @seminario.send('titulo') %>
+			<br/>
+			<b>Criado Por:</b> <%=h @seminario.user.nome %>
+			<br/>
+			<b>Data de Criação:</b> <%=h nice_date_time @seminario.send('criado') %>
+			<br/>
+			<b>Área de Criação:</b> <%=h @seminario.area.nome %>
+			<br/>
+			<b>Trabalho:</b> <%=h @seminario.send('nomeTrab') ? @seminario.send('nomeTrab') : '-' %>
+			<br/>
+			<b>Apresentação:</b> <%=h @seminario.send('nomeApres') ? @seminario.send('nomeApres') : '-' %>
+			<br/>
+			<b>Aprovado:</b> <%=h @seminario.send('aprovado') ? 'Sim' : '-' %>
+			<br/>
+			<p ><% unless @seminario.send('aprovado') %>
+				<%= link_to image_tag("ok.gif", :border => 0, :alt => 'Aprovar'), { :action => 'aprovar', :id => @seminario }, :method => "post" %> | 
+				<% end %>
+				<% if @seminario.send('nomeTrab') %>
+				<%= link_to image_tag("attach.gif", :border => 0, :alt => 'Trabalho'), { :action => 'getDoc', :id => @seminario }, :method => "post" %> | 
+				<% end %>
+				<% if @seminario.send('nomeApres') %>
+				<%= link_to image_tag("attach.gif", :border => 0, :alt => 'Apresentação'), { :action => 'getPpt', :id => @seminario }, :method => "post" %> | 
+				<% end %>
+				<%= link_to image_tag("goBack.gif", :border => 0, :alt => 'Voltar'), :action => 'list' %>
+			</p>
+	  	</div>
+	</div>
+</div>

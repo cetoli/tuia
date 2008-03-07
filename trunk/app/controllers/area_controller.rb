@@ -60,5 +60,6 @@ class AreaController < ApplicationController
 
   def listar
     @area_pages, @areas = paginate :areas, :per_page => numberOfPages, :order => "codigo"
+    @id = params[:id]
   end
 end

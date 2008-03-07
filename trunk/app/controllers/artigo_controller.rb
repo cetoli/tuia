@@ -46,7 +46,7 @@ class ArtigoController < ApplicationController
         render :action => 'new'
       end
     rescue ActiveRecord::StatementInvalid
-      flash[:warning] = "Cadastramento do artigo não efetuado. Erro: 'Artigo já existente no Banco de Dados'..."
+      flash[:warning] = "Cadastramento do artigo não efetuado. Erro: 'Erro no Banco de Dados'..."
       render :action => 'new'
     end
   end

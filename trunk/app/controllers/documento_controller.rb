@@ -51,6 +51,9 @@ class DocumentoController < ApplicationController
     rescue Timeout::Error
       flash[:warning] = "E-mail de notificação não enviado. Erro: 'Tempo de operação esgotado'..."
       redirect_to :action => 'list'
+    rescue  ActiveRecord::StatementInvalid
+      flash[:warning] = "Alteração do documento não efetuada. Erro: 'Erro no Banco de Dados'..."
+      redirect_to :action => 'show', :id => @documento
     end
   end
 
@@ -86,7 +89,7 @@ class DocumentoController < ApplicationController
       flash[:warning] = "E-mail de notificação não enviado. Erro: 'Tempo de operação esgotado'..."
       redirect_to :action => 'show', :id => @documento
     rescue  ActiveRecord::StatementInvalid
-      flash[:warning] = "Alteração do documento não efetuada. Erro: 'Artigo já existente'..."
+      flash[:warning] = "Alteração do documento não efetuada. Erro: 'Erro no Banco de Dados'..."
       redirect_to :action => 'show', :id => @documento
     end
   end
@@ -164,7 +167,7 @@ class DocumentoController < ApplicationController
       flash[:warning] = "E-mail de notificação não enviado. Erro: 'Tempo de operação esgotado'..."
       redirect_to :action => 'getDocsArea', :id => @documento.area
     rescue  ActiveRecord::StatementInvalid
-      flash[:warning] = "Alteração do documento não efetuada. Erro: 'Artigo já existente'..."
+      flash[:warning] = "Alteração do documento não efetuada. Erro: 'Erro no Banco de Dados'..."
       redirect_to :action => 'getDocsArea', :id => @documento.area
     end
   end
@@ -199,6 +202,9 @@ class DocumentoController < ApplicationController
     rescue Timeout::Error
       flash[:warning] = "E-mail de notificação não enviado. Erro: 'Tempo de operação esgotado'..."
       redirect_to :action => 'getDocsArea', :id => @documento.area
+    rescue  ActiveRecord::StatementInvalid
+      flash[:warning] = "Alteração do documento não efetuada. Erro: 'Erro no Banco de Dados'..."
+      redirect_to :action => 'show', :id => @documento
     end
   end
 
@@ -230,6 +236,9 @@ class DocumentoController < ApplicationController
     rescue Timeout::Error
       flash[:warning] = "E-mail de notificação não enviado. Erro: 'Tempo de operação esgotado'..."
       redirect_to :action => 'getDocsArea', :id => @documento.area
+    rescue  ActiveRecord::StatementInvalid
+      flash[:warning] = "Alteração do documento não efetuada. Erro: 'Erro no Banco de Dados'..."
+      redirect_to :action => 'show', :id => @documento
     end
   end
 

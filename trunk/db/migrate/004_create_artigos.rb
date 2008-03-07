@@ -2,8 +2,8 @@ class CreateArtigos < ActiveRecord::Migration
   def self.up
     create_table :artigos do |t|
       t.column :nome, :string, :null => false
-      t.column :anexo, :binary
-      t.column :resumo, :binary
+      t.column :anexo, :binary, :limit => 5.megabytes
+      t.column :resumo, :binary, :limit => 5.megabytes
       t.column :isresumo, :boolean, :default => 0, :null => false
       t.column :usado, :boolean, :default => 0, :null => false
     end
