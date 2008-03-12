@@ -9,8 +9,8 @@
 						<td><%= link_to "Alterar Senha", :controller => "user", :action => "change_password" %></td>
 					</tr>
 					<tr>
-						<td><%= link_to image_tag("docs.gif", :border => 0, :alt => 'Documentos'), {:controller => "area", :action => 'listar', :id => 'doc'} %></td>
-						<td><%= link_to "Criar Documentos", :controller => "area", :action => "listar", :id => 'doc' %></td>
+						<td><%= link_to image_tag("docs.gif", :border => 0, :alt => 'Resenhas de Artigos'), {:controller => "area", :action => 'listar', :id => 'doc'} %></td>
+						<td><%= link_to "Criar Resenhas de Artigos", :controller => "area", :action => "listar", :id => 'doc' %></td>
 					</tr>
 					<tr>
 						<td><%= link_to image_tag("docs.gif", :border => 0, :alt => 'Seminários'), {:controller => "area", :action => 'listar', :id => 'sem'} %></td>
@@ -34,8 +34,8 @@
 						<td><%= link_to "Verificar Áreas", :controller => "area", :action => "list" %></td>
 					</tr>
 					<tr>
-						<td><%= link_to image_tag("tutorials.png", :border => 0, :alt => 'Verificar Documentos'), {:controller => "documento", :action => 'list'} %></td>
-						<td><%= link_to "Verificar Documentos", :controller => "documento", :action => "list" %></td>
+						<td><%= link_to image_tag("tutorials.png", :border => 0, :alt => 'Verificar Resenhas de Artigos'), {:controller => "documento", :action => 'list'} %></td>
+						<td><%= link_to "Verificar Resenhas de Artigos", :controller => "documento", :action => "list" %></td>
 					</tr>
 					<tr>
 						<td><%= link_to image_tag("artigos.png", :border => 0, :alt => 'Artigos'), {:controller => "artigo", :action => 'list'} %></td>

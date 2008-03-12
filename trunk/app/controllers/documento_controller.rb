@@ -59,6 +59,7 @@ class DocumentoController < ApplicationController
 
   def edit
     @documento = Documento.find(params[:id])
+    @areas = Area.find_all.collect{ |c| [c.codigo, c.id] }
     @show = false
     @isresumo = @documento.artigo.isresumo
   end
