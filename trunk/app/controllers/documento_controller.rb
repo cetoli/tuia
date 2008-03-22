@@ -2,10 +2,10 @@ class DocumentoController < ApplicationController
   layout "tuia"
 
   before_filter :login_required, :set_charset
-  before_filter :is_admin, :except => ['getDocsArea', 'getAnexo', 'mostrar', 'novo', 'editar', 'updateUsr', 'createUsr', 'createUsrArt']
+  before_filter :is_admin, :except => ['getDocsArea', 'getResumo', 'getAnexo', 'mostrar', 'novo', 'editar', 'updateUsr', 'createUsr', 'createUsrArt']
 
   # GETs should be safe (see http://www.w3.org/2001/tag/doc/whenToUseGet.html)
-  verify :method => :post, :only => [ :destroy, :create, :update, :updateUsr, :createUsr, :createUsrArt, :getAnexo, :mostrar, :aprovar, :editar, :novo ],
+  verify :method => :post, :only => [ :destroy, :create, :update, :updateUsr, :createUsr, :createUsrArt, :getResumo, :getAnexo, :mostrar, :aprovar, :editar, :novo ],
          :redirect_to => { :action => :list }
 
   def list
@@ -253,5 +253,10 @@ class DocumentoController < ApplicationController
   def getAnexo
     @documento = Documento.find(params[:id])
     send_data(@documento.anexo, :filename => "#{@documento.nome}")
+  end
+
+  def getResumo
+    @documento = Documento.find(params[:id])
+    send_data(@documento.resumo, :filename => "#{@documento.nome_resumo}")
   end
 end

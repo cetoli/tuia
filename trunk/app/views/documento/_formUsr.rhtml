@@ -7,9 +7,14 @@
 	<%= text_field 'documento', 'titulo', :size => 75, :maxlength => 255 %>
 </p>
 <p>
-	<label for="documento_resenha">Resenha:</label>
+	<label for="documento_resenha">Resumo traduzido:</label>
 	<br/>
 	<%= text_area 'documento', 'resenha', :cols => 57 %>
+</p>
+<p>
+	<label for="documento_resumos">Resenha:</label>
+	<br/>
+	<%= file_field 'documento', 'resumos' %>
 </p>
 <p>
 	<label for="documento_anexos">Anexo:</label>
