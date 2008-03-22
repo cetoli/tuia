@@ -6,12 +6,19 @@
 			<table border>
 				<tr align="center">
 					<th>Título</th>
+					<th>Resenha</th>
 					<th>Anexo</th>
 					<th>Artigo</th>
 				</tr>
 				<% for documento in @documentos %>
 				<tr align="center">
 					<td><%= link_to documento.titulo, { :action => 'mostrar', :id => documento, :area => @area }, :method => "post" %></td>
+					<td><% if documento.nome_resumo %>
+						<%= link_to documento.nome_resumo, { :action => 'getResumo', :id => documento }, :method => "post" %>
+						<% else %>
+						<%=h '-' %>
+						<% end %>
+					</td>
 					<td><% if documento.nome %>
 						<%= link_to documento.nome, { :action => 'getAnexo', :id => documento }, :method => "post" %>
 						<% else %>

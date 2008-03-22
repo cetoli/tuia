@@ -5,7 +5,7 @@
 			<br/>
 			<b>Título:</b> <%=h @documento.send('titulo') %>
 			<br/>
-			<b>Resenha:</b> <%=h @documento.send('resenha') %>
+			<b>Resumo traduzido:</b> <%=h @documento.send('resenha') %>
 			<br/>
 			<b>Criado Por:</b> <%=h @documento.user.nome %>
 			<br/>
@@ -15,13 +15,18 @@
 			<br/>
 			<b>Área de Criação:</b> <%=h @documento.area.nome %>
 			<br/>
+			<b>Resenha:</b> <%=h @documento.send('nome_resumo') ? @documento.send('nome_resumo') : '-' %>
+			<br/>
 			<b>Anexo:</b> <%=h @documento.send('nome') ? @documento.send('nome') : '-' %>
 			<br/>
 			<b>Artigo:</b> <%=h @documento.artigo.nome ? @documento.artigo.nome : '-' %> <%=h @documento.artigo.isresumo ? ' (Resumo)' : ''%>
 			<br/>
 			<b>Aprovado:</b> <%=h @documento.send('aprovado') ? 'Sim' : '-' %>
 			<br/>
-			<p ><% if @documento.send('nome') %>
+			<p ><% if @documento.send('nome_resumo') %>
+				<%= link_to image_tag("attach.gif", :border => 0, :alt => 'Resenha'), { :action => 'getResumo', :id => @documento }, :method => "post" %> | 
+				<% end %>
+				<% if @documento.send('nome') %>
 				<%= link_to image_tag("attach.gif", :border => 0, :alt => 'Anexo'), { :action => 'getAnexo', :id => @documento }, :method => "post" %> | 
 				<% end %>
 				<% unless @documento.artigo.isresumo %>

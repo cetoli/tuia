@@ -68,16 +68,18 @@ ActiveRecord::Schema.define(:version => 15) do
   end
 
   create_table "documentos", :force => true do |t|
-    t.column "area_id",   :integer,                     :null => false
-    t.column "user_id",   :integer,                     :null => false
-    t.column "artigo_id", :integer,                     :null => false
-    t.column "titulo",    :string,   :default => "",    :null => false
-    t.column "resenha",   :text,     :default => "",    :null => false
-    t.column "nome",      :string
-    t.column "anexo",     :binary
-    t.column "criado",    :datetime,                    :null => false
-    t.column "alterado",  :datetime,                    :null => false
-    t.column "aprovado",  :boolean,  :default => false, :null => false
+    t.column "area_id",     :integer,                     :null => false
+    t.column "user_id",     :integer,                     :null => false
+    t.column "artigo_id",   :integer,                     :null => false
+    t.column "titulo",      :string,   :default => "",    :null => false
+    t.column "resenha",     :text,     :default => "",    :null => false
+    t.column "nome_resumo", :string
+    t.column "resumo",      :binary
+    t.column "nome",        :string
+    t.column "anexo",       :binary
+    t.column "criado",      :datetime,                    :null => false
+    t.column "alterado",    :datetime,                    :null => false
+    t.column "aprovado",    :boolean,  :default => false, :null => false
   end
 
   add_index "documentos", ["titulo"], :name => "DocTitUnqIdx", :unique => true

@@ -6,6 +6,8 @@ class CreateDocumentos < ActiveRecord::Migration
       t.column :artigo_id, :int, :null => false
       t.column :titulo, :string, :null => false
       t.column :resenha, :text, :null => false
+      t.column :nome_resumo, :string
+      t.column :resumo, :binary, :limit => 5.megabytes
       t.column :nome, :string
       t.column :anexo, :binary, :limit => 5.megabytes
       t.column :criado, :datetime, :null => false
