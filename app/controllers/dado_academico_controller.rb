@@ -8,35 +8,61 @@ class DadoAcademicoController < ApplicationController
          :redirect_to => { :controller => :user, :action => :index }
 
   def new
-    @dadoAcademico = DadoAcademico.new
-    @turmas = Turma.find_all.collect{ |t| [t.nome, t.id] }
-    @user_id = params[:id]
+    unless session[:new_user]
+      flash[:warning] = "Cadastre-se na plataforma..."
+      redirect_to :controller => :user, :action => 'signup'
+    else
+      @dadoAcademico = DadoAcademico.new
+      @turmas = Turma.find(:all).collect{ |t| [t.nome, t.id] }
+      flash[:message] = 'Por favor, preencha os dados abaixo para completar sua inscrição.'
+    end
   end
 
   def create
     begin
-      @dadoAcademico = DadoAcademico.new(params[:dadoAcademico])
-      @dadoAcademico.user_id = params[:user_id]
-      if @dadoAcademico.save
-        flash[:message] = 'Cadastramento efetuado com sucesso! Aguarde confirmação sobre sua aprovação.'
-        redirect_to :controller => :user, :action => :list
+      user = session[:new_user]
+      unless user
+        flash[:warning] = "Cadastre-se na plataforma..."
+        redirect_to :controller => :user, :action => 'signup'
       else
-        @turmas = Turma.find_all.collect{ |t| [t.nome, t.id] }
-        @user_id = params[:user_id]
-        flash[:warning] = "Cadastramento não efetuado..."
-        render :action => 'new'
+        @dadoAcademico = DadoAcademico.new(params[:dadoAcademico])
+        @dadoAcademico.user_id = 0
+        if @dadoAcademico.valid?
+          if user.save
+            @dadoAcademico.user_id = user.id
+            if @dadoAcademico.save
+              Notifications.deliver_userApproval('adm.tuia@gmail.com', user.nome, user.email)
+              session[:new_user] = nil
+              flash[:message] = 'Cadastramento efetuado com sucesso! Aguarde confirmação sobre sua aprovação.'
+              redirect_to :controller => :user, :action => 'about'
+            else
+              User.find(user.id).destroy
+              @turmas = Turma.find(:all).collect{ |t| [t.nome, t.id] }
+              flash[:warning] = "Cadastramento não efetuado..."
+              render :action => 'new'
+            end
+          else
+            @cadastros = Cadastro.find(:all).collect{ |t| [t.nome, t.id] }
+            session[:new_user] = nil
+            flash[:warning] = "Cadastramento não efetuado..."
+            redirect_to :controller => :user, :action => 'signup'
+          end
+        else
+          @turmas = Turma.find(:all).collect{ |t| [t.nome, t.id] }
+          flash[:warning] = "Cadastramento não efetuado..."
+          render :action => 'new'
+        end
       end
-    rescue ActiveRecord::StatementInvalid
-      @turmas = Turma.find_all.collect{ |t| [t.nome, t.id] }
-      @user_id = params[:user_id]
-      flash[:warning] = "Cadastramento do usuário não efetuado. Erro: 'Problemas com o banco de dados'..."
-      render :action => 'new'
+    rescue  Timeout::Error
+      session[:new_user] = nil
+      flash[:warning] = "Problemas no envio de e-mail de aprovação. Erro: 'Tempo de operação esgotado'..."
+      redirect_to :controller => :user, :action => 'about'
     end
   end
 
   def edit
     @dadoAcademico = DadoAcademico.find(:first, :conditions => ['user_id = :user_id', {:user_id => params[:id]}])
-    @turmas = Turma.find_all.collect{ |t| [t.nome, t.id] }
+    @turmas = Turma.find(:all).collect{ |t| [t.nome, t.id] }
     @user_id = params[:id]
   end
 
@@ -46,7 +72,7 @@ class DadoAcademicoController < ApplicationController
       flash[:message] = 'Usuário alterado com sucesso!'
       redirect_to :controller => :user, :action => 'show', :id => @dadoAcademico.user_id
     else
-      @turmas = Turma.find_all.collect{ |t| [t.nome, t.id] }
+      @turmas = Turma.find(:all).collect{ |t| [t.nome, t.id] }
       @user_id = @dadoAcademico.user_id
       flash[:warning] = "Problemas na alteração do usuário..."
       render :action => 'edit'

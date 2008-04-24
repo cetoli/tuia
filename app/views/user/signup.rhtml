@@ -11,7 +11,7 @@
 				<br/><br/>
 				<label for="user_datanascimento">Data de Nascimento:</label>
 				<br/>
-				<a onclick="DatePicker.toggle(document.getElementById('user_datanascimento'), this)"><% if @user.datanascimento.nil? %>Escolha a data de nascimento...<% else %><%=h short_date @user.datanascimento %><% end %></a>
+				<a onclick="DatePicker.toggle(document.getElementById('user_datanascimento'), this)"><% if @user.datanascimento.nil? %>Escolha a data de nascimento...<% else %><%=h short_date(@user.datanascimento) %><% end %></a>
 				<%= form.hidden_field 'datanascimento', :size => 10, :maxlength => 10 %>
 				<br/><br/>
 				<label for="user_sexo">Sexo:</label>

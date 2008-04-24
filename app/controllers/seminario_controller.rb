@@ -18,8 +18,8 @@ class SeminarioController < ApplicationController
 
   def new
     @seminario = Seminario.new
-    @users = User.find_all.collect{ |t| [t.login, t.id] }
-    @areas = Area.find_all.collect{ |c| [c.codigo, c.id] }
+    @users = User.find(:all).collect{ |t| [t.login, t.id] }
+    @areas = Area.find(:all).collect{ |c| [c.codigo, c.id] }
   end
 
   def create
@@ -33,14 +33,14 @@ class SeminarioController < ApplicationController
         redirect_to :action => 'list'
       else
         flash[:warning] = "Cadastramento do seminário não efetuado..."
-        @users = User.find_all.collect{ |t| [t.login, t.id] }
-        @areas = Area.find_all.collect{ |c| [c.codigo, c.id] }
+        @users = User.find(:all).collect{ |t| [t.login, t.id] }
+        @areas = Area.find(:all).collect{ |c| [c.codigo, c.id] }
         render :action => 'new'
       end
     rescue ActiveRecord::StatementInvalid
       flash[:warning] = "Cadastramento do seminário não efetuado. Erro: 'Erro no Banco de Dados'..."
-      @users = User.find_all.collect{ |t| [t.login, t.id] }
-      @areas = Area.find_all.collect{ |c| [c.codigo, c.id] }
+      @users = User.find(:all).collect{ |t| [t.login, t.id] }
+      @areas = Area.find(:all).collect{ |c| [c.codigo, c.id] }
       render :action => 'new'
     rescue Timeout::Error
       flash[:warning] = "E-mail de notificação não enviado. Erro: 'Tempo de operação esgotado'..."
