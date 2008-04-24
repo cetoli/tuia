@@ -11,7 +11,7 @@ class ArtigoController < ApplicationController
   def novo
     @artigo_id = params[:id]
     @artigo_nome = params[:nome]
-    @areas = Area.find_all.collect{ |c| [c.codigo, c.id] }
+    @areas = Area.find(:all).collect{ |c| [c.codigo, c.id] }
   end
 
   def listar

@@ -38,31 +38,25 @@ class UserController < ApplicationController
   end
 
   def signup
-    begin
-      if request.post?  
-        @user = User.new(params[:user])
-        @user.admin = false
-        @user.aprovado = false
-        if @user.save
-          flash[:message] = 'Por favor, preencha os dados abaixo para completar sua inscrição.'
-          Notifications.deliver_userApproval('adm.tuia@gmail.com', @user.nome, @user.email)
-          case @user.cadastro.codigo.upcase
-            when 'PROF'
-              redirect_to :controller => :dado_academico, :action => :new, :id => @user.id
-            else
-              redirect_to :action => 'about'
-          end
-        else
-          @cadastros = Cadastro.find_all.collect{ |t| [t.nome, t.id] }
-          flash[:warning] = "Cadastramento não efetuado..."
+    if request.post?  
+      @user = User.new(params[:user])
+      @user.admin = false
+      @user.aprovado = false
+      if @user.valid?
+        session[:new_user] = @user
+        case @user.cadastro.codigo.upcase
+          when 'PROF'
+            redirect_to :controller => :dado_academico, :action => :new
+          else
+            redirect_to :action => 'about'
         end
       else
-        @user = User.new
-        @cadastros = Cadastro.find_all.collect{ |t| [t.nome, t.id] }
+        @cadastros = Cadastro.find(:all).collect{ |t| [t.nome, t.id] }
+        flash[:warning] = "Cadastramento não efetuado..."
       end
-    rescue  Timeout::Error
-      flash[:warning] = "Problemas no envio de e-mail de aprovação. Erro: 'Tempo de operação esgotado'..."
-      redirect_to :action => 'about'
+    else
+      @user = User.new
+      @cadastros = Cadastro.find(:all).collect{ |t| [t.nome, t.id] }
     end
   end
 
@@ -122,7 +116,7 @@ class UserController < ApplicationController
 
   def new
     @user = User.new
-    @cadastros = Cadastro.find_all.collect{ |t| [t.nome, t.id] }
+    @cadastros = Cadastro.find(:all).collect{ |t| [t.nome, t.id] }
   end
 
   def create
@@ -137,7 +131,7 @@ class UserController < ApplicationController
           redirect_to :action => 'list'
       end
     else
-      @cadastros = Cadastro.find_all.collect{ |t| [t.nome, t.id] }
+      @cadastros = Cadastro.find(:all).collect{ |t| [t.nome, t.id] }
       flash[:warning] = "Problemas na criação do usuário..."
       render :action => 'new'
     end
@@ -145,7 +139,7 @@ class UserController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
-    @cadastros = Cadastro.find_all.collect{ |t| [t.nome, t.id] }
+    @cadastros = Cadastro.find(:all).collect{ |t| [t.nome, t.id] }
   end
 
   def update
@@ -159,7 +153,7 @@ class UserController < ApplicationController
           redirect_to :action => 'list'
       end
     else
-      @cadastros = Cadastro.find_all.collect{ |t| [t.nome, t.id] }
+      @cadastros = Cadastro.find(:all).collect{ |t| [t.nome, t.id] }
       flash[:warning] = "Problemas na alteração do usuário..."
       render :action => 'edit'
     end

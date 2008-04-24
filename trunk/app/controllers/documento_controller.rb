@@ -18,8 +18,8 @@ class DocumentoController < ApplicationController
 
   def new
     @documento = Documento.new
-    @users = User.find_all.collect{ |t| [t.login, t.id] }
-    @areas = Area.find_all.collect{ |c| [c.codigo, c.id] }
+    @users = User.find(:all).collect{ |t| [t.login, t.id] }
+    @areas = Area.find(:all).collect{ |c| [c.codigo, c.id] }
     @artigos = Artigo.find(:all, :conditions => ['usado = :usado', {:usado => false}], :order => "nome").collect{ |a| [a.nome, a.id] }
     @show = true
   end
@@ -38,8 +38,8 @@ class DocumentoController < ApplicationController
           redirect_to :action => 'list'
         else
           flash[:warning] = "Cadastramento do documento não efetuado..."
-          @users = User.find_all.collect{ |t| [t.login, t.id] }
-          @areas = Area.find_all.collect{ |c| [c.codigo, c.id] }
+          @users = User.find(:all).collect{ |t| [t.login, t.id] }
+          @areas = Area.find(:all).collect{ |c| [c.codigo, c.id] }
           @artigos = Artigo.find(:all, :conditions => ['usado = :usado', {:usado => false}]).collect{ |a| [a.nome, a.id] }
           @show = true
           render :action => 'new'
@@ -59,7 +59,7 @@ class DocumentoController < ApplicationController
 
   def edit
     @documento = Documento.find(params[:id])
-    @areas = Area.find_all.collect{ |c| [c.codigo, c.id] }
+    @areas = Area.find(:all).collect{ |c| [c.codigo, c.id] }
     @show = false
     @isresumo = @documento.artigo.isresumo
   end
@@ -227,7 +227,7 @@ class DocumentoController < ApplicationController
           flash[:warning] = "Cadastramento do documento não efetuado. Erro: 'Os campos Título e Resenha são obrigatórios'..."
           @artigo_id = params[:artigo_id]
           @artigo_nome = params[:artigo_nome]
-          @areas = Area.find_all.collect{ |c| [c.codigo, c.id] }
+          @areas = Area.find(:all).collect{ |c| [c.codigo, c.id] }
           redirect_to :back
         end
       else

@@ -38,13 +38,13 @@
 <p>
 	<label for="dadoAcademico_datainicio">Data de Início:</label>
 	<br/>
-	<a onclick="DatePicker.toggle(document.getElementById('dadoAcademico_datainicio'), this)"><% if @dadoAcademico.datainicio.nil? %>Escolha a data de início...<% else %><%=h short_date @dadoAcademico.datainicio %><% end %></a>
+	<a onclick="DatePicker.toggle(document.getElementById('dadoAcademico_datainicio'), this)"><% if @dadoAcademico.datainicio.nil? %>Escolha a data de início...<% else %><%=h short_date(@dadoAcademico.datainicio) %><% end %></a>
 	<%= hidden_field 'dadoAcademico', 'datainicio', :size => 10, :maxlength => 10 %>
 </p>
 <p>
 	<label for="dadoAcademico_datatermino">Data de Término:</label>
 	<br/>
-	<a onclick="DatePicker.toggle(document.getElementById('dadoAcademico_datatermino'), this)"><% if @dadoAcademico.datatermino.nil? %>Escolha a data de término...<% else %><%=h short_date @dadoAcademico.datatermino %><% end %></a>
+	<a onclick="DatePicker.toggle(document.getElementById('dadoAcademico_datatermino'), this)"><% if @dadoAcademico.datatermino.nil? %>Escolha a data de término...<% else %><%=h short_date(@dadoAcademico.datatermino) %><% end %></a>
 	<%= hidden_field 'dadoAcademico', 'datatermino', :size => 10, :maxlength => 10 %>
 </p>
 <p>
