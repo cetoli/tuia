@@ -4,7 +4,7 @@ class LivroController < ApplicationController
   before_filter :login_required, :set_charset
 
   # GETs should be safe (see http://www.w3.org/2001/tag/doc/whenToUseGet.html)
-  verify :method => :post, :only => [ :destroy, :create, :getCapa, :getLivro ],
+  verify :method => :post, :only => [ :destroy, :create, :getLivro ],
          :redirect_to => { :action => :list }
 
   def list

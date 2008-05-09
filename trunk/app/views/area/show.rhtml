@@ -7,6 +7,12 @@
 			<br/>
 			<b>Nome:</b> <%=h @area.send('nome') %>
 			<br/>
+			<b>Artigo:</b> <%=h @area.send('artigo') ? 'Sim' : '-' %>
+			<br/>
+			<b>Projeto:</b> <%=h @area.send('projeto') ? 'Sim' : '-' %>
+			<br/>
+			<b>Seminário:</b> <%=h @area.send('seminario') ? 'Sim' : '-' %>
+			<br/>
 			<p><%= link_to image_tag("ed.png", :border => 0, :alt => 'Editar'), :action => 'edit', :id => @area %> | <%= link_to image_tag("goBack.gif", :border => 0, :alt => 'Voltar'), :action => 'list' %></p>
 	  	</div>
 	</div>

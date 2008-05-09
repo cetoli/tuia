@@ -27,6 +27,9 @@
 		<ul><!-- InstanceBeginEditable name="EmailSenha" -->
 			<li class="first"><span class="style4">Olá, <%= session[:user] ? session[:user].login : "visitante" %></span></li>
 			<li class="style4"><a href="http://">Fale conosco</a></li>
+			<% if session[:user] %>
+			<li class="style4"><%= link_to "Logout", {:controller => "user", :action => "logout"}, :method => "post" %></li>
+			<% end %>
 			<!-- InstanceEndEditable -->
 		</ul>
   </div>
@@ -35,11 +38,11 @@
    <div id="menu">
    	<!-- InstanceBeginEditable name="MenuCabecalho" -->
 		<ul>
-			<li class="first"><%= link_to "Início", :controller => "user", :action => "welcome" %></li>
+			<li class="first"><%= link_to "Login", :controller => "user", :action => "welcome" %></li>
 			<li><%= link_to "Novo usuário", :controller => "user", :action => "signup" %></li>
-			<li><a href="http://">Cursos oferecidos </a></li>
 			<li><%= link_to "Lembrar minha senha", :controller => "user", :action => "forgot_password" %></li>
-			<li><a href="http://">Artigos </a></li>			
+			<li><%= link_to "Artigos", :controller => "area", :action => "listar", :id => 'doc' %></li>			
+			<li><%= link_to "Seminários", :controller => "area", :action => "listar", :id => 'sem' %></li>
 			<li><%= link_to "Sobre a TUIA", :controller => "user", :action => "about" %></li>
 	  </ul>
 	<!-- InstanceEndEditable -->
