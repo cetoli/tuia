@@ -15,7 +15,10 @@
 				<% for livro in @livros %>
 				<tr align="center">
 					<td><%=h livro.titulo %></td>
+<!--
 					<td><%= link_to livro.nomeCapa, { :controller => "livro", :action => 'getCapa', :id => livro }, :method => "post" %></td>
+-->
+					<td><img src="<%=h url_for(:controller => :livro, :action => 'getCapa', :id => livro) %>" width="25%" align="center"/></td>
 					<td><%= link_to livro.nomeCont, { :controller => "livro", :action => 'getLivro', :id => livro }, :method => "post" %></td>
 				<% if session[:user].admin %>	 
 					<td><%= link_to image_tag("del.png", :border => 0, :alt => 'Apagar'), { :action => 'destroy', :id => livro }, :confirm => 'Tem certeza que deseja excluir este livro?', :method => "post" %></td>

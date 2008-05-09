@@ -7,12 +7,18 @@
 				<tr align="center">
 					<th>Código</th>
 					<th>Nome</th>
+					<th>Artigo</th>
+					<th>Projeto</th>
+					<th>Seminário</th>
 					<th colspan="3">Comandos</th>
 				</tr>
 				<% for area in @areas %>
 				<tr align="center">
 					<td><%=h area.codigo %></td>
 					<td><%=h area.nome %></td>
+					<td><%=h area.artigo ? 'Sim' : '-' %></td>
+					<td><%=h area.projeto ? 'Sim' : '-' %></td>
+					<td><%=h area.seminario ? 'Sim' : '-' %></td>
 					<td><%= link_to image_tag("opn.png", :border => 0, :alt => 'Mostrar'), :action => 'show', :id => area %></td>
 					<td><%= link_to image_tag("ed.png", :border => 0, :alt => 'Editar'), :action => 'edit', :id => area %></td>
 					<td><%= link_to image_tag("del.png", :border => 0, :alt => 'Apagar'), { :action => 'destroy', :id => area }, :confirm => 'Tem certeza que deseja excluir esta área?', :method => "post" %></td>

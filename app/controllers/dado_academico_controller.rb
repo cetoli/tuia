@@ -20,33 +20,22 @@ class DadoAcademicoController < ApplicationController
 
   def create
     begin
-      user = session[:new_user]
-      unless user
+      unless session[:new_user]
         flash[:warning] = "Cadastre-se na plataforma..."
         redirect_to :controller => :user, :action => 'signup'
       else
         @dadoAcademico = DadoAcademico.new(params[:dadoAcademico])
         @dadoAcademico.user_id = 0
         if @dadoAcademico.valid?
-          if user.save
-            @dadoAcademico.user_id = user.id
-            if @dadoAcademico.save
-              Notifications.deliver_userApproval('adm.tuia@gmail.com', user.nome, user.email)
-              session[:new_user] = nil
-              flash[:message] = 'Cadastramento efetuado com sucesso! Aguarde confirmação sobre sua aprovação.'
-              redirect_to :controller => :user, :action => 'about'
-            else
-              User.find(user.id).destroy
-              @turmas = Turma.find(:all).collect{ |t| [t.nome, t.id] }
-              flash[:warning] = "Cadastramento não efetuado..."
-              render :action => 'new'
-            end
-          else
-            @cadastros = Cadastro.find(:all).collect{ |t| [t.nome, t.id] }
-            session[:new_user] = nil
-            flash[:warning] = "Cadastramento não efetuado..."
-            redirect_to :controller => :user, :action => 'signup'
+          DadoAcademico.transaction do
+            session[:new_user].save
+            @dadoAcademico.user_id = session[:new_user].id
+            @dadoAcademico.save
           end
+          Notifications.deliver_userApproval('adm.tuia@gmail.com', session[:new_user].nome, session[:new_user].email)
+          session[:new_user] = nil
+          flash[:message] = 'Cadastramento efetuado com sucesso! Aguarde confirmação sobre sua aprovação.'
+          redirect_to :controller => :user, :action => 'about'
         else
           @turmas = Turma.find(:all).collect{ |t| [t.nome, t.id] }
           flash[:warning] = "Cadastramento não efetuado..."
@@ -57,6 +46,10 @@ class DadoAcademicoController < ApplicationController
       session[:new_user] = nil
       flash[:warning] = "Problemas no envio de e-mail de aprovação. Erro: 'Tempo de operação esgotado'..."
       redirect_to :controller => :user, :action => 'about'
+    rescue ActiveRecord::StatementInvalid
+      session[:new_user] = nil
+      flash[:warning] = "Problemas no banco de dados, por favor tente novamente mais tarde."
+      redirect_to :controller => :user, :action => 'signup'
     end
   end
 

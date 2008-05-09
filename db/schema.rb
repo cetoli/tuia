@@ -18,8 +18,11 @@ ActiveRecord::Schema.define(:version => 15) do
   end
 
   create_table "areas", :force => true do |t|
-    t.column "codigo", :string, :limit => 5,  :default => "", :null => false
-    t.column "nome",   :string, :limit => 50, :default => "", :null => false
+    t.column "codigo",    :string,  :limit => 5,  :default => "",    :null => false
+    t.column "nome",      :string,  :limit => 50, :default => "",    :null => false
+    t.column "artigo",    :boolean,               :default => false, :null => false
+    t.column "projeto",   :boolean,               :default => false, :null => false
+    t.column "seminario", :boolean,               :default => false, :null => false
   end
 
   add_index "areas", ["codigo"], :name => "AreCodUnqIdx", :unique => true

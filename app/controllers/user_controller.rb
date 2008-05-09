@@ -38,7 +38,7 @@ class UserController < ApplicationController
   end
 
   def signup
-    if request.post?  
+    if request.post?
       @user = User.new(params[:user])
       @user.admin = false
       @user.aprovado = false
@@ -122,11 +122,11 @@ class UserController < ApplicationController
   def create
     @user = User.new(params[:user])
     @user.aprovado = true
-    if @user.save
-      flash[:message] = 'Por favor, preencha os dados abaixo para completar a inscrição do usuário.'
+    if @user.valid?
+      session[:new_user] = @user
       case @user.cadastro.codigo.upcase
         when 'PROF'
-          redirect_to :controller => :dado_academico, :action => :new, :id => @user.id
+          redirect_to :controller => :dado_academico, :action => :new
         else
           redirect_to :action => 'list'
       end
@@ -161,7 +161,9 @@ class UserController < ApplicationController
 
   def destroy
     begin
-      User.find(params[:id]).destroy
+      @user = User.find(params[:id])
+      DadoAcademico.find(:first, :conditions => ['user_id = :user_id', {:user_id => @user.id}]).destroy
+      @user.destroy
     rescue ActiveRecord::StatementInvalid
       flash[:warning] = "Exclusão de usuário não efetuada. Erro: 'Usuário possui documento(s) aprovado(s) ou pendente(s) de aprovação. Remova estes documentos antes de excluir o usuário'..."
     else

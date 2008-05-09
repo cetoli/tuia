@@ -4,10 +4,14 @@
 			<h1 class="title style1">Áreas</h1>
 			<br />
 			<% for area in @areas %>
-				<% if @id.eql? 'doc'%>
-				<%= link_to area.nome, { :controller => "documento", :action => 'getDocsArea', :id => area, :area => area.codigo }, :method => "post" %><br />
-				<% else %>
-				<%= link_to area.nome, { :controller => "seminario", :action => 'getSemsArea', :id => area, :area => area.codigo }, :method => "post" %><br />
+				<% if (@id.eql? 'doc') && area.artigo %>
+					<%= link_to area.nome, { :controller => "documento", :action => 'getDocsArea', :id => area, :area => area.codigo }, :method => "post" %><br />
+				<% end %>
+				<% if (@id.eql? 'prj') && area.projeto %>
+					<%= link_to area.nome, { :controller => "projeto", :action => 'getPrjsArea', :id => area, :area => area.codigo }, :method => "post" %><br />
+				<% end %>
+				<% if (@id.eql? 'sem') && area.seminario %>
+					<%= link_to area.nome, { :controller => "seminario", :action => 'getSemsArea', :id => area, :area => area.codigo }, :method => "post" %><br />
 				<% end %>
 			<% end %>
 			<p>
