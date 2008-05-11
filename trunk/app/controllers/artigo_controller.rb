@@ -5,13 +5,13 @@ class ArtigoController < ApplicationController
   before_filter :is_admin, :except => ['getArtigo', 'getResumo', 'listar', 'novo']
 
   # GETs should be safe (see http://www.w3.org/2001/tag/doc/whenToUseGet.html)
-  verify :method => :post, :only => [ :destroy, :create, :getResumo, :getArtigo, :show ],
+  verify :method => :post, :only => [ :destroy, :create, :getResumo, :getArtigo ],
          :redirect_to => { :action => :list }
 
   def novo
     @artigo_id = params[:id]
     @artigo_nome = params[:nome]
-    @areas = Area.find(:all).collect{ |c| [c.codigo, c.id] }
+    @areas = Area.find(:all, :conditions => ['artigo = :artigo', {:artigo => true}]).collect{ |c| [c.codigo, c.id] }
   end
 
   def listar
@@ -20,10 +20,6 @@ class ArtigoController < ApplicationController
 
   def list
     @artigo_pages, @artigos = paginate :artigos, :per_page => numberOfPages, :order => "nome"
-  end
-
-  def show
-    @artigo = Artigo.find(params[:id])
   end
 
   def new
@@ -62,12 +58,12 @@ class ArtigoController < ApplicationController
       redirect_to :action => 'list'
     end
   end
-  
+
   def getArtigo
     @artigo = Artigo.find(params[:id])
     send_data(@artigo.anexo, :filename => "#{@artigo.nome}")
   end
-  
+
   def getResumo
     @artigo = Artigo.find(params[:id])
     send_data(@artigo.resumo, :filename => "#{@artigo.nome}")
