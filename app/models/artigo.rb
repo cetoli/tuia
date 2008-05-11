@@ -2,6 +2,7 @@ class Artigo < ActiveRecord::Base
   has_one :documentos
 
   validates_presence_of :nome
+  validates_uniqueness_of :nome
 
   attr_protected :id, :nome, :anexo, :resumo, :usado
 
