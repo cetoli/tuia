@@ -17,6 +17,10 @@
 						<td><%= link_to "Criar Seminários", :controller => "area", :action => "listar", :id => 'sem' %></td>
 					</tr>
 					<tr>
+						<td><%= link_to image_tag("docs.gif", :border => 0, :alt => 'Projetos'), {:controller => "area", :action => 'listar', :id => 'prj'} %></td>
+						<td><%= link_to "Criar Projetos", :controller => "area", :action => "listar", :id => 'prj' %></td>
+					</tr>
+					<tr>
 						<td><%= link_to image_tag("script.gif", :border => 0, :alt => 'Artigos'), {:controller => "artigo", :action => 'listar'} %></td>
 						<td><%= link_to "Escolher Artigos", :controller => "artigo", :action => "listar" %></td>
 					</tr>
@@ -40,6 +44,10 @@
 					<tr>
 						<td><%= link_to image_tag("tutorials.png", :border => 0, :alt => 'Verificar Resenhas de Artigos'), {:controller => "documento", :action => 'list'} %></td>
 						<td><%= link_to "Verificar Resenhas de Artigos", :controller => "documento", :action => "list" %></td>
+					</tr>
+					<tr>
+						<td><%= link_to image_tag("tutorials.png", :border => 0, :alt => 'Verificar Projetos'), {:controller => "projeto", :action => 'list'} %></td>
+						<td><%= link_to "Verificar Projetos", :controller => "projeto", :action => "list" %></td>
 					</tr>
 					<tr>
 						<td><%= link_to image_tag("artigos.png", :border => 0, :alt => 'Artigos'), {:controller => "artigo", :action => 'list'} %></td>

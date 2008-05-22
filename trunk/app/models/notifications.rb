@@ -20,7 +20,17 @@ class Notifications < ActionMailer::Base
     @from       = @@remetente
     @sent_on    = sent_at
     @headers    = {}
-    @charset    = 'ISO-8859-1'
+    @charset    = @@caracteres
+  end
+
+  def prjApproval(to, title, creation, modification, author, sent_at = Time.now)
+    @subject    = '[T.U.I.A.] - Aprovação de Projeto'
+    @body       = {:title => title, :creation => creation, :modification => modification, :author => author}
+    @recipients = to
+    @from       = @@remetente
+    @sent_on    = sent_at
+    @headers    = {}
+    @charset    = @@caracteres
   end
 
   def semApproval(to, title, creation, author, sent_at = Time.now)
