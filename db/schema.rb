@@ -2,7 +2,7 @@
 # migrations feature of ActiveRecord to incrementally modify your database, and
 # then regenerate this schema definition.
 
-ActiveRecord::Schema.define(:version => 16) do
+ActiveRecord::Schema.define(:version => 17) do
 
   create_table "area_interesses", :force => true do |t|
     t.column "codigo", :string, :limit => 10, :default => "", :null => false
@@ -150,6 +150,26 @@ ActiveRecord::Schema.define(:version => 16) do
     t.column "plataforma_id", :integer
     t.column "user_id",       :integer
   end
+
+  create_table "projetos", :force => true do |t|
+    t.column "area_id",           :integer,                     :null => false
+    t.column "user_id",           :integer,                     :null => false
+    t.column "titulo",            :string,   :default => "",    :null => false
+    t.column "resumo",            :text,     :default => "",    :null => false
+    t.column "nome_situacao",     :string
+    t.column "situacao",          :binary
+    t.column "nome",              :string
+    t.column "anexo",             :binary
+    t.column "nome_apresentacao", :string
+    t.column "apresentacao",      :binary
+    t.column "criado",            :datetime,                    :null => false
+    t.column "alterado",          :datetime,                    :null => false
+    t.column "aprovado",          :boolean,  :default => false, :null => false
+  end
+
+  add_index "projetos", ["titulo"], :name => "PrjTitUnqIdx", :unique => true
+  add_index "projetos", ["user_id"], :name => "FK_Prj_Usr"
+  add_index "projetos", ["area_id"], :name => "FK_Prj_Are"
 
   create_table "roles", :force => true do |t|
     t.column "codigo", :string, :limit => 10, :default => "", :null => false

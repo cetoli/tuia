@@ -19,7 +19,7 @@ class DocumentoController < ApplicationController
   def new
     @documento = Documento.new
     @users = User.find(:all).collect{ |t| [t.login, t.id] }
-    @areas = Area.find(:all, :conditions => ['artigo = :artigo', {:artigo => true}]).collect{ |c| [c.codigo, c.id] }
+    @areas = Area.find(:all, :conditions => ['artigo = :artigo', {:artigo => true}], :order => "codigo").collect{ |c| [c.codigo, c.id] }
     @artigos = Artigo.find(:all, :conditions => ['usado = :usado', {:usado => false}], :order => "nome").collect{ |a| [a.nome, a.id] }
     @show = true
   end
