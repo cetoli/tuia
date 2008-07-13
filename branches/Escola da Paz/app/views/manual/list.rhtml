@@ -1,0 +1,37 @@
+<div id="content">
+	<div>
+		<div class="content">
+			<h1 class="title style1">Lista de Manuais</h1>
+			<br />
+			<table border>
+				<tr align="center">
+					<th>Título</th>
+					<% if session[:user].admin %>
+					<th>Excluir</th>
+					<% end %>
+				</tr>
+				<% for manual in @manuals %>
+				<tr align="center">
+					<td><%= link_to manual.titulo, { :controller => "manual", :action => 'getManual', :id => manual }, :method => "post" %></td>
+					<% if session[:user].admin %>
+					<td><%= link_to image_tag("del.png", :border => 0, :alt => 'Apagar'), { :action => 'destroy', :id => manual }, :confirm => 'Tem certeza que deseja excluir este manual?', :method => "post" %></td>
+					<% end %>
+				</tr>
+				<% end %>
+			</table>
+			<p>
+				<%= link_to image_tag("PreviousPage.gif", :border => 0, :alt => 'Anterior'), { :page => @manual_pages.current.previous } if @manual_pages.current.previous %>
+				<% for page in @manual_pages %>
+				    &nbsp;<%= link_to_unless(params[:page].to_i == page.number, page.number, {:params => params.merge('page' => page)}) %>&nbsp;
+				<% end -%>
+				<%= link_to image_tag("NextPage.gif", :border => 0, :alt => 'Próxima'), { :page => @manual_pages.current.next } if @manual_pages.current.next %>
+			</p>
+			<p>
+			<% if session[:user].admin %>
+				<%= link_to image_tag("add.png", :border => 0, :alt => 'Adicionar manual'), {:action => 'new'} %> | 
+			<% end %>
+				<%= link_to image_tag("goBack.gif", :border => 0, :alt => 'Voltar'), {:controller => "user", :action => 'welcome'} %>
+			</p>
+	  	</div>
+	</div>
+</div>

@@ -1,0 +1,14 @@
+<div id="content">
+	<div>
+		<div class="content">
+			<h1 class="title style1">Editar Cadastro Profissional</h1>
+			<br/>
+			<% form_tag({:action => 'update', :id => @dadoAcademico}) do %>
+			  <%= render :partial => 'form' %>
+			  <%= submit_tag 'Alterar' %>
+			<% end %>
+			<br/>
+			<%= link_to image_tag("opn.png", :border => 0, :alt => 'Mostrar'), :controller => 'user', :action => 'show', :id => @user_id %> | <%= link_to image_tag("goBack.gif", :border => 0, :alt => 'Voltar'), :controller => 'user', :action => 'list' %>
+	  	</div>
+	</div>
+</div>

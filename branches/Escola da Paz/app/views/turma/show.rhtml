@@ -1,0 +1,17 @@
+<div id="content">
+	<div>
+		<div class="content">
+			<h1 class="title style1">Propriedades da Turma</h1>
+			<br/>
+			<b>Código:</b> <%=h @turma.send('codigo') %>
+			<br/>
+			<b>Nome:</b> <%=h @turma.send('nome') %>
+			<br/>
+			<b>Data de Início:</b> <%=h nice_date @turma.send('datainicio') %>
+			<br/>
+			<b>Data de Término:</b> <%=h nice_date @turma.send('datatermino') %>
+			<br/>
+			<p><%= link_to image_tag("ed.png", :border => 0, :alt => 'Editar'), :action => 'edit', :id => @turma %> | <%= link_to image_tag("goBack.gif", :border => 0, :alt => 'Voltar'), :action => 'list' %></p>
+	  	</div>
+	</div>
+</div>

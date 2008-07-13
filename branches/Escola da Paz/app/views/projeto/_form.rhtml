@@ -1,0 +1,41 @@
+<%= error_messages_for 'projeto' %>
+
+<!--[form:projeto]-->
+<p>
+	<label for="projeto_titulo">Título:</label>
+	<br/>
+	<%= text_field 'projeto', 'titulo', :size => 75, :maxlength => 255 %>
+</p>
+<p>
+	<label for="projeto_resumo">Resumo:</label>
+	<br/>
+	<%= text_area 'projeto', 'resumo', :cols => 57 %>
+</p>
+<p>
+	<label for="projeto_situacaos">Situação Problema:</label>
+	<br/>
+	<%= file_field 'projeto', 'situacaos' %>
+</p>
+<p>
+	<label for="projeto_anexos">Projeto:</label>
+	<br/>
+	<%= file_field 'projeto', 'anexos' %>
+</p>
+<p>
+	<label for="projeto_apresentacaos">Apresentação:</label>
+	<br/>
+	<%= file_field 'projeto', 'apresentacaos' %>
+</p>
+<% if @show %>
+<p>
+	<label for="projeto_user_id">Usuário:</label>
+	<br/>
+	<%= select("projeto","user_id", @users) %>
+</p>
+<% end %>
+<p>
+	<label for="projeto_area_id">Área:</label>
+	<br/>
+	<%= select("projeto","area_id", @areas) %>
+</p>
+<!--[eoform:projeto]-->

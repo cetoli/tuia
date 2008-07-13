@@ -1,0 +1,83 @@
+<div id="content">
+	<div>
+		<div class="content">
+			<h1 class="title style1">Cadastre-se na T.U.I.A</h1>
+			<br />
+			<%= error_messages_for 'user' %>
+			<% form_for :user, :url=>{:action=> "signup"} do |form| %>
+				<label for="user_nome">Nome:</label>
+				<br/>
+				<%= form.text_field "nome", :size => 50, :maxlength => 50 %>
+				<br/><br/>
+				<label for="user_datanascimento">Data de Nascimento:</label>
+				<br/>
+				<a onclick="DatePicker.toggle(document.getElementById('user_datanascimento'), this)"><% if @user.datanascimento.nil? %>Escolha a data de nascimento...<% else %><%=h short_date(@user.datanascimento) %><% end %></a>
+				<%= form.hidden_field 'datanascimento', :size => 10, :maxlength => 10 %>
+				<br/><br/>
+				<label for="user_sexo">Sexo:</label>
+				<br/>
+				<%= form.radio_button 'sexo', 'F', :checked => true %>Feminino
+				<%= form.radio_button 'sexo', 'M' %>Masculino
+				<br/><br/>
+				<label for="user_nacionalidade">Nacionalidade:</label>
+				<br/>
+				<%= form.text_field "nacionalidade", :size => 50, :maxlength => 50 %>
+				<br/><br/>
+				<label for="user_naturalidade">Naturalidade:</label>
+				<br/>
+				<%= form.text_field "naturalidade", :size => 50, :maxlength => 100 %>
+				<br/><br/>
+				<label for="user_endereco">Endereço:</label>
+				<br/>
+				<%= form.text_field "endereco", :size => 50, :maxlength => 255 %>
+				<br/><br/>
+				<label for="user_bairro">Bairro:</label>
+				<br/>
+				<%= form.text_field "bairro", :size => 50, :maxlength => 50 %>
+				<br/><br/>
+				<label for="user_cep">CEP:</label>
+				<br/>
+				<%= form.text_field "cep", :size => 10, :maxlength => 10, :onKeyPress => "return(maskEvent(this, '##.###-###',event))" %>
+				<br/><br/>
+				<label for="user_telefone">Telefone:</label>
+				<br/>
+				<%= form.text_field "telefone", :size => 13, :maxlength => 13, :onKeyPress => "return(maskEvent(this, '(##)####-####',event))" %>
+				<br/><br/>
+				<label for="user_celular">Celular:</label>
+				<br/>
+				<%= form.text_field "celular", :size => 13, :maxlength => 13, :onKeyPress => "return(maskEvent(this, '(##)####-####',event))" %>
+				<br/><br/>
+				<label for="user_email">E-mail:</label>
+				<br/>
+				<%= form.text_field "email", :size => 45, :maxlength => 45 %>
+				<br/><br/>
+				<label for="user_login">Login:</label>
+				<br/>
+				<%= form.text_field "login", :size => 10, :maxlength => 10 %>
+				<br/><br/>
+				<label for="user_senha">Senha:</label>
+				<br/>
+				<%= form.password_field "senha", :size => 10, :maxlength => 10 %>
+				<br/><br/>
+				<label for="user_senha_confirmation">Confirmar Senha:</label>
+				<br/>
+				<%= form.password_field "senha_confirmation", :size => 10, :maxlength => 10 %>
+				<br/>
+				<p>
+					<label for="user_plataforma_id">Plataformas:</label>
+					<br/>
+				<% Plataforma.find(:all, :order => :nome).each do |p| %>
+				   	<input type="checkbox" name="user[plataforma_ids][]" value="<%= p.id %>" <% if p.codigo.upcase.eql?'TUIA' %> checked="checked" <% end %> />
+					<%= p.nome %>
+					<br/>
+				<% end %>
+				</p>
+				<label for="user_cadastro_id">Cadastro:</label>
+				<br/>
+				<%= select("user","cadastro_id", @cadastros) %>
+				<br/><br/>
+				<%= submit_tag "Avançar" %>
+			<% end %>
+	  	</div>
+	</div>
+</div>
