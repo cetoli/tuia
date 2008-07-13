@@ -1,0 +1,38 @@
+<%= error_messages_for 'documento' %>
+
+<!--[form:documento]-->
+<p>
+	<label for="documento_titulo">Título:</label>
+	<br/>
+	<%= text_field 'documento', 'titulo', :size => 75, :maxlength => 255 %>
+</p>
+<p>
+	<label for="documento_resenha">Resumo traduzido:</label>
+	<br/>
+	<%= text_area 'documento', 'resenha', :cols => 57 %>
+</p>
+<p>
+	<label for="documento_resumos">Resenha:</label>
+	<br/>
+	<%= file_field 'documento', 'resumos' %>
+</p>
+<p>
+	<label for="documento_anexos">Anexo:</label>
+	<br/>
+	<%= file_field 'documento', 'anexos' %>
+</p>
+<% if @isresumo %>
+<p>
+	<label for="artigo_anexos">Artigo:</label>
+	<br/>
+	<%= file_field 'artigo', 'anexos' %>
+</p>
+<% end %>
+<% if @show %>
+<p>
+	<label for="documento_artigo_id">Artigo:</label>
+	<br/>
+	<%= select("documento","artigo_id", @artigos) %>
+</p>
+<% end %>
+<!--[eoform:documento]-->

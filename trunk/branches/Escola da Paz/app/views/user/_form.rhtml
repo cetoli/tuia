@@ -1,0 +1,102 @@
+<%= error_messages_for 'user' %>
+
+<!--[form:user]-->
+<p>
+	<label for="user_nome">Nome:</label>
+	<br/>
+	<%= text_field 'user', 'nome', :size => 50, :maxlength => 50 %>
+</p>
+<p>
+	<label for="user_datanascimento">Data de Nascimento:</label>
+	<br/>
+	<a onclick="DatePicker.toggle(document.getElementById('user_datanascimento'), this)"><% if @user.datanascimento.nil? %>Escolha a data de nascimento...<% else %><%=h short_date @user.datanascimento %><% end %></a>
+	<%= hidden_field 'user', 'datanascimento', :size => 10, :maxlength => 10 %>
+</p>
+<p>
+	<label for="user_sexo">Sexo:</label>
+	<br/>
+	<%= radio_button 'user', 'sexo', 'F', :checked => true %>Feminino
+	<%= radio_button 'user', 'sexo', 'M' %>Masculino
+</p>
+<p>
+	<label for="user_nacionalidade">Nacionalidade:</label>
+	<br/>
+	<%= text_field 'user', "nacionalidade", :size => 50, :maxlength => 50 %>
+</p>
+<p>
+	<label for="user_naturalidade">Naturalidade:</label>
+	<br/>
+	<%= text_field 'user', "naturalidade", :size => 50, :maxlength => 100 %>
+</p>
+<p>
+	<label for="user_endereco">Endereço:</label>
+	<br/>
+	<%= text_field 'user', "endereco", :size => 50, :maxlength => 255 %>
+</p>
+<p>
+	<label for="user_bairro">Bairro:</label>
+	<br/>
+	<%= text_field 'user', "bairro", :size => 50, :maxlength => 50 %>
+</p>
+<p>
+	<label for="user_cep">CEP:</label>
+	<br/>
+	<%= text_field 'user', "cep", :size => 10, :maxlength => 10, :onKeyPress => "return(maskEvent(this, '##.###-###',event))" %>
+</p>
+<p>
+	<label for="user_telefone">Telefone:</label>
+	<br/>
+	<%= text_field 'user', "telefone", :size => 13, :maxlength => 13, :onKeyPress => "return(maskEvent(this, '(##)####-####',event))" %>
+</p>
+<p>
+	<label for="user_celular">Celular:</label>
+	<br/>
+	<%= text_field 'user', "celular", :size => 13, :maxlength => 13, :onKeyPress => "return(maskEvent(this, '(##)####-####',event))" %>
+</p>
+<p>
+	<label for="user_email">E-mail:</label>
+	<br/>
+	<%= text_field 'user', 'email', :size => 45, :maxlength => 45 %>
+</p>
+<p>
+	<label for="user_login">Login:</label>
+	<br/>
+	<%= text_field 'user', 'login', :size => 10, :maxlength => 10 %>
+</p>
+<p>
+	<label for="user_senha">Senha:</label>
+	<br/>
+	<%= password_field 'user', 'senha', :size => 10, :maxlength => 10 %>
+</p>
+<p>
+	<label for="user_senha_confirmation">Confirmar Senha:</label>
+	<br/>
+	<%= password_field 'user', 'senha_confirmation', :size => 10, :maxlength => 10 %>
+</p>
+<p>
+	<label for="user_plataforma_id">Plataformas:</label>
+	<br/>
+<% Plataforma.find(:all, :order => :nome).each do |p| %>
+   	<input type="checkbox" name="user[plataforma_ids][]" value="<%= p.id %>" <% if (@user.plataformas.include?(p) || p.codigo.upcase.eql?('TUIA')) %> checked="checked" <% end %> />
+	<%= p.nome %>
+	<br/>
+<% end %>
+</p>
+<p>
+	<label for="user_perfis">Perfis:</label>
+	<br/>
+	<%= check_box 'user', 'admin' %>
+	<label for="user_admin">Administrador</label>
+	<br/>
+<% Role.find(:all, :order => :nome).each do |r| %>
+   	<input type="checkbox" name="user[role_ids][]" value="<%= r.id %>" <% if @user.roles.include?(r) %> checked="checked" <% end %> />
+	<%= r.nome %>
+	<br/>
+<% end %>
+</p>
+<p>
+	<label for="user_cadastro_id">Cadastro:</label>
+	<br/>
+	<%= select("user","cadastro_id", @cadastros) %>
+</p>
+<!--[eoform:user]-->
