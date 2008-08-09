@@ -1,0 +1,14 @@
+<%= error_messages_for 'modelo' %>
+
+<!--[form:modelo]-->
+<p>
+	<label for="modelo_titulo">Título:</label>
+	<br/>
+	<%= text_field 'modelo', 'titulo', :size => 75, :maxlength => 255 %>
+</p>
+<p>
+	<label for="modelo_anexos">Arquivo:</label>
+	<br/>
+	<%= file_field 'modelo', 'anexos' %>
+</p>
+<!--[eoform:modelo]-->
