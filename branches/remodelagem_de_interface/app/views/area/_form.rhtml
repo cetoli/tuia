@@ -1,0 +1,18 @@
+<%= error_messages_for 'area' %>
+
+<!--[form:area]-->
+<p><label for="area_codigo">Código:</label><br/>
+<%= text_field 'area', 'codigo', :size => 5, :maxlength => 5 %></p>
+
+<p><label for="area_nome">Nome:</label><br/>
+<%= text_field 'area', 'nome', :size => 50, :maxlength => 50 %></p>
+
+<p><%= check_box 'area', 'artigo' %>
+<label for="area_artigo">Artigo</label></p>
+
+<p><%= check_box 'area', 'projeto' %>
+<label for="area_projeto">Projeto</label></p>
+
+<p><%= check_box 'area', 'seminario' %>
+<label for="area_seminario">Seminário</label></p>
+<!--[eoform:area]-->

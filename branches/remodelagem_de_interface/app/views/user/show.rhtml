@@ -1,0 +1,92 @@
+<div id="content">
+	<div>
+		<div class="content">
+			<h1 class="title style1">Propriedades do Usuário</h1>
+			<br/>
+			<b>Nome:</b> <%=h @user.send('nome') %>
+			<br/>
+			<b>Data de nascimento:</b> <%=h short_date @user.send('datanascimento') %>
+			<br/>
+			<b>Sexo:</b> <%=h @user.send('sexo').upcase.eql?('F') ? 'Feminino' : 'Masculino' %>
+			<br/>
+			<b>Nacionalidade:</b> <%=h @user.send('nacionalidade') %>
+			<br/>
+			<b>Naturalidade:</b> <%=h @user.send('naturalidade') %>
+			<br/>
+			<b>Endereço:</b> <%=h @user.send('endereco') %>
+			<br/>
+			<b>Bairro:</b> <%=h @user.send('bairro') %>
+			<br/>
+			<b>CEP:</b> <%=h @user.send('cep') %>
+			<br/>
+			<b>Telefone:</b> <%=h @user.send('telefone') %>
+			<br/>
+			<b>Celular:</b> <%=h @user.send('celular') %>
+			<br/>
+			<b>E-mail:</b> <%=h @user.send('email') %>
+			<br/>
+			<b>Login:</b> <%=h @user.send('login') %>
+			<br/>
+			<b>Plataformas:</b>
+			<br/>
+			<% @user.plataformas.each do |p| %>
+				<%=h p.nome %>
+				<br/>
+			<% end %>
+			<b>Tipo de Cadastro:</b> <%=h @user.cadastro.send('nome') %>
+			<br/>
+			<b>Categoria:</b> <%=h @dadoAcademico.escolaridade.send('nome') %>
+			<br/>
+			<b>Turma:</b> <%=h @dadoAcademico.turma.send('nome') %>
+			<br/>
+			<b>Instituição:</b> <%=h @dadoAcademico.send('instituicao') %>
+			<br/>
+			<b>Matrícula:</b> <%=h @dadoAcademico.send('matricula') %>
+			<br/>
+			<b>Especialidade:</b> <%=h @dadoAcademico.send('especialidade') %>
+			<br/>
+			<b>Período:</b> <%=h @dadoAcademico.send('periodo') %>
+			<br/>
+			<b>Data de Início:</b> <%=h short_date @dadoAcademico.send('datainicio') %>
+			<br/>
+			<b>Data de Término:</b> <%=h short_date @dadoAcademico.send('datatermino') %>
+			<br/>
+			<b>Título da Pesquisa:</b> <%=h @dadoAcademico.send('titulo') %>
+			<br/>
+			<b>Horário:</b> <%=h @dadoAcademico.send('horario') %>
+			<br/>
+			<b>Orientador Externo:</b> <%=h @dadoAcademico.send('orientadorexterno') %>
+			<br/>
+			<b>Orientador Interno:</b> <%=h @dadoAcademico.send('orientadorinterno') %>
+			<br/>
+			<b>Áreas de Interesse:</b>
+			<br/>
+			<% @dadoAcademico.area_interesses.each do |ai| %>
+				- <%= ai.nome %>
+				<br/>
+			<% end %>
+			<b>Linhas de Pesquisa:</b>
+			<br/>
+			<% @dadoAcademico.linha_pesquisas.each do |lp| %>
+				<img src="<%=h url_for(:controller => :linha_pesquisa, :action => 'showLinhaPesquisa', :id => lp) %>" width="10%" align="center"/> <%= lp.nome %>
+				<br/>
+			<% end %>
+			<b>Administrador:</b> <%=h @user.send('admin') ? 'Sim' : '-' %>
+			<br/>
+			<b>Perfis:</b>
+			<br/>
+			<% @user.roles.each do |r| %>
+				<%=h r.nome %>
+				<br/>
+			<% end %>
+			<b>Aprovado:</b> <%=h @user.send('aprovado') ? 'Sim' : '-' %>
+			<br/>
+			<p ><% unless @user.send('aprovado') %>
+				<%= link_to image_tag("ok.gif", :border => 0, :alt => 'Aprovar'), { :action => 'aprovar', :id => @user }, :method => "post" %> | 
+				<% end %>
+				<%= link_to image_tag("ed.png", :border => 0, :alt => 'Editar'), :action => 'edit', :id => @user %> | 
+				<%= link_to image_tag("goBack.gif", :border => 0, :alt => 'Voltar'), :action => 'list' %>
+			</p>
+	  	</div>
+	</div>
+</div>

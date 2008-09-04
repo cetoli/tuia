@@ -1,0 +1,105 @@
+<div id="content">
+	<div>
+		<div class="content">
+			<h1 class="title style1">Bem-vindo à Plataforma TUIA</h1>
+			<p>
+				<table>
+					<tr>
+						<td><%= link_to image_tag("mudaSenha.jpg", :border => 0, :width => 50, :height => 50, :alt => 'Alterar Senha'), {:action => 'change_password'} %></td>
+						<td><%= link_to "Alterar Senha", :controller => "user", :action => "change_password" %></td>
+					</tr>
+					<tr>
+						<td><%= link_to image_tag("docs.gif", :border => 0, :width => 50, :height => 50, :alt => 'Resenhas de Artigos'), {:controller => "area", :action => 'listar', :id => 'doc'} %></td>
+						<td><%= link_to "Criar Resenhas de Artigos", :controller => "area", :action => "listar", :id => 'doc' %></td>
+					</tr>
+					<tr>
+						<td><%= link_to image_tag("docs.gif", :border => 0, :width => 50, :height => 50, :alt => 'Seminários'), {:controller => "area", :action => 'listar', :id => 'sem'} %></td>
+						<td><%= link_to "Criar Seminários", :controller => "area", :action => "listar", :id => 'sem' %></td>
+					</tr>
+					<tr>
+						<td><%= link_to image_tag("docs.gif", :border => 0, :width => 50, :height => 50, :alt => 'Projetos'), {:controller => "area", :action => 'listar', :id => 'prj'} %></td>
+						<td><%= link_to "Criar Projetos", :controller => "area", :action => "listar", :id => 'prj' %></td>
+					</tr>
+					<tr>
+						<td><%= link_to image_tag("script.gif", :border => 0, :width => 50, :height => 50, :alt => 'Artigos'), {:controller => "artigo", :action => 'listar'} %></td>
+						<td><%= link_to "Escolher Artigos", :controller => "artigo", :action => "listar" %></td>
+					</tr>
+					<tr>
+						<td><%= link_to image_tag("docs.gif", :border => 0, :width => 50, :height => 50, :alt => 'Biblioteca'), {:controller => 'livro', :action => 'list'} %></td>
+						<td><%= link_to "Verificar Livros", :controller => 'livro', :action => 'list' %></td>
+					</tr>
+					<tr>
+						<td><%= link_to image_tag("artigos.png", :border => 0, :width => 50, :height => 50, :alt => 'Manuais'), {:controller => "manual", :action => 'list'} %></td>
+						<td><%= link_to "Verificar Manuais", :controller => "manual", :action => "list" %></td>
+					</tr>
+					<tr>
+						<td><%= link_to image_tag("artigos.png", :border => 0, :width => 50, :height => 50, :alt => 'Modelos de Documentos'), {:controller => "modelo", :action => 'list'} %></td>
+						<td><%= link_to "Verificar Modelos de Documentos", :controller => "modelo", :action => "list" %></td>
+					</tr>
+				<% if session[:user].admin %>
+					<tr>
+						<td><%= link_to image_tag("listUsers.jpg", :border => 0, :width => 50, :height => 50, :alt => 'Usuários'), {:action => 'list'} %></td>
+						<td><%= link_to "Verificar Usuários", :controller => "user", :action => "list" %></td>
+					</tr>
+					<tr>
+						<td><%= link_to image_tag("listArea.png", :border => 0, :width => 50, :height => 50, :alt => 'Áreas'), {:controller => "area", :action => 'list'} %></td>
+						<td><%= link_to "Verificar Áreas", :controller => "area", :action => "list" %></td>
+					</tr>
+					<tr>
+						<td><%= link_to image_tag("tutorials.png", :border => 0, :width => 50, :height => 50, :alt => 'Verificar Resenhas de Artigos'), {:controller => "documento", :action => 'list'} %></td>
+						<td><%= link_to "Verificar Resenhas de Artigos", :controller => "documento", :action => "list" %></td>
+					</tr>
+					<tr>
+						<td><%= link_to image_tag("tutorials.png", :border => 0, :width => 50, :height => 50, :alt => 'Verificar Seminários'), {:controller => "seminario", :action => 'list'} %></td>
+						<td><%= link_to "Verificar Seminários", :controller => "seminario", :action => "list" %></td>
+					</tr>
+					<tr>
+						<td><%= link_to image_tag("tutorials.png", :border => 0, :width => 50, :height => 50, :alt => 'Verificar Projetos'), {:controller => "projeto", :action => 'list'} %></td>
+						<td><%= link_to "Verificar Projetos", :controller => "projeto", :action => "list" %></td>
+					</tr>
+					<tr>
+						<td><%= link_to image_tag("artigos.png", :border => 0, :width => 50, :height => 50, :alt => 'Artigos'), {:controller => "artigo", :action => 'list'} %></td>
+						<td><%= link_to "Verificar Artigos", :controller => "artigo", :action => "list" %></td>
+					</tr>
+					<tr>
+						<td><%= link_to image_tag("modelProva.gif", :border => 0, :width => 50, :height => 50, :alt => 'Modelos de Prova'), {:controller => "modeloprova", :action => 'list'} %></td>
+						<td><%= link_to "Verificar Modelos de Prova", :controller => "modeloprova", :action => "list" %></td>
+					</tr>
+					<tr>
+						<td><%= link_to image_tag("perfis.jpg", :border => 0, :width => 50, :height => 50, :alt => 'Perfis'), {:controller => "role", :action => 'list'} %></td>
+						<td><%= link_to "Verificar Perfis", :controller => "role", :action => "list" %></td>
+					</tr>
+					<tr>
+						<td><%= link_to image_tag("tutorials.png", :border => 0, :width => 50, :height => 50, :alt => 'Turmas'), {:controller => "turma", :action => 'list'} %></td>
+						<td><%= link_to "Verificar Turmas", :controller => "turma", :action => "list" %></td>
+					</tr>
+					<tr>
+						<td><%= link_to image_tag("tutorials.png", :border => 0, :width => 50, :height => 50, :alt => 'Tipos de Cadastro'), {:controller => "cadastro", :action => 'list'} %></td>
+						<td><%= link_to "Verificar Tipos de Cadastro", :controller => "cadastro", :action => "list" %></td>
+					</tr>
+					<tr>
+						<td><%= link_to image_tag("tutorials.png", :border => 0, :width => 50, :height => 50, :alt => 'Plataformas'), {:controller => "plataforma", :action => 'list'} %></td>
+						<td><%= link_to "Verificar Plataformas", :controller => "plataforma", :action => "list" %></td>
+					</tr>
+					<tr>
+						<td><%= link_to image_tag("tutorials.png", :border => 0, :width => 50, :height => 50, :alt => 'Escolaridades'), {:controller => "escolaridade", :action => 'list'} %></td>
+						<td><%= link_to "Verificar Escolaridades", :controller => "escolaridade", :action => "list" %></td>
+					</tr>
+					<tr>
+						<td><%= link_to image_tag("tutorials.png", :border => 0, :width => 50, :height => 50, :alt => 'Áreas de Interesse'), {:controller => "area_interess", :action => 'list'} %></td>
+						<td><%= link_to "Verificar Áreas de Interesse", :controller => "area_interess", :action => "list" %></td>
+					</tr>
+					<tr>
+						<td><%= link_to image_tag("tutorials.png", :border => 0, :width => 50, :height => 50, :alt => 'Linhas de Pesquisa'), {:controller => "linha_pesquisa", :action => 'list'} %></td>
+						<td><%= link_to "Verificar Linhas de Pesquisa", :controller => "linha_pesquisa", :action => "list" %></td>
+					</tr>
+				<% end %>
+					<tr>
+						<td><%= link_to image_tag("Close.jpg", :border => 0, :alt => 'Sair'), {:action => 'logout'}, :method => "post" %></td>
+						<td><%= link_to "Sair", {:controller => "user", :action => "logout"}, :method => "post" %></td>
+					</tr>
+				</table>
+			</p>
+	  	</div>
+	</div>
+</div>

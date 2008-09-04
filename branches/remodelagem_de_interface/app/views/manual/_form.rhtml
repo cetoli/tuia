@@ -1,0 +1,14 @@
+<%= error_messages_for 'manual' %>
+
+<!--[form:artigo]-->
+<p>
+	<label for="manual_titulo">Título:</label>
+	<br/>
+	<%= text_field 'manual', 'titulo', :size => 75, :maxlength => 255 %>
+</p>
+<p>
+	<label for="manual_anexos">Arquivo:</label>
+	<br/>
+	<%= file_field 'manual', 'anexos' %>
+</p>
+<!--[eoform:artigo]-->

@@ -1,0 +1,33 @@
+<div id="content">
+	<div>
+		<div class="content">
+			<h1 class="title style1">Lista de Artigos</h1>
+			<br />
+			<table border>
+				<tr align="center">
+					<th>Nome</th>
+					<th>Escolher</th>
+				</tr>
+				<% for artigo in @artigos %>
+				<tr align="center">
+					<td><% if artigo.isresumo %>
+						<%= link_to artigo.nome, { :controller => "artigo", :action => 'getResumo', :id => artigo }, :method => "post" %>
+						<% else %>
+						<%= link_to artigo.nome, { :controller => "artigo", :action => 'getArtigo', :id => artigo }, :method => "post" %>
+						<% end %>
+					</td>
+					<td><%= link_to image_tag("ok.gif", :border => 0, :alt => 'Selecionar'), { :controller => "artigo", :action => 'novo', :id => artigo, :nome => artigo.nome }, :method => "post" %></td>
+				</tr>
+				<% end %>
+			</table>
+			<p>
+				<%= link_to image_tag("PreviousPage.gif", :border => 0, :alt => 'Anterior'), { :page => @artigo_pages.current.previous } if @artigo_pages.current.previous %>
+				<% for page in @artigo_pages %>
+				    &nbsp;<%= link_to_unless(params[:page].to_i == page.number, page.number, {:params => params.merge('page' => page)}) %>&nbsp;
+				<% end -%>
+				<%= link_to image_tag("NextPage.gif", :border => 0, :alt => 'Próxima'), { :page => @artigo_pages.current.next } if @artigo_pages.current.next %>
+			</p>
+			<p><%= link_to image_tag("goBack.gif", :border => 0, :alt => 'Voltar'), {:controller => "user", :action => 'welcome'} %></p>
+	  	</div>
+	</div>
+</div>
