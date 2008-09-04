@@ -1,0 +1,2 @@
+module DadoAcademicoHelper
+end

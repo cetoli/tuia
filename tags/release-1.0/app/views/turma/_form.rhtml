@@ -1,0 +1,17 @@
+<%= error_messages_for 'turma' %>
+
+<!--[form:turma]-->
+<p><label for="turma_codigo">Código:</label><br/>
+<%= text_field 'turma', 'codigo', :size => 10, :maxlength => 10 %></p>
+
+<p><label for="turma_nome">Nome:</label><br/>
+<%= text_field 'turma', 'nome', :size => 50, :maxlength => 50 %></p>
+
+<p><label for="turma_datainicio">Data de Início:</label><br/>
+<a onclick="DatePicker.toggle(document.getElementById('turma_datainicio'), this)"><% if @turma.datainicio.nil? %>Escolha a data de início...<% else %><%=h short_date @turma.datainicio %><% end %></a>
+<%= hidden_field 'turma', 'datainicio', :size => 10, :maxlength => 10 %></p>
+
+<p><label for="turma_datatermino">Data de Término:</label><br/>
+<a onclick="DatePicker.toggle(document.getElementById('turma_datatermino'), this)"><% if @turma.datatermino.nil? %>Escolha a data de término...<% else %><%=h short_date @turma.datatermino %><% end %></a>
+<%= hidden_field 'turma', 'datatermino', :size => 10, :maxlength => 10 %></p>
+<!--[eoform:turma]-->

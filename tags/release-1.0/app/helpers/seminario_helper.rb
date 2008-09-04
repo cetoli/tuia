@@ -1,0 +1,2 @@
+module SeminarioHelper
+end

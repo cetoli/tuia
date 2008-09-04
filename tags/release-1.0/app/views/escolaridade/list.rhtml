@@ -1,0 +1,32 @@
+<div id="content">
+	<div>
+		<div class="content">
+			<h1 class="title style1">Lista de Escolaridades</h1>
+			<br />
+			<table border>
+				<tr align="center">
+					<th>Código</th>
+					<th>Nome</th>
+					<th colspan="3">Comandos</th>
+				</tr>
+				<% for escolaridade in @escolaridades %>
+				<tr align="center">
+					<td><%=h escolaridade.codigo %></td>
+					<td><%=h escolaridade.nome %></td>
+					<td><%= link_to image_tag("opn.png", :border => 0, :alt => 'Mostrar'), :action => 'show', :id => escolaridade %></td>
+					<td><%= link_to image_tag("ed.png", :border => 0, :alt => 'Editar'), :action => 'edit', :id => escolaridade %></td>
+					<td><%= link_to image_tag("del.png", :border => 0, :alt => 'Apagar'), { :action => 'destroy', :id => escolaridade }, :confirm => 'Tem certeza que deseja excluir esta escolaridade?', :method => "post" %></td>
+				</tr>
+				<% end %>
+			</table>
+			<p>
+				<%= link_to image_tag("PreviousPage.gif", :border => 0, :alt => 'Anterior'), { :page => @escolaridade_pages.current.previous } if @escolaridade_pages.current.previous %>
+				<% for page in @escolaridade_pages %>
+				    &nbsp;<%= link_to_unless(params[:page].to_i == page.number, page.number, {:params => params.merge('page' => page)}) %>&nbsp;
+				<% end -%>
+				<%= link_to image_tag("NextPage.gif", :border => 0, :alt => 'Próxima'), { :page => @escolaridade_pages.current.next } if @escolaridade_pages.current.next %>
+			</p>
+			<p><%= link_to image_tag("add.png", :border => 0, :alt => 'Adicionar escolaridade'), {:action => 'new'} %> | <%= link_to image_tag("goBack.gif", :border => 0, :alt => 'Voltar'), {:controller => "user", :action => 'welcome'} %></p>
+	  	</div>
+	</div>
+</div>

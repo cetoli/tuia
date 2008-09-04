@@ -1,0 +1,186 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta HTTP-EQUIV="REFRESH" CONTENT="1; URL=http://tuia.nce.ufrj.br/">
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>Plataforma TUIA</title>
+<!-- TemplateEndEditable -->
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link href="../default.css" rel="stylesheet" type="text/css" />
+
+<!-- TemplateBeginEditable name="head" --><!-- TemplateEndEditable -->
+
+</head>
+<body>
+<div id="header">
+	<div id="logo">
+		<h1><a href="http://">&nbsp;&nbsp; T&nbsp;U&nbsp;I&nbsp;A</a></h1>
+		<h2 align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Plataforma TUIA</h2>
+	</div>
+	
+	<div id="topmenu">
+		<ul><!-- TemplateBeginEditable name="EmailSenha" -->
+			<li class="first"><span class="style4">E-mail:</span> 
+			  <label>
+			  <input name="textfield" type="text" size="10" maxlength="20" />
+			  </label>
+			</li>
+			
+			<li class="first"><span class="style4">Senha:</span> 
+			  <label>
+			  <input name="textfield" type="password" size="8" maxlength="8" />
+			  </label>
+			</li>
+			
+			<li class="style4"><a href="http://">Fale conosco</a></li>
+			<!-- TemplateEndEditable -->
+		</ul>
+  </div>
+</div>
+<div id="header2">
+   <div id="menu"><!-- TemplateBeginEditable name="MenuCabecalho" -->
+		<ul>
+			<li class="first"><a href="http://www.abrapabr.org.br/plataformas/tuia/index.html" target="_self">Início</a></li>
+			<li><a href="http://">Novo usuário </a></li>
+			<li><a href="http://">Cursos oferecidos </a></li>
+			<li><a href="http://">Lembrar minha senha </a></li>
+			<li><a href="http://">Artigos </a></li>			
+			<li><a href="http://">Sobre a TUIA </a></li>
+	  </ul><!-- TemplateEndEditable -->
+  </div>
+	<div id="splash"><a href="http://www.abrapabr.org.br/plataformas/tuia/index.html" target="_blank"><img src="../images/flor_cabec.jpg" alt="" width="560" height="200" border="0" /></a></div>
+</div>
+
+<hr />
+
+<div id="page">
+  
+  <!-- TemplateBeginEditable name="Corpo" -->
+	<div id="content">
+		<div>
+			
+			<div class="content">
+			  <h1 class="title style5">Título </h1>
+				<p><strong>Palavra em destaque na prime ira linha  </strong> texto restante.</p>
+			
+	
+			     <blockquote>
+			  <p align="justify">texto</p>
+			  </blockquote>					
+		  </div>
+		</div>
+	</div>
+<!-- TemplateEndEditable -->	
+	<div id="sidebar">
+		<ul>
+			
+				
+				<ul>
+					<li class="first">
+					  <div align="center"><a href="http://www.unicrio.org.br/" target="_self"><img src="../images/logo_ONU.jpg" alt="" width="138" height="132" border="0" /></a></div>
+					</li>
+					<li class="first">
+					  <div align="center"><a href="http://www.fiocruz.br" target="_self"><img src="../images/Fiocruz3.gif" alt="" width="138" height="150" border="0" /></a></div>
+					</li>
+					<li>
+					  <div align="center"><a href="http://www.ufrj.br/" target="_self"><img src="../images/ufrj.jpg" alt="" width="138" height="215" border="0" /></a></div>
+					</li>					
+					<li>
+					  <div align="center"><a href="http://www.nce.ufrj.br/" target="_self"><img src="../images/logo_nce.jpg" alt="" width="138" height="73" border="0" /></a></div>
+					</li>
+					<li>
+					  <div align="center"><a href="http://www.eba.ufrj.br/" target="_self"><img src="../images/eba.jpg" alt="" width="138" height="82" border="0" /></a></div>
+				  </li>                    
+					<li>
+					  <div align="center"><a href="http://www.abic.com.br/prog_merenda.html" target="_self"><img src="../images/logo_merenda.gif" alt="" width="136" height="138" border="0" /></a></div>
+					</li>					
+					<li>
+					  <div align="center"><a href="http://www.abrapabr.org.br/plataformas/neurolog/index.html" target="_self"><img src="../images/logo_neurolog.jpg" alt="" width="138" height="79" border="0" /></a></div>
+					</li>
+										
+					<li>
+					  <div align="center"><a href="http://labase.nce.ufrj.br/" target="_self"><img src="../images/labase_logo.jpg" alt="" width="138" height="74" border="0" /></a></div>
+					</li>
+					<li>
+					  <div align="center"><a href="http://www.rio.rj.gov.br/sme/" target="_self"><img src="../images/sme2.gif" alt="" width="138" height="51" border="0" /></a></div>
+					</li>	
+     					  	
+     				<li><div align="center"><a href="http://www.ibc.gov.br" target="_self"><img src="../images/logo_IBC.gif" width="138" height="138" border="0" /></a></div>
+     				</li>	
+					
+					<li><div align="center"><a href="http://www.ines.org.br" target="_self"><img src="../images/logo_ines.gif" width="138" height="121" border="0" /></a></div>
+     				</li>			
+					
+					
+															
+					<li>
+					  <div align="center"><a href="http://www.abrapabr.org.br/plataformas/abrapa/index.html" target="_self"><img src="../images/logo_abrapa.jpg" alt="" width="138" height="147" border="0" /></a></div>
+					</li>
+					
+					<li>
+					  <div align="center"><a href="http://www.abrapabr.org.br/plataformas/esgrima/index.html" target="_self"><img src="../images/plataforma_ESGRIMA138.jpg" alt="" width="138" height="119" border="0" /></a></div>
+					</li>
+					
+					<li>
+					  <div align="center"><a href="http://www.abrapabr.org.br/plataformas/ouro/index.html" target="_self"><img src="../images/Plataforma_ouro_nova.gif" alt="" width="138" height="119" border="0" /></a></div>
+					</li>
+					
+					<li>
+					  <div align="center"><a href="http://www.abrapabr.org.br/plataformas/cristaal/index.html" target="_self"><img src="../images/logoPlataforma2.jpg" alt="" width="138" height="119" border="0" /></a></div>
+					</li>
+					<li>
+					  <div align="center"><a href="http://www.abrapabr.org.br/plataformas/ibc/index.html" target="_self"><img src="../images/Plataforma_IBC.jpg" alt="" width="138" height="119" border="0" /></a></div>
+					</li>
+					<li>
+					  <div align="center"><a href="http://www.abrapabr.org.br/plataformas/ines/index.html" target="_self"><img src="../images/plataforma_INES.jpg" alt="" width="138" height="119" border="0" /></a></div>
+					</li>
+					<li>
+					  <div align="center"><a href="http://www.abrapabr.org.br/plataformas/paz/index.html" target="_self"><img src="../images/SALAdaPAZ138.jpg" alt="" width="138" height="119" border="0" /></a></div>
+					</li>
+					<li>
+					  <div align="center"><a href="http://www.abrapabr.org.br/plataformas/neurolab/index2.html" target="_self"><img src="../images/logo_neurolab_ibc.jpg" alt="" width="137" height="185" border="0" /></a></div>
+				  </li>
+					<li>
+					  <div align="center"><a href="http://www.abrapabr.org.br/plataformas/neurolab/index.html" target="_self"><img src="../images/logo_neurolab_ines.jpg" alt="" width="137" height="184" border="0" /></a></div>
+					</li>
+                    																														
+				 
+               </ul>
+              
+			
+				<li>
+				<h2>Links</h2>
+				<ul>
+       				<li><a href='http://www.unicrio.org.br/' target="_self">ONU</a></li>
+        			<li><a href='http://www.ufrj.br/' target="_self">UFRJ</a></li>
+					<li><a href='http://www.nce.ufrj.br/' target="_self">NCE</a></li>
+       			 	<li><a href='http://labase.nce.ufrj.br/' target="_self">LABASE</a></li>
+       			 	<li><a href='http://www.abrapabr.org.br/plataformas/neurolog/index.html' target="_self">Neurolog REDE</a></li>                    
+		 			<li><a href='http://www.fiocruz.br/' target="_self">FIOCRUZ</a></li>
+		  			<li><a href='http://www.rio.rj.gov.br/sme/' target="_self">SME-RJ</a></li>
+        			<li><a href='http://www.abrapabr.org.br/plataformas/cristaal/index.html' target="_self">Plataforma CRISTAAL</a></li>
+       
+					<li><a href='http://www.abrapabr.org.br/plataformas/esgrima/index.html' target="_self">Plataforma EsGRIMA</a></li>
+					<li><a href='http://www.abrapabr.org.br/plataformas/ouro/index.html' target="_self">Plataforma OURO</a></li>		  
+        			<li><a href='http://www.abrapabr.org.br/plataformas/ibc/index.html' target="_self">Plataforma IBC</a></li>
+       				<li><a href='http://www.abrapabr.org.br/plataformas/ines/index.html' target="_self">Plataforma INES</a></li>
+        			<li><a href='http://www.abrapabr.org.br/plataformas/neurolab/index2.html' target="_self">Neurolab IBC</a></li>
+       				<li><a href='http://www.abrapabr.org.br/plataformas/neurolab/index.html' target="_self">Neurolab INES</a></li>
+
+       				<li><a href='http://www.abrapabr.org.br/plataformas/paz/index.html' target="_self">Sala da PAZ</a></li>	
+				</ul>
+              </li>
+			
+         
+	  </ul>
+      
+  </div>
+	<div class="style8" id="sidebar">@ Plataforma TUIA 2007-2008</div>
+</div>
+<hr/>
+
+</body>
+</html>

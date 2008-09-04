@@ -1,0 +1,11 @@
+<%= error_messages_for 'cadastro' %>
+
+<!--[form:cadastro]-->
+<p><label for="cadastro_codigo">Código:</label><br/>
+<%= text_field 'cadastro', 'codigo', :size => 10, :maxlength => 10 %></p>
+
+<p><label for="cadastro_nome">Nome:</label><br/>
+<%= text_field 'cadastro', 'nome', :size => 50, :maxlength => 50 %></p>
+
+<p><%= check_box 'cadastro', 'leitura' %><label for="cadastro_leitura">Somente Leitura</label></p>
+<!--[eoform:cadastro]-->
