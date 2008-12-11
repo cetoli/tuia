@@ -4,8 +4,8 @@
 			<h1 class="title style1">Editar Projeto</h1>
 			<br/>
 			<% form_tag({:action => 'update', :id => @projeto}, :multipart => true) do %>
-			  <%= render :partial => 'form' %>
-			  <%= submit_tag 'Alterar' %>
+				<%= render :partial => 'form' %>
+				<%= submit_tag 'Alterar' %>
 			<% end %>
 			<br/>
 			<%= link_to image_tag("opn.png", :border => 0, :alt => 'Mostrar'), :action => 'show', :id => @projeto %> | <%= link_to image_tag("goBack.gif", :border => 0, :alt => 'Voltar'), :action => 'list' %>

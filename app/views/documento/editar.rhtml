@@ -3,9 +3,9 @@
 		<div class="content">
 			<h1 class="title style1">Editar Resenha de Artigo</h1>
 			<br/>
-			<% form_tag({:action => 'updateUsr', :id => @documento, :area => @area }, :multipart => true) do %>
-			  <%= render :partial => 'formUsr' %>
-			  <%= submit_tag 'Alterar' %>
+			<% form_tag({:action => 'updateUsr', :id => @documento, :area => @area}, :multipart => true) do %>
+				<%= render :partial => 'formUsr' %>
+				<%= submit_tag 'Alterar' %>
 			<% end %>
 			<br/>
 			<%= link_to image_tag("opn.png", :border => 0, :alt => 'Mostrar'), { :action => 'mostrar', :id => @documento, :area => @area }, :method => "post" %> | <%= link_to image_tag("goBack.gif", :border => 0, :alt => 'Voltar'), { :action => 'getDocsArea', :id => @documento.area, :area => @area }, :method => "post" %>
