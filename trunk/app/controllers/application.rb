@@ -3,7 +3,7 @@
 
 class ApplicationController < ActionController::Base
   # Pick a unique cookie name to distinguish our session data from others'
-  session :session_key => '_Tuia_session_id'
+  session :session_key => '_Tuia_session_id', :secret => "some secret phrase of at least 30 characters"
 
   def login_required
     if session[:user]

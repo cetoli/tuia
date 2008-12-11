@@ -4,8 +4,8 @@
 			<h1 class="title style1">Aprovar Usuário</h1>
 			<br/>
 			<% form_tag :action => 'doAprove', :id => @user do %>
-			  <%= render :partial => 'formUsr' %>
-			  <%= submit_tag 'Aprovar' %>
+				<%= render :partial => 'formUsr' %>
+				<%= submit_tag 'Aprovar' %>
 			<% end %>
 			<br/>
 			<%= link_to image_tag("goBack.gif", :border => 0, :alt => 'Voltar'), :action => 'show', :id => @user %>

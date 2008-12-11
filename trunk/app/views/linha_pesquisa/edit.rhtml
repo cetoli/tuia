@@ -4,8 +4,8 @@
 			<h1 class="title style1">Editar Linha de Pesquisa</h1>
 			<br/>
 			<% form_tag({:action => 'update', :id => @linhaPesquisa}, :multipart => true) do %>
-			  <%= render :partial => 'form' %>
-			  <%= submit_tag 'Alterar' %>
+				<%= render :partial => 'form' %>
+				<%= submit_tag 'Alterar' %>
 			<% end %>
 			<br/>
 			<%= link_to image_tag("opn.png", :border => 0, :alt => 'Mostrar'), :action => 'show', :id => @linhaPesquisa %> | <%= link_to image_tag("goBack.gif", :border => 0, :alt => 'Voltar'), :action => 'list' %>
