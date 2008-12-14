@@ -36,6 +36,10 @@
 						<td><%= link_to image_tag("artigos.png", :border => 0, :width => 50, :height => 50, :alt => 'Modelos de Documentos'), {:controller => "modelo", :action => 'list'} %></td>
 						<td><%= link_to "Verificar Modelos de Documentos", :controller => "modelo", :action => "list" %></td>
 					</tr>
+					<tr>
+						<td><%= link_to image_tag("docs.gif", :border => 0, :width => 50, :height => 50, :alt => 'Questionários'), {:controller => "questionario", :action => 'list'} %></td>
+						<td><%= link_to "Verificar Questionários", :controller => "questionario", :action => "list" %></td>
+					</tr>
 				<% if session[:user].admin %>
 					<tr>
 						<td><%= link_to image_tag("listUsers.jpg", :border => 0, :width => 50, :height => 50, :alt => 'Usuários'), {:action => 'list'} %></td>
@@ -92,6 +96,10 @@
 					<tr>
 						<td><%= link_to image_tag("tutorials.png", :border => 0, :width => 50, :height => 50, :alt => 'Linhas de Pesquisa'), {:controller => "linha_pesquisa", :action => 'list'} %></td>
 						<td><%= link_to "Verificar Linhas de Pesquisa", :controller => "linha_pesquisa", :action => "list" %></td>
+					</tr>
+					<tr>
+						<td><%= link_to image_tag("tutorials.png", :border => 0, :width => 50, :height => 50, :alt => 'Reativar Questionários'), {:controller => "questionario", :action => 'listar'} %></td>
+						<td><%= link_to "Reativar Questionários", :controller => "questionario", :action => "listar" %></td>
 					</tr>
 				<% end %>
 					<tr>
