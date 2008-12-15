@@ -3,11 +3,17 @@ class QuestionarioController < ApplicationController
   include Smerf
 
   before_filter :login_required, :set_charset
-  before_filter :is_admin, :only => ['new', 'deactivate', 'listar', 'activate']
+  before_filter :is_admin, :only => ['new', 'deactivate', 'listar', 'activate', 'getResponses']
 
   # GETs should be safe (see http://www.w3.org/2001/tag/doc/whenToUseGet.html)
-  verify :method => :post, :only => [ :deactivate, :create, :activate ],
+  verify :method => :post, :only => [ :deactivate, :create, :activate, :getResponses ],
          :redirect_to => { :action => :list }
+
+  def getResponses
+    @user = params[:name]
+    self.smerf_user_id = params[:id].to_i
+    @smerfForm_pages, @smerfForms = paginate :smerfForms, :per_page => numberOfPages, :conditions => ['active = :active', {:active => 1}], :order => "name"
+  end
 
   def list
     self.smerf_user_id = current_user.id
