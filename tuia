@@ -1,0 +1,3 @@
+#! /bin/sh
+cd /opt/www/tuia
+sudo ruby script/server --port=1082 1>>/opt/www/tuia/log/out.log 2>>/opt/www/tuia/log/err.log &
