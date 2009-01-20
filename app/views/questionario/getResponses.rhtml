@@ -9,7 +9,7 @@
 				</tr>
 				<% for smerfForm in @smerfForms %>
 				<tr align="center">
-					<td><%= link_to(smerfForm.name, smerf_form_url(smerfForm.code), :target => '_blank') %></td>
+					<td><%= link_to(smerfForm.name, smerf_form_url(smerfForm.code) + '?show=true', :popup => true) %></td>
 				</tr>
 				<% end %>
 			</table>
