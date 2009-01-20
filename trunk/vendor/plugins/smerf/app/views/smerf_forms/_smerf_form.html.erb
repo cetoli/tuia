@@ -18,12 +18,12 @@
   <% end %>
   <!-- Display form thank you -->
   <%= smerf_thank_you() %>
+  <% unless @show %>
   <!-- Add save button -->
   <div class="submit">
     <p>
     <%= submit_tag 'Press to Save your answers', :disable_with => "Saving&hellip;" %>
-    </p>                        
-  </div> 
+    </p>
+  </div>
+  <% end %>
   <%= hidden_field_tag("smerf_form_id", @smerfform.id) %>
-
-  

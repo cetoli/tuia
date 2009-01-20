@@ -35,6 +35,7 @@ class SmerfFormsController < ApplicationController
     # Retrieve the smerf form record, rebuild if required, also
     # retrieve the responses to this form if they exist
     retrieve_smerf_form(params[:id])
+    @show = params[:show]
     if (@smerf_forms_user)
       # Retrieve the responses
       @responses = @smerf_forms_user.responses

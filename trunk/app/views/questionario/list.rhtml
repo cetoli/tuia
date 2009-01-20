@@ -12,7 +12,7 @@
 				</tr>
 				<% for smerfForm in @smerfForms %>
 				<tr align="center">
-					<td><%= link_to(smerfForm.name, smerf_form_url(smerfForm.code), :target => '_blank') %></td>
+					<td><%= link_to(smerfForm.name, smerf_form_url(smerfForm.code), :popup => true) %></td>
 					<% if session[:user].admin %>
 					<td><%= link_to image_tag("del.png", :border => 0, :alt => 'Desativar'), { :action => 'deactivate', :id => smerfForm }, :confirm => 'Tem certeza que deseja desativar este questionário?', :method => "post" %></td>
 					<% end %>
@@ -28,7 +28,7 @@
 			</p>
 			<p>
 			<% if session[:user].admin %>
-				<%= link_to image_tag("add.png", :border => 0, :alt => 'Adicionar questionário'), {:action => 'new'}, :target => '_blank' %> | 
+				<%= link_to image_tag("add.png", :border => 0, :alt => 'Adicionar questionário'), {:action => 'new'}, :popup => true %> | 
 			<% end %>
 				<%= link_to image_tag("goBack.gif", :border => 0, :alt => 'Voltar'), {:controller => "user", :action => 'welcome'} %>
 			</p>
