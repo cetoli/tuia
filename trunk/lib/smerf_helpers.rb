@@ -30,6 +30,16 @@ require 'smerf_system_helpers'
 
 module SmerfHelpers
 
+  def validate_date(question, responses, form)
+    answer = smerf_get_question_answer(question, responses)    
+    if %r{(\d{1,2})/(\d{1,2})/(\d{4})} =~ answer
+      day, month, year = $1.to_i, $2.to_i, $3.to_i
+      return nil if Date.valid_civil?(year, month, day)
+    end
+    
+    return "Formato inválido! Data deve ser do tipo 'D/M/AAAA' ou 'DD/MM/AAAA'..."
+  end
+  
   # Example validation method for "How many years have you worked in the industry"
   # it uses a regex to make sure 0-99 years specified.
   #
@@ -37,10 +47,10 @@ module SmerfHelpers
     # Validate entry and make sure years are numeric and between 0-99
     answer = smerf_get_question_answer(question, responses)    
     if (answer)
-      # Expression will return nil if regex fail, also check charcters
+      # Expression will return nil if regex fail, also check characters
       # after the match to determine if > 2 numbers specified
       res = ("#{answer}" =~ /\d{1,2}/)      
-      return "Years must be between 0 and 99" if (!res or $'.length() > 0)      
+      return "Anos devem ser entre 0 e 99!" if (!res or $'.length() > 0)      
     end
     
     return nil

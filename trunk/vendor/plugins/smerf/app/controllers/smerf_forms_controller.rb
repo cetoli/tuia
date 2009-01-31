@@ -8,8 +8,10 @@
 #
 
 class SmerfFormsController < ApplicationController
-  
+  layout "tuia"
   include Smerf
+
+  before_filter :login_required, :set_charset
 
   # GET /smerf_forms/smerf_form_file_name
   # 
@@ -65,12 +67,12 @@ class SmerfFormsController < ApplicationController
         # Create the record 
         SmerfFormsUser.create_records(
           @smerfform.id, self.smerf_user_id, @responses)
-        flash[:notice] = "#{@smerfform.name} saved successfully"
+        flash[:notice] = "#{@smerfform.name} foi criado com sucesso!"
         # Show the form again, allowing the user to edit responses
         render(:action => "edit")
       end
     else
-      flash[:notice] = "No responses found in #{@smerfform.name}, nothing saved"      
+      flash[:notice] = "Nenhuma resposta encontrada em #{@smerfform.name}, nada foi salvo..."
     end
   end
 
@@ -92,12 +94,12 @@ class SmerfFormsController < ApplicationController
       if (@errors.empty?()) 
         SmerfFormsUser.update_records(
           @smerfform.id, self.smerf_user_id, @responses)
-        flash[:notice] = "#{@smerfform.name} updated successfully"   
+        flash[:notice] = "#{@smerfform.name} atualizado com sucesso!"   
       end
       # Show the form again, allowing the user to edit responses
       render(:action => "edit")
     else
-      flash[:notice] = "No responses found in #{@smerfform.name}, nothing saved"      
+      flash[:notice] = "Nenhuma resposta encontrada em #{@smerfform.name}, nada foi salvo..."
     end
   end
   
@@ -111,7 +113,7 @@ private
     @smerfform = SmerfForm.find_by_code(id)
     # Check if smerf form is active
     if (!@smerfform.code.blank?() and !@smerfform.active?())
-      raise(RuntimeError, "#{@smerfform.name} is not active.")
+      raise(RuntimeError, "#{@smerfform.name} não está ativo.")
     end   
     # Check if we need to rebuild the form, the form is built
     # the first time and then whenever the form definition file

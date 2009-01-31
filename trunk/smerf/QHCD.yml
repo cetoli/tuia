@@ -1,0 +1,192 @@
+--- 
+smerfform:   
+  name: Questionário de história clínica e do desenvolvimento
+  welcome: | 
+    <b>Bem Vindo:</b>
+    <p>Obrigado por responder este questionário
+    de anamnese da Plataforma T.U.I.A.</p>
+
+    <b>DECLARAÇÃO DE PRIVACIDADE</b>
+    <p>Nós manteremos todas as informações que você fornecer privadas e não
+    as compatilharemos com mais ninguém...</p>
+
+  thank_you: | 
+    <b>Obrigado por fornecer seus dados!</b>
+
+    <p>Se você quiser discutir esse questionário, por favor contacte<br>
+    a equipe da Plataforma T.U.I.A.<br>
+    E-mail: <A HREF=\"mailto:adm.tuia@gmail.com\">Equipe T.U.I.A.</A></p>
+ 
+    Janeiro 2009
+  group_sort_order_field: code
+
+  groups:
+    identificacao:
+      code: 1
+      name: Identificação
+      description: | Esta é apenas a parte inicial do questionário.<br>
+        Aqui queremos saber um pouco mais sobre você...
+      questions:
+        sexo:
+          code: g1q1
+          type: singlechoice
+          sort_order: 1
+          question: | Sexo:
+          help: | Selecione apenas <b>uma</b> resposta
+          validation: validate_mandatory_question
+          answers:
+            homem:
+              code: 1
+              answer: | M
+              sort_order: 1
+              default: Y
+            mulher:
+              code: 2
+              answer: | F
+              sort_order: 2
+              default: N
+
+        etnia:
+          code: g1q2
+          type: singlechoice
+          sort_order: 2
+          question: | Etnia:
+          help: | Selecione apenas <b>uma</b> resposta
+          validation: validate_mandatory_question
+          answers:
+            branca:
+              code: 1
+              answer: | Branca
+              sort_order: 1
+              default: Y
+            negra:
+              code: 2
+              answer: | Negra
+              sort_order: 2
+              default: N
+            parda:
+              code: 3
+              answer: | Parda
+              sort_order: 3
+              default: N
+            amarela:
+              code: 4
+              answer: | Amarela
+              sort_order: 4
+              default: N
+            outra:
+              code: 5
+              answer: | Outra
+              sort_order: 5
+              default: N
+
+        nascimento:
+          code: g1q3
+          type: textfield
+          sort_order: 3
+          header: 
+          question: | Nascimento:
+          textfield_size: 10
+          validation: validate_mandatory_question, validate_date
+          help: | A data fornecida deve ser dos tipos <b>D/M/AAAA</b> ou <b>DD/MM/AAAA</b>.<br>
+            Por exemplo: '<b>1/1/2009</b>' ou '<b>01/01/2009</b>'.
+
+        adotado:
+          code: g1q4
+          type: singlechoice
+          sort_order: 4
+          question: | Adotado?
+          help: | Selecione apenas <b>uma</b> resposta
+          header: 
+          validation: validate_mandatory_question
+          answers:
+            nao:
+              code: 1
+              answer: | Não
+              sort_order: 1
+              default: Y
+            sim:
+              code: 2
+              answer: | Sim
+              sort_order: 2
+              default: N
+              subquestions:
+                quando:
+                    code: g1q4a2s1
+                    type: textfield
+                    sort_order: 1
+                    question: | Quando?
+                    textfield_size: 10
+                    validation: validate_sub_question, validate_date
+                    help: | A data fornecida deve ser dos tipos <b>D/M/AAAA</b> ou <b>DD/MM/AAAA</b>.<br>
+                      Por exemplo: '<b>1/1/2009</b>' ou '<b>01/01/2009</b>'.
+
+        escola:
+          code: g1q5
+          type: textfield
+          sort_order: 5
+          header: 
+          question: | Escola:
+          textfield_size: 75
+          validation: validate_mandatory_question
+          help: 
+
+        serie:
+          code: g1q6
+          type: textfield
+          sort_order: 6
+          header: 
+          question: | Série:
+          textfield_size: 
+          validation: validate_mandatory_question
+          help: 
+
+        turma:
+          code: g1q7
+          type: textfield
+          sort_order: 7
+          header: 
+          question: | Turma:
+          textfield_size: 
+          validation: validate_mandatory_question
+          help: 
+
+        pai:
+          code: g1q8
+          type: textfield
+          sort_order: 8
+          header: 
+          question: | Pai:
+          textfield_size: 75
+          validation: validate_mandatory_question
+          help: 
+
+        idade:
+          code: g1q9
+          type: textfield
+          sort_order: 9
+          header: 
+          question: | Idade:
+          textfield_size: 2
+          validation: validate_mandatory_question, validate_years
+          help: 
+
+        profissão:
+          code: g1q10
+          type: textfield
+          sort_order: 10
+          header: 
+          question: | Profissão:
+          textfield_size: 50
+          validation: validate_mandatory_question
+          help: 
+
+        escolaridade:
+          code: g1q11
+          type: textfield
+          sort_order: 11
+          header: 
+          question: | Escolaridade:
+          textfield_size: 50
+          validation: validate_mandatory_question
+          help: 

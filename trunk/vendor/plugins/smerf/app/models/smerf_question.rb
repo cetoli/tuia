@@ -96,8 +96,8 @@ class SmerfQuestion < SmerfItem
       when 'textfield'
       when 'selectionbox'
       else
-        msg = "Invalid question type #{@type} specified"
-        msg = msg + " for #{@data_id}" if (!@data_id.blank?)
+        msg = "Tipo de questão inválida '#{@type}' especificada"
+        msg = msg + " para #{@data_id}" if (!@data_id.blank?)
         @form_object.error(self.class, msg)
       end
     end

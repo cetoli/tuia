@@ -50,7 +50,7 @@ class SmerfFile
        
     # Load form data from YAML file
     data = YAML::load(File.open(smerf_fname))
-    raise("#{smerf_fname} is blank nothing to do") if (data.blank?)
+    raise("#{smerf_fname} está vazia. Não a nada a ser feito...") if (data.blank?)
     
     # Make sure this is a smerf form file
     if (data.kind_of?(Hash) and data.size > 0 and 
@@ -62,7 +62,7 @@ class SmerfFile
       # Throw exception if any errors exist
       check_for_errors(smerf_form_object.errors)
     else
-      raise("#{smerf_fname} is not a valid smerf form file")
+      raise("#{smerf_fname} não é um arquivo 'smerf form' válido")
     end
     return smerf_form_object
   end
@@ -75,7 +75,7 @@ class SmerfFile
     def check_for_errors(errors)
       # Throw exception if errors found
       if errors.size > 0
-        error_msg = "Errors found in form configuration file #{SmerfFile.smerf_file_name(@code)}:\n"
+        error_msg = "Erros encontrados no arquivo de configuração dos formulários '#{SmerfFile.smerf_file_name(@code)}':\n"
         errors.each do |attribute, messages|
           messages.each do |message|
             error_msg += "#{attribute}: #{message}\n"
@@ -89,7 +89,7 @@ class SmerfFile
     def SmerfFile.file_exists?(code)
       filename = SmerfFile.smerf_file_name(code)
       if (!File.file?(filename))
-        raise(RuntimeError, "Form configuration file #{filename} not found.")
+        raise(RuntimeError, "Arquivo de configuração dos formulários '#{filename}' not found.")
       else
         return filename
       end
