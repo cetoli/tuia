@@ -25,10 +25,10 @@ class SmerfFormsUser < ActiveRecord::Base
         smerf_form_id, user_id])
     else
       raise(RuntimeError, 
-        "For the form responses to be saved for a user, a record ID for 
-        the user table needs to be specified. This can be set by using 
-        setter function self.smerf_user_id, e.g. self.smerf_user_id = 1")
-    end 
+        "Para o formulário de respostas ser salvo para um usuário, um ID de registro para 
+        a tabela de usuários precisa ser especificada. Isso pode ser arranjado usando 
+        a função 'self.smerf_user_id', por exemplo 'self.smerf_user_id = 1'")
+    end
     
     return smerf_forms_user
   end

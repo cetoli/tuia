@@ -12,7 +12,7 @@ module SmerfFormsHelper
   def get_error_messages(errors)
     if (errors and !errors.empty?())
       header_message = 
-        "#{pluralize(errors.size(), 'error')} prevented #{@smerfform.name} from being saved"
+        "#{pluralize(errors.size(), 'erro')} preveniram '#{@smerfform.name}' de ser salvo!"
       error_messages = ""
       errors.each do |error| 
         # Check if question text available as some questions may have no text, 
@@ -26,7 +26,7 @@ module SmerfFormsHelper
       end
       content_tag(:div,
         content_tag(:h2, header_message) <<
-          content_tag(:p, 'There were problems with the following questions:') <<
+          content_tag(:p, 'Existem problemas com as seguintes questões:') <<
           content_tag(:ul, error_messages),
         :class => "smerfFormError")
     else
@@ -161,7 +161,7 @@ module SmerfFormsHelper
     when 'selectionbox'
       contents += get_selectionbox(question, level)
     else  
-      raise("Unknown question type for question: #{question.question}")
+      raise("Tipo de questão desconhecida para a questão: #{question.question}")
     end
     # Draw a line to indicate the end of the question if level 1, 
     # i.e. not an answer sub question
@@ -257,6 +257,7 @@ module SmerfFormsHelper
         else
           nil
         end, 
+        :maxlength => (!question.textfield_size.blank?) ? question.textfield_size : "30", 
         :size => (!question.textfield_size.blank?) ? question.textfield_size : "30")
       contents = content_tag(:div, content_tag(:p, contents), :class => "text")
     end

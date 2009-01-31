@@ -101,8 +101,8 @@ class SmerfItem
         @data_id = data[0]
       end      
       if (@data.blank?)
-        msg = "Invalid data found"
-        msg +=" for #{@data_id}" if (!@data_id.blank?)
+        msg = "Dados inválidos encontrados"
+        msg +=" para #{@data_id}" if (!@data_id.blank?)
         raise(msg)
       end
     end
@@ -159,8 +159,8 @@ class SmerfItem
     # field. 
     def check_mandatory(field)
       if (@data.blank?() or !@data.has_key?(field) or @data[field].blank?)        
-        msg = "No '#{field}' specified"
-        msg += " for #{@data_id}" if (!@data_id.blank?)
+        msg = "O campo '#{field}' não foi especificado"
+        msg += " para #{@data_id}" if (!@data_id.blank?)
         @form_object.error(self.class, msg)
         return false
       end
@@ -173,8 +173,8 @@ class SmerfItem
     def check_sort_order_field
       if (!@sort_order_field.blank? and 
         (@data.blank?() or !@data.has_key?(@sort_order_field) or @data[@sort_order_field].blank?))
-        msg = "Specified sort order field '#{@sort_order_field}' could not be found"
-        msg += " for #{@data_id}" if (!@data_id.blank?)
+        msg = "O campo de ordenação especificado '#{@sort_order_field}' não foi encontrado"
+        msg += " para #{@data_id}" if (!@data_id.blank?)
         @form_object.error(self.class, msg)
       end
     end

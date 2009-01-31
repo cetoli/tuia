@@ -32,7 +32,7 @@ module SmerfSystemHelpers
     # Check if the responses hash has a key equal to the question code, if
     # not we know the question has not been answered
     if (!smerf_question_answered?(question, responses))
-      return "Question requires an answer" 
+      return "Questão precisa de uma resposta!" 
     else
       return nil
     end
@@ -52,7 +52,7 @@ module SmerfSystemHelpers
     # Retrieve the owner object of this subquestion
     answer_object = smerf_get_owner_object(question, form)
     # Make sure owner object is a SmerfAnswer
-    raise(RuntimeError, "Owner object not a SmerfAnswer") if (!answer_object.kind_of?(SmerfAnswer))
+    raise(RuntimeError, "Objeto dono não é do tipo 'SmerfAnswer'") if (!answer_object.kind_of?(SmerfAnswer))
     # Get the answer code
     answer_code = answer_object.code
     # Retrieve the owner object of the answer
@@ -73,7 +73,7 @@ module SmerfSystemHelpers
     if (smerf_question_answered?(question, responses))
       # Check if the correct answer selected
       if (!smerf_question_has_answer?(question_object, responses, answer_code))
-        return "'#{answer_object.answer}' needs to be selected"
+        return "'#{answer_object.answer}' precisa ser selecionada!"
       end  
     end
     
@@ -93,7 +93,7 @@ module SmerfSystemHelpers
     if (smerf_question_has_answer?(question_object, responses, answer_code))
       # Make sure the subquestion has been answered
       if (!smerf_question_answered?(question, responses))
-        return "'#{answer_object.answer}' needs additional information"
+        return "'#{answer_object.answer}' precisa de informação adicional!"
       end        
     end
     
@@ -107,7 +107,7 @@ module SmerfSystemHelpers
       form.item_index[item_id])
       return form.item_index[item_id]
     else
-      raise(RuntimeError, "Object with item_id(#{item_id}) not found or nil")
+      raise(RuntimeError, "Objeto com 'item_id(#{item_id})' não encontrado ou nulo...")
     end
   end   
     
@@ -119,7 +119,7 @@ module SmerfSystemHelpers
       form.item_index[object.parent_id])
       return form.item_index[object.parent_id]
     else
-      raise(RuntimeError, "Owner object not found or nil")
+      raise(RuntimeError, "Objeto dono não encontrado ou nulo...")
     end
   end   
   
