@@ -11,7 +11,7 @@ smerfform:
     as compatilharemos com mais ninguém...</p>
 
   thank_you: | 
-    <b>Obrigado por fornecer seus dados!</b>
+    <p><b>Obrigado por fornecer seus dados!</b></p>
 
     <p>Se você quiser discutir esse questionário, por favor contacte<br>
     a equipe da Plataforma T.U.I.A.<br>
@@ -21,7 +21,7 @@ smerfform:
   group_sort_order_field: code
 
   groups:
-    identificacao:
+    identificação:
       code: 1
       name: Identificação
       description: | Esta é apenas a parte inicial do questionário.<br>
@@ -100,7 +100,7 @@ smerfform:
           header: 
           validation: validate_mandatory_question
           answers:
-            nao:
+            não:
               code: 1
               answer: | Não
               sort_order: 1
@@ -131,7 +131,7 @@ smerfform:
           validation: validate_mandatory_question
           help: 
 
-        serie:
+        série:
           code: g1q6
           type: textfield
           sort_order: 6
@@ -190,3 +190,526 @@ smerfform:
           textfield_size: 50
           validation: validate_mandatory_question
           help: 
+
+        mãe:
+          code: g1q12
+          type: textfield
+          sort_order: 12
+          header: 
+          question: | Mãe:
+          textfield_size: 75
+          validation: validate_mandatory_question
+          help: 
+
+        idade:
+          code: g1q13
+          type: textfield
+          sort_order: 13
+          header: 
+          question: | Idade:
+          textfield_size: 2
+          validation: validate_mandatory_question, validate_years
+          help: 
+
+        profissão:
+          code: g1q14
+          type: textfield
+          sort_order: 14
+          header: 
+          question: | Profissão:
+          textfield_size: 50
+          validation: validate_mandatory_question
+          help: 
+
+        escolaridade:
+          code: g1q15
+          type: textfield
+          sort_order: 15
+          header: 
+          question: | Escolaridade:
+          textfield_size: 50
+          validation: validate_mandatory_question
+          help: 
+
+        estado_civil:
+          code: g1q16
+          type: textfield
+          sort_order: 16
+          header: 
+          question: | Estado Civil e de União:
+          textfield_size: 30
+          validation: validate_mandatory_question
+          help: 
+
+        chefe_domicílio:
+          code: g1q17
+          type: textfield
+          sort_order: 17
+          header: 
+          question: | Chefe do Domicílio:
+          textfield_size: 30
+          validation: validate_mandatory_question
+          help: 
+
+        endereço:
+          code: g1q18
+          type: textfield
+          sort_order: 18
+          header: 
+          question: | Endereço:
+          textfield_size: 75
+          validation: validate_mandatory_question
+          help: 
+
+        telefone:
+          code: g1q19
+          type: textfield
+          sort_order: 19
+          header: 
+          question: | Telefone:
+          textfield_size: 13
+          validation: validate_mandatory_question, validate_fone
+          help: | O telefone fornecido deve ser do tipo <b>(XX)DDDD-RRRR</b>.<br>
+            Por exemplo: '<b>(12)3456-7890</b>'.
+
+        informante:
+          code: g1q20
+          type: textfield
+          sort_order: 20
+          header: 
+          question: | Informante:
+          textfield_size: 75
+          validation: validate_mandatory_question
+          help: 
+
+        profissão:
+          code: g1q21
+          type: textfield
+          sort_order: 21
+          header: 
+          question: | Profissão:
+          textfield_size: 50
+          validation: validate_mandatory_question
+          help: 
+
+        escolaridade:
+          code: g1q22
+          type: textfield
+          sort_order: 22
+          header: 
+          question: | Escolaridade:
+          textfield_size: 50
+          validation: validate_mandatory_question
+          help: 
+
+        local_entrevista:
+          code: g1q23
+          type: textfield
+          sort_order: 23
+          header: 
+          question: | Local da Entrevista:
+          textfield_size: 75
+          validation: validate_mandatory_question
+          help: 
+
+        data_entrevista:
+          code: g1q24
+          type: textfield
+          sort_order: 24
+          header: 
+          question: | Data da Entrevista:
+          textfield_size: 10
+          validation: validate_mandatory_question, validate_date
+          help: | A data fornecida deve ser dos tipos <b>D/M/AAAA</b> ou <b>DD/MM/AAAA</b>.<br>
+            Por exemplo: '<b>1/1/2009</b>' ou '<b>01/01/2009</b>'.
+
+        examinador:
+          code: g1q25
+          type: textfield
+          sort_order: 25
+          header: 
+          question: | Examinador:
+          textfield_size: 75
+          validation: validate_mandatory_question
+          help: 
+
+        observações:
+          code: g1q26
+          type: textbox
+          sort_order: 26
+          header: 
+          question: | Observações:
+          textbox_size: 60x5
+          validation: 
+          help: 
+
+    dados_maternos:
+      code: 2
+      name: Dados Maternos
+      description: | Esta parte do questionário é dedicada aos <br>
+        dados coletados sobre a mãe da criança...
+      questions:
+        idade_mãe_nascimento_criança:
+          code: g2q1
+          type: textfield
+          sort_order: 1
+          header: 
+          question: | Qual era a idade da mãe na época do nascimento da criança?
+          textfield_size: 2
+          validation: validate_mandatory_question, validate_years
+          help: 
+
+        consultas_pré-natal:
+          code: g2q2
+          type: singlechoice
+          sort_order: 2
+          question: | Quantas consultas de pré-natal a mãe fez quando estava grávida <br>
+            desta criança e em que período da gravidez?
+          help: | Selecione <b>uma</b> das respostas abaixo
+          header: 
+          validation: validate_mandatory_question
+          answers:
+            na:
+              code: 1
+              answer: | N/A 
+              sort_order: 1
+              default: N
+            ignora:
+              code: 2
+              answer: | Ignora
+              sort_order: 2
+              default: N
+            sabe_responder:
+              code: 3
+              answer: | Sabe responder:
+              sort_order: 3
+              default: N
+              subquestions:
+                respostas_pré-natal:
+                    code: g2q2a3s1
+                    type: multiplechoice
+                    sort_order: 1
+                    question: 
+                    help: | Selecione <b>todas</b> que se aplicam
+                    validation: validate_sub_question
+                    answers:
+                      total_consultas:
+                        code: 1
+                        answer: | Total de consultas:
+                        sort_order: 1
+                        default: N
+                        subquestions:
+                          total_total_consultas:
+                            code: g2q2a3s1as11ss1
+                            type: textfield
+                            sort_order: 1
+                            question: 
+                            help: | Por favor especifique
+                            textfield_size: 2
+                            validation: validate_sub_question, validate_years
+                      5o_mês:
+                        code: 2
+                        answer: | Até o 5º mês:
+                        sort_order: 2
+                        default: N
+                        subquestions:
+                          total_5o_mês:
+                            code: g2q2a3s1as12ss1
+                            type: textfield
+                            sort_order: 1
+                            question: 
+                            help: | Por favor especifique
+                            textfield_size: 2
+                            validation: validate_sub_question, validate_years
+                      6o_mês:
+                        code: 3
+                        answer: | Do 6º mês até o final:
+                        sort_order: 3
+                        default: N
+                        subquestions:
+                          total_6o_mês:
+                            code: g2q2a3s1as13ss1
+                            type: textfield
+                            sort_order: 1
+                            question: 
+                            help: | Por favor especifique
+                            textfield_size: 2
+                            validation: validate_sub_question, validate_years
+
+        gravidez_desejada:
+          code: g2q3
+          type: singlechoice
+          sort_order: 3
+          question: | A gravidez foi desejada?
+          help: | Selecione apenas <b>uma</b> resposta
+          validation: validate_mandatory_question
+          answers:
+            sim:
+              code: 1
+              answer: | Sim
+              sort_order: 1
+              default: Y
+            não:
+              code: 2
+              answer: | Não
+              sort_order: 2
+              default: N
+            não_planejada:
+              code: 3
+              answer: | Não Planejada
+              sort_order: 3
+              default: N
+            na:
+              code: 4
+              answer: | N/A
+              sort_order: 4
+              default: N
+
+        gravidez_harmônica:
+          code: g2q4
+          type: singlechoice
+          sort_order: 4
+          question: | A gravidez desta criança ocorreu em clima de harmonia?
+          help: | Selecione <b>uma</b> das respostas abaixo
+          header: 
+          validation: validate_mandatory_question
+          answers:
+            na:
+              code: 1
+              answer: | N/A 
+              sort_order: 1
+              default: N
+            ignora:
+              code: 2
+              answer: | Ignora
+              sort_order: 2
+              default: N
+            sim:
+              code: 3
+              answer: | Sim
+              sort_order: 3
+              default: N
+            não:
+              code: 4
+              answer: | Não
+              sort_order: 4
+              default: N
+              subquestions:
+                gravidez_harmônica_não:
+                    code: g2q4a4s1
+                    type: multiplechoice
+                    sort_order: 1
+                    question: 
+                    help: | Selecione <b>todas</b> que se aplicam
+                    validation: validate_sub_question
+                    answers:
+                      discussões:
+                        code: 1
+                        answer: | Discussões
+                        sort_order: 1
+                        default: N
+                      sustos:
+                        code: 2
+                        answer: | Sustos
+                        sort_order: 2
+                        default: N
+                      tristeza:
+                        code: 3
+                        answer: | Profunda tristeza
+                        sort_order: 3
+                        default: N
+                      perda:
+                        code: 4
+                        answer: | Perda de ente querido
+                        sort_order: 4
+                        default: N
+                      outros:
+                        code: 5
+                        answer: | Outros:
+                        sort_order: 5
+                        default: N
+                        subquestions:
+                          todos_outros:
+                            code: g2q4a4s1as15ss1
+                            type: textfield
+                            sort_order: 1
+                            question: 
+                            help: | Por favor especifique
+                            textfield_size: 75
+                            validation: validate_sub_question
+
+        gestação:
+          code: g2q5
+          type: multiplechoice
+          sort_order: 5
+          question: | Como transcorreu a gestação?
+          help: | Selecione <b>todas</b> que se aplicam
+          validation: validate_mandatory_question
+          answers:
+            curtição:
+              code: 1
+              answer: | Curtição
+              sort_order: 1
+              default: N
+            indiferença:
+              code: 2
+              answer: | Indiferença 
+              sort_order: 2
+              default: N
+            queixumes:
+              code: 3
+              answer: | Queixumes
+              sort_order: 3
+              default: N
+            aborto:
+              code: 4
+              answer: | Tentou aborto
+              sort_order: 4
+              default: N
+            outros:
+              code: 5
+              answer: | Outros
+              sort_order: 5
+              default: N
+              subquestions:
+                outros_descrição:
+                    code: g2q5a5s1
+                    type: textfield
+                    sort_order: 1
+                    question: 
+                    help: | Por favor especifique
+                    textfield_size: 75
+                    validation: validate_sub_question
+
+        filhos_posteriores:
+          code: g2q6
+          type: singlechoice
+          sort_order: 6
+          question: | Quantos filhos vivos você teve depois que esta criança nasceu?
+          help: 
+          validation: validate_mandatory_question
+          answers:
+            descrição_filhos:
+              code: 1
+              answer: | Descrição dos filhos:
+              sort_order: 1
+              default: Y
+              subquestions:
+                filhos_vivos:
+                  code: g2q6a1s1
+                  type: multiplechoice
+                  sort_order: 1
+                  question: 
+                  help: | Selecione <b>todas</b> que se aplicam
+                  validation: validate_sub_question
+                  answers:
+                    filhos_vivos_resposta:
+                      code: 1
+                      answer: | Filhos Vivos:
+                      sort_order: 1
+                      default: Y
+                      subquestions:
+                        total_filhos_vivos:
+                          code: g2q6a1s1as11ss1
+                          type: textfield
+                          sort_order: 1
+                          question: 
+                          help: | Por favor especifique
+                          textfield_size: 2
+                          validation: validate_sub_question, validate_years
+                    total_filhos:
+                      code: 2
+                      answer: | Total de Filhos:
+                      sort_order: 2
+                      default: Y
+                      subquestions:
+                        total_total_filhos:
+                          code: g2q6a1s1as12ss1
+                          type: textfield
+                          sort_order: 1
+                          question: 
+                          help: | Por favor especifique
+                          textfield_size: 2
+                          validation: validate_sub_question, validate_years
+                    ordem_filho:
+                      code: 3
+                      answer: | Este é o filho número:
+                      sort_order: 3
+                      default: Y
+                      subquestions:
+                        total_ordem_filho:
+                          code: g2q6a1s1as13ss1
+                          type: textfield
+                          sort_order: 1
+                          question: 
+                          help: | Por favor especifique
+                          textfield_size: 2
+                          validation: validate_sub_question, validate_years
+
+        intercorrência:
+          code: g2q7
+          type: singlechoice
+          sort_order: 7
+          question: | A mãe teve alguma intercorrência (qualquer problema) durante a <br>
+            gravidez desta criança que necessitasse ou não de internação <br>
+            (por exemplo: diabetes, pressão alta)?
+          help: | Selecione apenas <b>uma</b> resposta
+          validation: validate_mandatory_question
+          answers:
+            na:
+              code: 1
+              answer: | N/A
+              sort_order: 1
+              default: N
+            ignora:
+              code: 2
+              answer: | Ignora
+              sort_order: 2
+              default: N
+            não:
+              code: 3
+              answer: | Não
+              sort_order: 3
+              default: N
+            sim:
+              code: 4
+              answer: | Sim
+              sort_order: 4
+              default: N
+              subquestions:
+                sim_descrição:
+                    code: g2q7a4s1
+                    type: textfield
+                    sort_order: 1
+                    question: 
+                    help: | Por favor especifique
+                    textfield_size: 75
+                    validation: validate_sub_question
+
+        adotado:
+          code: g2q8
+          type: singlechoice
+          sort_order: 8
+          question: | Fez uso de algum medicamente durante a gravidez desta criança?
+          help: | Selecione apenas <b>uma</b> resposta
+          header: 
+          validation: validate_mandatory_question
+          answers:
+            não:
+              code: 1
+              answer: | Não
+              sort_order: 1
+              default: Y
+            sim:
+              code: 2
+              answer: | Sim
+              sort_order: 2
+              default: N
+              subquestions:
+                qual:
+                    code: g2q8a2s1
+                    type: textfield
+                    sort_order: 1
+                    question: | Qual(is)?
+                    textfield_size: 75
+                    validation: validate_sub_question
