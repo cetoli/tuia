@@ -1,23 +1,18 @@
 --- 
 smerfform:   
   name: Questionário de história clínica e do desenvolvimento
-  welcome: | 
-    <b>Bem Vindo:</b>
-    <p>Obrigado por responder este questionário
-    de anamnese da Plataforma T.U.I.A.</p>
-
+  welcome: | <b>Bem Vindo:</b>
+    <p>Obrigado por responder este questionário de anamnese da Plataforma T.U.I.A.</p>
     <b>DECLARAÇÃO DE PRIVACIDADE</b>
     <p>Nós manteremos todas as informações que você fornecer privadas e não
     as compatilharemos com mais ninguém...</p>
 
-  thank_you: | 
-    <p><b>Obrigado por fornecer seus dados!</b></p>
-
-    <p>Se você quiser discutir esse questionário, por favor contacte<br>
+  thank_you: | <p><b>Obrigado por fornecer seus dados!</b></p>
+    <p>Se você quiser discutir esse questionário, por favor contacte 
     a equipe da Plataforma T.U.I.A.<br>
     E-mail: <A HREF=\"mailto:adm.tuia@gmail.com\">Equipe T.U.I.A.</A></p>
- 
     Janeiro 2009
+
   group_sort_order_field: code
 
   groups:
@@ -33,7 +28,6 @@ smerfform:
           sort_order: 1
           question: | Sexo:
           help: | Selecione apenas <b>uma</b> resposta
-          validation: validate_mandatory_question
           answers:
             homem:
               code: 1
@@ -48,11 +42,10 @@ smerfform:
 
         etnia:
           code: g1q2
-          type: singlechoice
+          type: selectionbox
           sort_order: 2
           question: | Etnia:
-          help: | Selecione apenas <b>uma</b> resposta
-          validation: validate_mandatory_question
+          help: | Selecione <b>uma</b> das seguintes
           answers:
             branca:
               code: 1
@@ -84,7 +77,6 @@ smerfform:
           code: g1q3
           type: textfield
           sort_order: 3
-          header: 
           question: | Nascimento:
           textfield_size: 10
           validation: validate_mandatory_question, validate_date
@@ -97,8 +89,6 @@ smerfform:
           sort_order: 4
           question: | Adotado?
           help: | Selecione apenas <b>uma</b> resposta
-          header: 
-          validation: validate_mandatory_question
           answers:
             não:
               code: 1
@@ -112,160 +102,129 @@ smerfform:
               default: N
               subquestions:
                 quando:
-                    code: g1q4a2s1
-                    type: textfield
-                    sort_order: 1
-                    question: | Quando?
-                    textfield_size: 10
-                    validation: validate_sub_question, validate_date
-                    help: | A data fornecida deve ser dos tipos <b>D/M/AAAA</b> ou <b>DD/MM/AAAA</b>.<br>
-                      Por exemplo: '<b>1/1/2009</b>' ou '<b>01/01/2009</b>'.
+                  code: g1q4a2s1
+                  type: textfield
+                  sort_order: 1
+                  question: | Quando?
+                  textfield_size: 10
+                  validation: validate_sub_question, validate_date
+                  help: | A data fornecida deve ser dos tipos <b>D/M/AAAA</b> ou <b>DD/MM/AAAA</b>.
+                      <br>Por exemplo: '<b>1/1/2009</b>' ou '<b>01/01/2009</b>'.
 
         escola:
           code: g1q5
           type: textfield
           sort_order: 5
-          header: 
           question: | Escola:
           textfield_size: 75
           validation: validate_mandatory_question
-          help: 
 
         série:
           code: g1q6
           type: textfield
           sort_order: 6
-          header: 
           question: | Série:
-          textfield_size: 
           validation: validate_mandatory_question
-          help: 
 
         turma:
           code: g1q7
           type: textfield
           sort_order: 7
-          header: 
           question: | Turma:
-          textfield_size: 
           validation: validate_mandatory_question
-          help: 
 
         pai:
           code: g1q8
           type: textfield
           sort_order: 8
-          header: 
           question: | Pai:
           textfield_size: 75
           validation: validate_mandatory_question
-          help: 
 
         idade:
           code: g1q9
           type: textfield
           sort_order: 9
-          header: 
           question: | Idade:
           textfield_size: 2
           validation: validate_mandatory_question, validate_years
-          help: 
 
         profissão:
           code: g1q10
           type: textfield
           sort_order: 10
-          header: 
           question: | Profissão:
           textfield_size: 50
           validation: validate_mandatory_question
-          help: 
 
         escolaridade:
           code: g1q11
           type: textfield
           sort_order: 11
-          header: 
           question: | Escolaridade:
           textfield_size: 50
           validation: validate_mandatory_question
-          help: 
 
         mãe:
           code: g1q12
           type: textfield
           sort_order: 12
-          header: 
           question: | Mãe:
           textfield_size: 75
           validation: validate_mandatory_question
-          help: 
 
         idade:
           code: g1q13
           type: textfield
           sort_order: 13
-          header: 
           question: | Idade:
           textfield_size: 2
           validation: validate_mandatory_question, validate_years
-          help: 
 
         profissão:
           code: g1q14
           type: textfield
           sort_order: 14
-          header: 
           question: | Profissão:
           textfield_size: 50
           validation: validate_mandatory_question
-          help: 
 
         escolaridade:
           code: g1q15
           type: textfield
           sort_order: 15
-          header: 
           question: | Escolaridade:
           textfield_size: 50
           validation: validate_mandatory_question
-          help: 
 
         estado_civil:
           code: g1q16
           type: textfield
           sort_order: 16
-          header: 
           question: | Estado Civil e de União:
           textfield_size: 30
           validation: validate_mandatory_question
-          help: 
 
         chefe_domicílio:
           code: g1q17
           type: textfield
           sort_order: 17
-          header: 
           question: | Chefe do Domicílio:
           textfield_size: 30
           validation: validate_mandatory_question
-          help: 
 
         endereço:
           code: g1q18
           type: textfield
           sort_order: 18
-          header: 
           question: | Endereço:
           textfield_size: 75
           validation: validate_mandatory_question
-          help: 
 
         telefone:
           code: g1q19
           type: textfield
           sort_order: 19
-          header: 
           question: | Telefone:
           textfield_size: 13
           validation: validate_mandatory_question, validate_fone
@@ -276,47 +235,38 @@ smerfform:
           code: g1q20
           type: textfield
           sort_order: 20
-          header: 
           question: | Informante:
           textfield_size: 75
           validation: validate_mandatory_question
-          help: 
 
         profissão:
           code: g1q21
           type: textfield
           sort_order: 21
-          header: 
           question: | Profissão:
           textfield_size: 50
           validation: validate_mandatory_question
-          help: 
 
         escolaridade:
           code: g1q22
           type: textfield
           sort_order: 22
-          header: 
           question: | Escolaridade:
           textfield_size: 50
           validation: validate_mandatory_question
-          help: 
 
         local_entrevista:
           code: g1q23
           type: textfield
           sort_order: 23
-          header: 
           question: | Local da Entrevista:
           textfield_size: 75
           validation: validate_mandatory_question
-          help: 
 
         data_entrevista:
           code: g1q24
           type: textfield
           sort_order: 24
-          header: 
           question: | Data da Entrevista:
           textfield_size: 10
           validation: validate_mandatory_question, validate_date
@@ -327,53 +277,44 @@ smerfform:
           code: g1q25
           type: textfield
           sort_order: 25
-          header: 
           question: | Examinador:
           textfield_size: 75
           validation: validate_mandatory_question
-          help: 
 
         observações:
           code: g1q26
           type: textbox
           sort_order: 26
-          header: 
           question: | Observações:
           textbox_size: 60x5
-          validation: 
-          help: 
 
     dados_maternos:
       code: 2
       name: Dados Maternos
-      description: | Esta parte do questionário é dedicada aos <br>
-        dados coletados sobre a mãe da criança...
+      description: | Esta parte do questionário é dedicada aos dados coletados sobre a mãe da 
+          criança...
       questions:
         idade_mãe_nascimento_criança:
           code: g2q1
           type: textfield
           sort_order: 1
-          header: 
           question: | Qual era a idade da mãe na época do nascimento da criança?
           textfield_size: 2
           validation: validate_mandatory_question, validate_years
-          help: 
 
         consultas_pré-natal:
           code: g2q2
           type: singlechoice
           sort_order: 2
-          question: | Quantas consultas de pré-natal a mãe fez quando estava grávida <br>
-            desta criança e em que período da gravidez?
+          question: | Quantas consultas de pré-natal a mãe fez quando estava grávida desta 
+              criança e em que período da gravidez?
           help: | Selecione <b>uma</b> das respostas abaixo
-          header: 
-          validation: validate_mandatory_question
           answers:
             na:
               code: 1
               answer: | N/A 
               sort_order: 1
-              default: N
+              default: Y
             ignora:
               code: 2
               answer: | Ignora
@@ -389,7 +330,6 @@ smerfform:
                     code: g2q2a3s1
                     type: multiplechoice
                     sort_order: 1
-                    question: 
                     help: | Selecione <b>todas</b> que se aplicam
                     validation: validate_sub_question
                     answers:
@@ -403,7 +343,6 @@ smerfform:
                             code: g2q2a3s1as11ss1
                             type: textfield
                             sort_order: 1
-                            question: 
                             help: | Por favor especifique
                             textfield_size: 2
                             validation: validate_sub_question, validate_years
@@ -417,7 +356,6 @@ smerfform:
                             code: g2q2a3s1as12ss1
                             type: textfield
                             sort_order: 1
-                            question: 
                             help: | Por favor especifique
                             textfield_size: 2
                             validation: validate_sub_question, validate_years
@@ -431,18 +369,16 @@ smerfform:
                             code: g2q2a3s1as13ss1
                             type: textfield
                             sort_order: 1
-                            question: 
                             help: | Por favor especifique
                             textfield_size: 2
                             validation: validate_sub_question, validate_years
 
         gravidez_desejada:
           code: g2q3
-          type: singlechoice
+          type: selectionbox
           sort_order: 3
           question: | A gravidez foi desejada?
-          help: | Selecione apenas <b>uma</b> resposta
-          validation: validate_mandatory_question
+          help: | Selecione <b>uma</b> das seguintes
           answers:
             sim:
               code: 1
@@ -471,14 +407,12 @@ smerfform:
           sort_order: 4
           question: | A gravidez desta criança ocorreu em clima de harmonia?
           help: | Selecione <b>uma</b> das respostas abaixo
-          header: 
-          validation: validate_mandatory_question
           answers:
             na:
               code: 1
               answer: | N/A 
               sort_order: 1
-              default: N
+              default: Y
             ignora:
               code: 2
               answer: | Ignora
@@ -499,7 +433,6 @@ smerfform:
                     code: g2q4a4s1
                     type: multiplechoice
                     sort_order: 1
-                    question: 
                     help: | Selecione <b>todas</b> que se aplicam
                     validation: validate_sub_question
                     answers:
@@ -533,7 +466,6 @@ smerfform:
                             code: g2q4a4s1as15ss1
                             type: textfield
                             sort_order: 1
-                            question: 
                             help: | Por favor especifique
                             textfield_size: 75
                             validation: validate_sub_question
@@ -576,7 +508,6 @@ smerfform:
                     code: g2q5a5s1
                     type: textfield
                     sort_order: 1
-                    question: 
                     help: | Por favor especifique
                     textfield_size: 75
                     validation: validate_sub_question
@@ -586,7 +517,6 @@ smerfform:
           type: singlechoice
           sort_order: 6
           question: | Quantos filhos vivos você teve depois que esta criança nasceu?
-          help: 
           validation: validate_mandatory_question
           answers:
             descrição_filhos:
@@ -599,7 +529,6 @@ smerfform:
                   code: g2q6a1s1
                   type: multiplechoice
                   sort_order: 1
-                  question: 
                   help: | Selecione <b>todas</b> que se aplicam
                   validation: validate_sub_question
                   answers:
@@ -613,7 +542,6 @@ smerfform:
                           code: g2q6a1s1as11ss1
                           type: textfield
                           sort_order: 1
-                          question: 
                           help: | Por favor especifique
                           textfield_size: 2
                           validation: validate_sub_question, validate_years
@@ -627,7 +555,6 @@ smerfform:
                           code: g2q6a1s1as12ss1
                           type: textfield
                           sort_order: 1
-                          question: 
                           help: | Por favor especifique
                           textfield_size: 2
                           validation: validate_sub_question, validate_years
@@ -641,7 +568,6 @@ smerfform:
                           code: g2q6a1s1as13ss1
                           type: textfield
                           sort_order: 1
-                          question: 
                           help: | Por favor especifique
                           textfield_size: 2
                           validation: validate_sub_question, validate_years
@@ -650,17 +576,16 @@ smerfform:
           code: g2q7
           type: singlechoice
           sort_order: 7
-          question: | A mãe teve alguma intercorrência (qualquer problema) durante a <br>
-            gravidez desta criança que necessitasse ou não de internação <br>
-            (por exemplo: diabetes, pressão alta)?
+          question: | A mãe teve alguma intercorrência (qualquer problema) durante a gravidez 
+              desta criança que necessitasse ou não de internação (por exemplo: diabetes, 
+              pressão alta)?
           help: | Selecione apenas <b>uma</b> resposta
-          validation: validate_mandatory_question
           answers:
             na:
               code: 1
               answer: | N/A
               sort_order: 1
-              default: N
+              default: Y
             ignora:
               code: 2
               answer: | Ignora
@@ -681,19 +606,16 @@ smerfform:
                     code: g2q7a4s1
                     type: textfield
                     sort_order: 1
-                    question: 
                     help: | Por favor especifique
                     textfield_size: 75
                     validation: validate_sub_question
 
-        adotado:
+        medicamento_gravidez:
           code: g2q8
           type: singlechoice
           sort_order: 8
-          question: | Fez uso de algum medicamente durante a gravidez desta criança?
+          question: | Fez uso de algum medicamento durante a gravidez desta criança?
           help: | Selecione apenas <b>uma</b> resposta
-          header: 
-          validation: validate_mandatory_question
           answers:
             não:
               code: 1
@@ -713,3 +635,838 @@ smerfform:
                     question: | Qual(is)?
                     textfield_size: 75
                     validation: validate_sub_question
+
+        trabalhar_depois_nascimento:
+          code: g2q9
+          type: selectionbox
+          sort_order: 9
+          question: | Quanto tempo depois do nascimento da criança a mãe voltou a trabalhar fora?
+          help: | Selecione <b>uma</b> das seguintes
+          answers:
+            não:
+              code: 1
+              answer: | Não trabalha fora
+              sort_order: 1
+              default: Y
+            1-3:
+              code: 2
+              answer: | 1-3 meses
+              sort_order: 2
+              default: N
+            4-6:
+              code: 3
+              answer: | 4-6 meses
+              sort_order: 3
+              default: N
+            >6:
+              code: 4
+              answer: | >6 meses
+              sort_order: 4
+              default: N
+
+        fumo_gravidez:
+          code: g2q10
+          type: singlechoice
+          sort_order: 10
+          question: | A mãe fumou durante a gravidez desse filho?
+          help: | Selecione apenas <b>uma</b> resposta
+          answers:
+            na:
+              code: 1
+              answer: | N/A
+              sort_order: 1
+              default: Y
+            não:
+              code: 2
+              answer: | Não
+              sort_order: 2
+              default: N
+            sim:
+              code: 3
+              answer: | Sim
+              sort_order: 3
+              default: N
+              subquestions:
+                quantos_dia:
+                    code: g2q10a3s1
+                    type: textfield
+                    sort_order: 1
+                    question: | Quantos cigarros por dia?
+                    textfield_size: 2
+                    validation: validate_sub_question, validate_years
+
+        beber_socialmente_gravidez:
+          code: g2q11
+          type: singlechoice
+          sort_order: 11
+          question: | A mãe usou bebida alcoólica socialmente durante a gravidez?
+          help: | Selecione apenas <b>uma</b> resposta
+          answers:
+            não:
+              code: 1
+              answer: | Não
+              sort_order: 1
+              default: Y
+            sim:
+              code: 2
+              answer: | Sim
+              sort_order: 2
+              default: N
+              subquestions:
+                quantos_semana:
+                  code: g2q11a2s1
+                  type: singlechoice
+                  sort_order: 1
+                  question: | Com qual freqüência?
+                  validation: validate_sub_question
+                  answers:
+                    1:
+                      code: 1
+                      answer: | 1 vez/semana
+                      sort_order: 1
+                      default: N
+                    1-2:
+                      code: 2
+                      answer: | 1-2 vezes/semana
+                      sort_order: 2
+                      default: N
+                    3-4:
+                      code: 3
+                      answer: | 3-4 vezes/semana
+                      sort_order: 3
+                      default: N
+                    5-6:
+                      code: 4
+                      answer: | 5-6 vezes/semana
+                      sort_order: 4
+                      default: N
+                    todo_dia:
+                      code: 5
+                      answer: | Todos os dias
+                      sort_order: 5
+                      default: N
+
+        beber_embriagar_gravidez:
+          code: g2q12
+          type: singlechoice
+          sort_order: 12
+          question: | A mãe usou bebida alcoólica com freqüência durante a gravidez desta criança 
+              a ponto de se embriagar?
+          help: | Selecione apenas <b>uma</b> resposta
+          answers:
+            não:
+              code: 1
+              answer: | Não
+              sort_order: 1
+              default: Y
+            sim:
+              code: 2
+              answer: | Sim
+              sort_order: 2
+              default: N
+              subquestions:
+                quantos_semana:
+                  code: g2q12a2s1
+                  type: singlechoice
+                  sort_order: 1
+                  question: | Com qual freqüência?
+                  validation: validate_sub_question
+                  answers:
+                    1:
+                      code: 1
+                      answer: | <1 vez/semana
+                      sort_order: 1
+                      default: N
+                    1-2:
+                      code: 2
+                      answer: | 1-2 vezes/semana
+                      sort_order: 2
+                      default: N
+                    3-4:
+                      code: 3
+                      answer: | 3-4 vezes/semana
+                      sort_order: 3
+                      default: N
+                    5-6:
+                      code: 4
+                      answer: | 5-6 vezes/semana
+                      sort_order: 4
+                      default: N
+                    todo_dia:
+                      code: 5
+                      answer: | Todos os dias
+                      sort_order: 5
+                      default: N
+
+        beber_reside_criança:
+          code: g2q13
+          type: singlechoice
+          sort_order: 13
+          question: | Há uso com freqüência de bebida alcoólica por quem resida com a criança?
+          help: | Selecione apenas <b>uma</b> resposta
+          answers:
+            não:
+              code: 1
+              answer: | Não
+              sort_order: 1
+              default: Y
+            sim:
+              code: 2
+              answer: | Sim
+              sort_order: 2
+              default: N
+              subquestions:
+                qual:
+                    code: g2q13a2s1
+                    type: textfield
+                    sort_order: 1
+                    question: | Qual o parentesco?
+                    textfield_size: 50
+                    validation: validate_sub_question
+                quantos_semana:
+                  code: g2q13a2s2
+                  type: singlechoice
+                  sort_order: 2
+                  question: | Com qual freqüência?
+                  validation: validate_sub_question
+                  answers:
+                    1:
+                      code: 1
+                      answer: | <1 vez/semana
+                      sort_order: 1
+                      default: N
+                    1-2:
+                      code: 2
+                      answer: | 1-2 vezes/semana
+                      sort_order: 2
+                      default: N
+                    3-4:
+                      code: 3
+                      answer: | 3-4 vezes/semana
+                      sort_order: 3
+                      default: N
+                    5-6:
+                      code: 4
+                      answer: | 5-6 vezes/semana
+                      sort_order: 4
+                      default: N
+                    todo_dia:
+                      code: 5
+                      answer: | Todos os dias
+                      sort_order: 5
+                      default: N
+
+        droga_gravidez:
+          code: g2q14
+          type: singlechoice
+          sort_order: 14
+          question: | A mãe fez uso de droga (maconha, crack, cocaína...) na gravidez?
+          help: | Selecione apenas <b>uma</b> resposta
+          answers:
+            não:
+              code: 1
+              answer: | Não
+              sort_order: 1
+              default: Y
+            sim:
+              code: 2
+              answer: | Sim
+              sort_order: 2
+              default: N
+              subquestions:
+                quantos_semana:
+                  code: g2q14a2s1
+                  type: singlechoice
+                  sort_order: 1
+                  question: | Com qual freqüência?
+                  validation: validate_sub_question
+                  answers:
+                    1:
+                      code: 1
+                      answer: | <1 vez/semana
+                      sort_order: 1
+                      default: N
+                    1-2:
+                      code: 2
+                      answer: | 1-2 vezes/semana
+                      sort_order: 2
+                      default: N
+                    3-4:
+                      code: 3
+                      answer: | 3-4 vezes/semana
+                      sort_order: 3
+                      default: N
+                    5-6:
+                      code: 4
+                      answer: | 5-6 vezes/semana
+                      sort_order: 4
+                      default: N
+                    todo_dia:
+                      code: 5
+                      answer: | Todos os dias
+                      sort_order: 5
+                      default: N
+
+        droga_agora:
+          code: g2q15
+          type: singlechoice
+          sort_order: 15
+          question: | Ainda faz?
+          help: | Selecione apenas <b>uma</b> resposta
+          answers:
+            não:
+              code: 1
+              answer: | Não
+              sort_order: 1
+              default: Y
+            sim:
+              code: 2
+              answer: | Sim
+              sort_order: 2
+              default: N
+              subquestions:
+                quantos_semana:
+                  code: g2q15a2s1
+                  type: singlechoice
+                  sort_order: 1
+                  question: | Com qual freqüência?
+                  validation: validate_sub_question
+                  answers:
+                    1:
+                      code: 1
+                      answer: | <1 vez/semana
+                      sort_order: 1
+                      default: N
+                    1-2:
+                      code: 2
+                      answer: | 1-2 vezes/semana
+                      sort_order: 2
+                      default: N
+                    3-4:
+                      code: 3
+                      answer: | 3-4 vezes/semana
+                      sort_order: 3
+                      default: N
+                    5-6:
+                      code: 4
+                      answer: | 5-6 vezes/semana
+                      sort_order: 4
+                      default: N
+                    todo_dia:
+                      code: 5
+                      answer: | Todos os dias
+                      sort_order: 5
+                      default: N
+
+        tratamento_gravidez:
+          code: g2q16
+          type: singlechoice
+          sort_order: 16
+          question: | A mãe fez tratamento psiquiátrico durante a gravidez desta criança?
+          help: | Selecione apenas <b>uma</b> resposta
+          answers:
+            na:
+              code: 1
+              answer: | N/A
+              sort_order: 1
+              default: Y
+            ignora:
+              code: 2
+              answer: | Ignora
+              sort_order: 2
+              default: N
+            não:
+              code: 3
+              answer: | Não
+              sort_order: 3
+              default: N
+            sim:
+              code: 4
+              answer: | Sim
+              sort_order: 4
+              default: N
+              subquestions:
+                sim_descrição:
+                    code: g2q16a4s1
+                    type: textfield
+                    sort_order: 1
+                    help: | Relatar o motivo/diagnóstico
+                    textfield_size: 75
+                    validation: validate_sub_question
+
+        tratamento_vida:
+          code: g2q17
+          type: singlechoice
+          sort_order: 17
+          question: | A mãe fez tratamento psiquiátrico em alguma outra época da vida?
+          help: | Selecione apenas <b>uma</b> resposta
+          answers:
+            na:
+              code: 1
+              answer: | N/A
+              sort_order: 1
+              default: Y
+            ignora:
+              code: 2
+              answer: | Ignora
+              sort_order: 2
+              default: N
+            não:
+              code: 3
+              answer: | Não
+              sort_order: 3
+              default: N
+            sim:
+              code: 4
+              answer: | Sim
+              sort_order: 4
+              default: N
+              subquestions:
+                sim_descrição:
+                    code: g2q17a4s1
+                    type: textfield
+                    sort_order: 1
+                    help: | Relatar o motivo/diagnóstico
+                    textfield_size: 75
+                    validation: validate_sub_question
+
+        pai_embriagado_gravidez:
+          code: g2q18
+          type: singlechoice
+          sort_order: 18
+          question: | O pai desta criança se embriagava durante a gravidez desta criança?
+          help: | Selecione apenas <b>uma</b> resposta
+          answers:
+            na:
+              code: 1
+              answer: | N/A
+              sort_order: 1
+              default: Y
+            ignora:
+              code: 2
+              answer: | Ignora
+              sort_order: 2
+              default: N
+            não:
+              code: 3
+              answer: | Não
+              sort_order: 3
+              default: N
+            sim:
+              code: 4
+              answer: | Sim
+              sort_order: 4
+              default: N
+              subquestions:
+                quantos_semana:
+                  code: g2q18a4s1
+                  type: singlechoice
+                  sort_order: 1
+                  question: | Com qual freqüência?
+                  validation: validate_sub_question
+                  answers:
+                    1:
+                      code: 1
+                      answer: | <1 vez/semana
+                      sort_order: 1
+                      default: N
+                    1-2:
+                      code: 2
+                      answer: | 1-2 vezes/semana
+                      sort_order: 2
+                      default: N
+                    3-4:
+                      code: 3
+                      answer: | 3-4 vezes/semana
+                      sort_order: 3
+                      default: N
+                    5-6:
+                      code: 4
+                      answer: | 5-6 vezes/semana
+                      sort_order: 4
+                      default: N
+                    todo_dia:
+                      code: 5
+                      answer: | Todos os dias
+                      sort_order: 5
+                      default: N
+
+        pai_embriagado:
+          code: g2q19
+          type: singlechoice
+          sort_order: 19
+          question: | O pai desta criança consome bebida alcoólica a ponto de se embriagar?
+          help: | Selecione apenas <b>uma</b> resposta
+          answers:
+            na:
+              code: 1
+              answer: | N/A
+              sort_order: 1
+              default: Y
+            ignora:
+              code: 2
+              answer: | Ignora
+              sort_order: 2
+              default: N
+            não:
+              code: 3
+              answer: | Não
+              sort_order: 3
+              default: N
+            sim:
+              code: 4
+              answer: | Sim
+              sort_order: 4
+              default: N
+              subquestions:
+                quantos_semana:
+                  code: g2q19a4s1
+                  type: singlechoice
+                  sort_order: 1
+                  question: | Com qual freqüência?
+                  validation: validate_sub_question
+                  answers:
+                    1:
+                      code: 1
+                      answer: | <1 vez/semana
+                      sort_order: 1
+                      default: N
+                    1-2:
+                      code: 2
+                      answer: | 1-2 vezes/semana
+                      sort_order: 2
+                      default: N
+                    3-4:
+                      code: 3
+                      answer: | 3-4 vezes/semana
+                      sort_order: 3
+                      default: N
+                    5-6:
+                      code: 4
+                      answer: | 5-6 vezes/semana
+                      sort_order: 4
+                      default: N
+                    todo_dia:
+                      code: 5
+                      answer: | Todos os dias
+                      sort_order: 5
+                      default: N
+
+    dados_parto:
+      code: 3
+      name: Dados do Parto
+      description: | Esta parte do questionário é dedicada aos dados coletados sobre o nascimento 
+          da criança...
+      questions:
+        tempo_contrações:
+          code: g3q1
+          type: selectionbox
+          sort_order: 1
+          question: | Qual o tempo decorrido entre as contrações da mãe e o nascimento da criança?
+          help: | Selecione <b>uma</b> das seguintes
+          answers:
+            não:
+              code: 1
+              answer: | Não apresentou contrações
+              sort_order: 1
+              default: N
+            24:
+              code: 2
+              answer: | Até 24 horas
+              sort_order: 2
+              default: Y
+            25:
+              code: 3
+              answer: | Mais que 25 horas
+              sort_order: 3
+              default: N
+            ignora:
+              code: 4
+              answer: | Ignora
+              sort_order: 4
+              default: N
+            na:
+              code: 5
+              answer: | N/A
+              sort_order: 5
+              default: N
+
+        local_nascimento:
+          code: g3q2
+          type: singlechoice
+          sort_order: 2
+          question: | Onde nasceu a criança?
+          help: | Selecione apenas <b>uma</b> resposta
+          answers:
+            na:
+              code: 1
+              answer: | N/A
+              sort_order: 1
+              default: Y
+            ignora:
+              code: 2
+              answer: | Ignora
+              sort_order: 2
+              default: N
+            hospital:
+              code: 3
+              answer: | Hospital
+              sort_order: 3
+              default: N
+            casa:
+              code: 4
+              answer: | Em casa
+              sort_order: 4
+              default: N
+            outros:
+              code: 5
+              answer: | Outros
+              sort_order: 5
+              default: N
+              subquestions:
+                sim_descrição:
+                    code: g3q2a5s1
+                    type: textfield
+                    sort_order: 1
+                    help: | Por favor especifique
+                    textfield_size: 75
+                    validation: validate_sub_question
+
+        tipo_parto:
+          code: g3q3
+          type: selectionbox
+          sort_order: 3
+          question: | Qual foi o tipo de parto?
+          help: | Selecione <b>uma</b> das seguintes
+          answers:
+            normal:
+              code: 1
+              answer: | Natural/Normal
+              sort_order: 1
+              default: N
+            cesariano:
+              code: 2
+              answer: | Cesariano
+              sort_order: 2
+              default: Y
+            fórceps:
+              code: 3
+              answer: | Fórceps
+              sort_order: 3
+              default: N
+            vácuo:
+              code: 4
+              answer: | Vácuo
+              sort_order: 4
+              default: N
+            ignora:
+              code: 5
+              answer: | Ignora
+              sort_order: 5
+              default: N
+
+        trauma_parto:
+          code: g3q4
+          type: selectionbox
+          sort_order: 4
+          question: | Esta criança sofreu algum trauma no parto (fraturas, manchas, paralisias, 
+              bossas)?
+          help: | Selecione <b>uma</b> das seguintes
+          answers:
+            sim:
+              code: 1
+              answer: | Sim
+              sort_order: 1
+              default: N
+            não:
+              code: 2
+              answer: | Não
+              sort_order: 2
+              default: Y
+            ignora:
+              code: 3
+              answer: | Ignora
+              sort_order: 3
+              default: N
+            na:
+              code: 4
+              answer: | N/A
+              sort_order: 4
+              default: N
+
+        virgínia_apgar:
+          code: g3q5
+          type: singlechoice
+          sort_order: 5
+          question: | Escore de Virgínia Apgar do quinto minuto (ver no cartão da Maternidade)?
+          help: | Selecione apenas <b>uma</b> resposta
+          answers:
+            na:
+              code: 1
+              answer: | N/A
+              sort_order: 1
+              default: Y
+            ignora:
+              code: 2
+              answer: | Ignora
+              sort_order: 2
+              default: N
+            não_recebeu:
+              code: 3
+              answer: | Não recebeu
+              sort_order: 3
+              default: N
+            perdeu:
+              code: 4
+              answer: | Perdeu
+              sort_order: 4
+              default: N
+            ausente:
+              code: 5
+              answer: | Ausente
+              sort_order: 5
+              default: N
+            sim:
+              code: 6
+              answer: | Sim
+              sort_order: 6
+              default: N
+              subquestions:
+                sim_descrição:
+                    code: g3q5a6s1
+                    type: textfield
+                    sort_order: 1
+                    help: | Anote o valor
+                    textfield_size: 2
+                    validation: validate_sub_question, validate_years
+
+    dados_neonatal:
+      code: 4
+      name: Dados do Período Neonatal
+      description: | Esta parte do questionário é dedicada aos dados coletados sobre o período 
+          neonatal da criança...
+      questions:
+        gêmea:
+          code: g4q1
+          type: selectionbox
+          sort_order: 1
+          question: | Esta criança é gêmea?
+          help: | Selecione <b>uma</b> das seguintes
+          answers:
+            sim:
+              code: 1
+              answer: | Sim
+              sort_order: 1
+              default: N
+            não:
+              code: 2
+              answer: | Não
+              sort_order: 2
+              default: Y
+            ignora:
+              code: 3
+              answer: | Ignora
+              sort_order: 3
+              default: N
+            na:
+              code: 4
+              answer: | N/A
+              sort_order: 4
+              default: N
+
+        nasceu_chorou:
+          code: g4q2
+          type: selectionbox
+          sort_order: 2
+          question: | A criança chorou imediatamente depois que nasceu?
+          help: | Selecione <b>uma</b> das seguintes
+          answers:
+            sim:
+              code: 1
+              answer: | Sim
+              sort_order: 1
+              default: Y
+            não:
+              code: 2
+              answer: | Não
+              sort_order: 2
+              default: N
+            ignora:
+              code: 3
+              answer: | Ignora
+              sort_order: 3
+              default: N
+            na:
+              code: 4
+              answer: | N/A
+              sort_order: 4
+              default: N
+
+        sugou_bem:
+          code: g4q3
+          type: selectionbox
+          sort_order: 3
+          question: | Conseguiu sugar bem nos primeiros 3 dias de vida?
+          help: | Selecione <b>uma</b> das seguintes
+          answers:
+            sim:
+              code: 1
+              answer: | Sim
+              sort_order: 1
+              default: Y
+            não:
+              code: 2
+              answer: | Não
+              sort_order: 2
+              default: N
+            ignora:
+              code: 3
+              answer: | Ignora
+              sort_order: 3
+              default: N
+            na:
+              code: 4
+              answer: | N/A
+              sort_order: 4
+              default: N
+
+        incubadora:
+          code: g4q4
+          type: singlechoice
+          sort_order: 4
+          question: | Necessitou permanecer na incubadora?
+          help: | Selecione apenas <b>uma</b> resposta
+          answers:
+            não:
+              code: 1
+              answer: | Não
+              sort_order: 1
+              default: Y
+            sim:
+              code: 2
+              answer: | Sim
+              sort_order: 2
+              default: N
+              subquestions:
+                quantos_dias:
+                  code: g4q4a2s1
+                  type: singlechoice
+                  sort_order: 1
+                  question: | Quantos dias?
+                  validation: validate_sub_question
+                  answers:
+                    1:
+                      code: 1
+                      answer: | <= 1 dia
+                      sort_order: 1
+                      default: N
+                    2-6:
+                      code: 2
+                      answer: | 2-6 dias
+                      sort_order: 2
+                      default: N
+                    7:
+                      code: 3
+                      answer: | >= 7 dias
+                      sort_order: 3
+                      default: N
