@@ -1470,3 +1470,422 @@ smerfform:
                       answer: | >= 7 dias
                       sort_order: 3
                       default: N
+
+        situações_berçário:
+          code: g4q5
+          type: singlechoice
+          sort_order: 5
+          question: | Enquanto esteve internada no berçário, a criança apresentou algumas 
+              destas situações?
+          help: | Selecione <b>uma</b> das respostas abaixo
+          answers:
+            não:
+              code: 1
+              answer: | Não
+              sort_order: 1
+              default: Y
+            sim:
+              code: 2
+              answer: | Sim
+              sort_order: 2
+              default: N
+              subquestions:
+                situações_berçário_sim:
+                    code: g4q5a2s1
+                    type: multiplechoice
+                    sort_order: 1
+                    help: | Selecione <b>todas</b> que se aplicam
+                    validation: validate_sub_question
+                    answers:
+                      hipoglicemia:
+                        code: 1
+                        answer: | Hipoglicemia (baixa do açúcar do sangue)
+                        sort_order: 1
+                        default: N
+                      convulsão:
+                        code: 2
+                        answer: | Convulsão
+                        sort_order: 2
+                        default: N
+                      apnéia:
+                        code: 3
+                        answer: | Apnéia (momentos de parada respiratória)
+                        sort_order: 3
+                        default: N
+                      antibiótico:
+                        code: 4
+                        answer: | Uso de antibiótico
+                        sort_order: 4
+                        default: N
+                      sonda:
+                        code: 5
+                        answer: | Alimentação por sonda
+                        sort_order: 5
+                        default: N
+                      sangue:
+                        code: 6
+                        answer: | Uso de sangue e derivados
+                        sort_order: 6
+                        default: N
+                      fototerapia:
+                        code: 7
+                        answer: | Fototerapia (banho de luz)
+                        sort_order: 7
+                        default: N
+                      icterícia:
+                        code: 8
+                        answer: | Icterícia (pele amarela)
+                        sort_order: 8
+                        default: N
+                      outros:
+                        code: 9
+                        answer: | Outros:
+                        sort_order: 9
+                        default: N
+                        subquestions:
+                          todos_outros:
+                            code: g4q5a2s1as19ss1
+                            type: textfield
+                            sort_order: 1
+                            help: | Por favor especifique
+                            textfield_size: 75
+                            validation: validate_sub_question
+
+        tempo_gestação:
+          code: g4q6
+          type: selectionbox
+          sort_order: 6
+          question: | Quanto tempo durou a gestação desta criança?
+          help: | Selecione <b>uma</b> das seguintes
+          answers:
+            prematuro:
+              code: 1
+              answer: | Abaixo de 36 semanas e 6 dias (Prematuro)
+              sort_order: 1
+              default: N
+            termo:
+              code: 2
+              answer: | Entre 37 e 41 semanas e 6 dias (a termo)
+              sort_order: 2
+              default: N
+            pós_termo:
+              code: 3
+              answer: | Acima de 42 semanas (pós termo)
+              sort_order: 3
+              default: N
+            na:
+              code: 4
+              answer: | N/A
+              sort_order: 4
+              default: N
+            ignora:
+              code: 5
+              answer: | Ignora
+              sort_order: 5
+              default: Y
+
+        tamanho_nascer:
+          code: g4q7
+          type: selectionbox
+          sort_order: 7
+          question: | Qual o tamanho desta criança ao nascer?
+          help: | Selecione <b>uma</b> das seguintes
+          answers:
+            <46:
+              code: 1
+              answer: | Inferior a 46 cm
+              sort_order: 1
+              default: N
+            46-52:
+              code: 2
+              answer: | Entre 46 e 52 cm
+              sort_order: 2
+              default: N
+            >52:
+              code: 3
+              answer: | Acima de 52 cm
+              sort_order: 3
+              default: N
+            na:
+              code: 4
+              answer: | N/A
+              sort_order: 4
+              default: N
+            ignora:
+              code: 5
+              answer: | Ignora
+              sort_order: 5
+              default: Y
+
+        peso_nascer:
+          code: g4q8
+          type: singlechoice
+          sort_order: 8
+          question: | Com que peso esta criança nasceu?
+          help: | Selecione apenas <b>uma</b> resposta
+          answers:
+            menos:
+              code: 1
+              answer: | Menos que 2.500 g
+              sort_order: 1
+              default: Y
+            mais:
+              code: 2
+              answer: | Mais que 2.501 g
+              sort_order: 2
+              default: N
+
+        internada_berçário:
+          code: g4q9
+          type: selectionbox
+          sort_order: 9
+          question: | Se permaneceu internada no berçário após a alta da mãe, ficou por 
+              quanto tempo?
+          help: | Selecione <b>uma</b> das seguintes
+          answers:
+            <10:
+              code: 1
+              answer: | Até 10 dias
+              sort_order: 1
+              default: N
+            >10:
+              code: 2
+              answer: | 11 ou mais dias
+              sort_order: 2
+              default: N
+            na:
+              code: 3
+              answer: | N/A
+              sort_order: 3
+              default: Y
+            ignora:
+              code: 4
+              answer: | Ignora
+              sort_order: 4
+              default: N
+
+        amamentou_seio:
+          code: g4q10
+          type: selectionbox
+          sort_order: 10
+          question: | Amamentou exclusivamente no seio por quanto tempo?
+          help: | Selecione <b>uma</b> das seguintes
+          answers:
+            nunca:
+              code: 1
+              answer: | Nunca amamentou
+              sort_order: 1
+              default: N
+            <1:
+              code: 2
+              answer: | Menos de 1 mês
+              sort_order: 2
+              default: N
+            1-3:
+              code: 3
+              answer: | 1-3 meses
+              sort_order: 3
+              default: N
+            4-6:
+              code: 4
+              answer: | 4-6 meses
+              sort_order: 4
+              default: N
+            >6:
+              code: 5
+              answer: | Mais de 6 meses
+              sort_order: 5
+              default: N
+            na:
+              code: 6
+              answer: | N/A
+              sort_order: 6
+              default: Y
+
+        alimentação_amamentação:
+          code: g4q11
+          type: singlechoice
+          sort_order: 11
+          question: | Utilizou outro tipo de alimentação juntamente com a amamentação?
+          help: | Selecione apenas <b>uma</b> resposta
+          answers:
+            não:
+              code: 1
+              answer: | Não usou
+              sort_order: 1
+              default: Y
+            sim:
+              code: 2
+              answer: | Sim
+              sort_order: 2
+              default: N
+              subquestions:
+                sim_descrição:
+                    code: g4q11a2s1
+                    type: textfield
+                    sort_order: 1
+                    help: | Especifique por quanto tempo (em meses)
+                    textfield_size: 2
+                    validation: validate_sub_question, validate_years
+
+    desenvolvimento:
+      code: 5
+      name: Desenvolvimento
+      description: | Esta parte do questionário é dedicada aos dados coletados sobre o 
+          desenvolvimento da criança...
+      questions:
+        idade_andou:
+          code: g5q1
+          type: selectionbox
+          sort_order: 1
+          question: | Com que idade a criança andou?
+          help: | Selecione <b>uma</b> das seguintes
+          answers:
+            <12:
+              code: 1
+              answer: | Antes dos 12 meses
+              sort_order: 1
+              default: N
+            12-18:
+              code: 2
+              answer: | Entre 12 e 18 meses
+              sort_order: 2
+              default: N
+            >18:
+              code: 3
+              answer: | Após os 18 meses
+              sort_order: 3
+              default: N
+            na:
+              code: 4
+              answer: | N/A
+              sort_order: 4
+              default: Y
+
+        idade_falou:
+          code: g5q2
+          type: selectionbox
+          sort_order: 2
+          question: | Com que idade pronunciou as primeiras palavras?
+          help: | Selecione <b>uma</b> das seguintes
+          answers:
+            <12:
+              code: 1
+              answer: | Antes dos 12 meses
+              sort_order: 1
+              default: N
+            12-18:
+              code: 2
+              answer: | Entre 12 e 18 meses
+              sort_order: 2
+              default: N
+            >18:
+              code: 3
+              answer: | Após os 18 meses
+              sort_order: 3
+              default: N
+            na:
+              code: 4
+              answer: | N/A
+              sort_order: 4
+              default: Y
+
+        vacina:
+          code: g5q3
+          type: selectionbox
+          sort_order: 3
+          question: | Esta criança foi vacinada regularmente?
+          help: | Selecione <b>uma</b> das seguintes
+          answers:
+            sim:
+              code: 1
+              answer: | Sim
+              sort_order: 1
+              default: Y
+            não:
+              code: 2
+              answer: | Não
+              sort_order: 2
+              default: N
+            ignora:
+              code: 3
+              answer: | Ignora
+              sort_order: 3
+              default: N
+            na:
+              code: 4
+              answer: | N/A
+              sort_order: 4
+              default: N
+
+        internação:
+          code: g5q4
+          type: singlechoice
+          sort_order: 4
+          question: | Necessitou de alguma internação?
+          help: | Selecione apenas <b>uma</b> resposta
+          answers:
+            na:
+              code: 1
+              answer: | N/A
+              sort_order: 1
+              default: Y
+            ignora:
+              code: 2
+              answer: | Ignora
+              sort_order: 2
+              default: N
+            não:
+              code: 3
+              answer: | Não
+              sort_order: 3
+              default: N
+            sim:
+              code: 4
+              answer: | Sim
+              sort_order: 4
+              default: N
+              subquestions:
+                sim_descrição:
+                    code: g5q4a4s1
+                    type: textfield
+                    sort_order: 1
+                    help: | Por favor, especifique o motivo
+                    textfield_size: 75
+                    validation: validate_sub_question
+
+        medicação:
+          code: g5q5
+          type: singlechoice
+          sort_order: 5
+          question: | A criança faz uso constante de alguma medicação?
+          help: | Selecione apenas <b>uma</b> resposta
+          answers:
+            na:
+              code: 1
+              answer: | N/A
+              sort_order: 1
+              default: Y
+            ignora:
+              code: 2
+              answer: | Ignora
+              sort_order: 2
+              default: N
+            não:
+              code: 3
+              answer: | Não
+              sort_order: 3
+              default: N
+            sim:
+              code: 4
+              answer: | Sim
+              sort_order: 4
+              default: N
+              subquestions:
+                sim_descrição:
+                    code: g5q5a4s1
+                    type: textfield
+                    sort_order: 1
+                    question: | Qual?
+                    textfield_size: 75
+                    validation: validate_sub_question
