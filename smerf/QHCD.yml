@@ -1889,3 +1889,801 @@ smerfform:
                     question: | Qual?
                     textfield_size: 75
                     validation: validate_sub_question
+
+        hábitos_A:
+          code: g5q6
+          type: singlechoice
+          sort_order: 6
+          question: | A- Masturbação intradomiciliar?
+          header: | Esta criança tem ou já teve o hábito de:
+          help: | Selecione apenas <b>uma</b> resposta
+          answers:
+            não:
+              code: 1
+              answer: | Não
+              sort_order: 1
+              default: Y
+            sim:
+              code: 2
+              answer: | Sim
+              sort_order: 2
+              default: N
+              subquestions:
+                quando:
+                    code: g5q6a2s1
+                    type: singlechoice
+                    sort_order: 1
+                    question: | Quando?
+                    validation: validate_sub_question
+                    answers:
+                      diariamente:
+                        code: 1
+                        answer: | Diariamente
+                        sort_order: 1
+                        default: N
+                      raramente:
+                        code: 2
+                        answer: | Raramente
+                        sort_order: 2
+                        default: N
+                      1:
+                        code: 3
+                        answer: | 1 vez/semana
+                        sort_order: 3
+                        default: N
+                      2-4:
+                        code: 4
+                        answer: | 2-4 vezes/semana
+                        sort_order: 4
+                        default: N
+                      5-6:
+                        code: 5
+                        answer: | 5-6 vezes/semana
+                        sort_order: 5
+                        default: N
+
+        hábitos_B:
+          code: g5q7
+          type: singlechoice
+          sort_order: 7
+          question: | B- Masturbação fora de casa?
+          help: | Selecione apenas <b>uma</b> resposta
+          answers:
+            não:
+              code: 1
+              answer: | Não
+              sort_order: 1
+              default: Y
+            sim:
+              code: 2
+              answer: | Sim
+              sort_order: 2
+              default: N
+              subquestions:
+                quando:
+                    code: g5q7a2s1
+                    type: singlechoice
+                    sort_order: 1
+                    question: | Quando?
+                    validation: validate_sub_question
+                    answers:
+                      diariamente:
+                        code: 1
+                        answer: | Diariamente
+                        sort_order: 1
+                        default: N
+                      raramente:
+                        code: 2
+                        answer: | Raramente
+                        sort_order: 2
+                        default: N
+                      1:
+                        code: 3
+                        answer: | 1 vez/semana
+                        sort_order: 3
+                        default: N
+                      2-4:
+                        code: 4
+                        answer: | 2-4 vezes/semana
+                        sort_order: 4
+                        default: N
+                      5-6:
+                        code: 5
+                        answer: | 5-6 vezes/semana
+                        sort_order: 5
+                        default: N
+
+        hábitos_C:
+          code: g5q8
+          type: singlechoice
+          sort_order: 8
+          question: | C- Dificuldades para dormir?
+          help: | Selecione apenas <b>uma</b> resposta
+          answers:
+            não:
+              code: 1
+              answer: | Não
+              sort_order: 1
+              default: Y
+            sim:
+              code: 2
+              answer: | Sim
+              sort_order: 2
+              default: N
+              subquestions:
+                quando:
+                    code: g5q8a2s1
+                    type: singlechoice
+                    sort_order: 1
+                    question: | Quando?
+                    validation: validate_sub_question
+                    answers:
+                      diariamente:
+                        code: 1
+                        answer: | Diariamente
+                        sort_order: 1
+                        default: N
+                      raramente:
+                        code: 2
+                        answer: | Raramente
+                        sort_order: 2
+                        default: N
+                      1:
+                        code: 3
+                        answer: | 1 vez/semana
+                        sort_order: 3
+                        default: N
+                      2-4:
+                        code: 4
+                        answer: | 2-4 vezes/semana
+                        sort_order: 4
+                        default: N
+                      5-6:
+                        code: 5
+                        answer: | 5-6 vezes/semana
+                        sort_order: 5
+                        default: N
+
+        hábitos_D:
+          code: g5q9
+          type: singlechoice
+          sort_order: 9
+          question: | D- Terror noturno?
+          help: | Selecione apenas <b>uma</b> resposta
+          answers:
+            não:
+              code: 1
+              answer: | Não
+              sort_order: 1
+              default: Y
+            sim:
+              code: 2
+              answer: | Sim
+              sort_order: 2
+              default: N
+              subquestions:
+                quando:
+                    code: g5q9a2s1
+                    type: singlechoice
+                    sort_order: 1
+                    question: | Quando?
+                    validation: validate_sub_question
+                    answers:
+                      diariamente:
+                        code: 1
+                        answer: | Diariamente
+                        sort_order: 1
+                        default: N
+                      raramente:
+                        code: 2
+                        answer: | Raramente
+                        sort_order: 2
+                        default: N
+                      1:
+                        code: 3
+                        answer: | 1 vez/semana
+                        sort_order: 3
+                        default: N
+                      2-4:
+                        code: 4
+                        answer: | 2-4 vezes/semana
+                        sort_order: 4
+                        default: N
+                      5-6:
+                        code: 5
+                        answer: | 5-6 vezes/semana
+                        sort_order: 5
+                        default: N
+
+        hábitos_E:
+          code: g5q10
+          type: singlechoice
+          sort_order: 10
+          question: | E- Pesadelos?
+          help: | Selecione apenas <b>uma</b> resposta
+          answers:
+            não:
+              code: 1
+              answer: | Não
+              sort_order: 1
+              default: Y
+            sim:
+              code: 2
+              answer: | Sim
+              sort_order: 2
+              default: N
+              subquestions:
+                quando:
+                    code: g5q10a2s1
+                    type: singlechoice
+                    sort_order: 1
+                    question: | Quando?
+                    validation: validate_sub_question
+                    answers:
+                      diariamente:
+                        code: 1
+                        answer: | Diariamente
+                        sort_order: 1
+                        default: N
+                      raramente:
+                        code: 2
+                        answer: | Raramente
+                        sort_order: 2
+                        default: N
+                      1:
+                        code: 3
+                        answer: | 1 vez/semana
+                        sort_order: 3
+                        default: N
+                      2-4:
+                        code: 4
+                        answer: | 2-4 vezes/semana
+                        sort_order: 4
+                        default: N
+                      5-6:
+                        code: 5
+                        answer: | 5-6 vezes/semana
+                        sort_order: 5
+                        default: N
+
+        hábitos_F:
+          code: g5q11
+          type: singlechoice
+          sort_order: 11
+          question: | F- Sono agitado?
+          help: | Selecione apenas <b>uma</b> resposta
+          answers:
+            não:
+              code: 1
+              answer: | Não
+              sort_order: 1
+              default: Y
+            sim:
+              code: 2
+              answer: | Sim
+              sort_order: 2
+              default: N
+              subquestions:
+                quando:
+                    code: g5q11a2s1
+                    type: singlechoice
+                    sort_order: 1
+                    question: | Quando?
+                    validation: validate_sub_question
+                    answers:
+                      diariamente:
+                        code: 1
+                        answer: | Diariamente
+                        sort_order: 1
+                        default: N
+                      raramente:
+                        code: 2
+                        answer: | Raramente
+                        sort_order: 2
+                        default: N
+                      1:
+                        code: 3
+                        answer: | 1 vez/semana
+                        sort_order: 3
+                        default: N
+                      2-4:
+                        code: 4
+                        answer: | 2-4 vezes/semana
+                        sort_order: 4
+                        default: N
+                      5-6:
+                        code: 5
+                        answer: | 5-6 vezes/semana
+                        sort_order: 5
+                        default: N
+
+        hábitos_G:
+          code: g5q12
+          type: singlechoice
+          sort_order: 12
+          question: | G- Sonambulismo?
+          help: | Selecione apenas <b>uma</b> resposta
+          answers:
+            não:
+              code: 1
+              answer: | Não
+              sort_order: 1
+              default: Y
+            sim:
+              code: 2
+              answer: | Sim
+              sort_order: 2
+              default: N
+              subquestions:
+                quando:
+                    code: g5q12a2s1
+                    type: singlechoice
+                    sort_order: 1
+                    question: | Quando?
+                    validation: validate_sub_question
+                    answers:
+                      diariamente:
+                        code: 1
+                        answer: | Diariamente
+                        sort_order: 1
+                        default: N
+                      raramente:
+                        code: 2
+                        answer: | Raramente
+                        sort_order: 2
+                        default: N
+                      1:
+                        code: 3
+                        answer: | 1 vez/semana
+                        sort_order: 3
+                        default: N
+                      2-4:
+                        code: 4
+                        answer: | 2-4 vezes/semana
+                        sort_order: 4
+                        default: N
+                      5-6:
+                        code: 5
+                        answer: | 5-6 vezes/semana
+                        sort_order: 5
+                        default: N
+
+        hábitos_H:
+          code: g5q13
+          type: singlechoice
+          sort_order: 13
+          question: | H- Enurese noturna após os 3 anos?
+          help: | Selecione apenas <b>uma</b> resposta
+          answers:
+            não:
+              code: 1
+              answer: | Não
+              sort_order: 1
+              default: Y
+            sim:
+              code: 2
+              answer: | Sim
+              sort_order: 2
+              default: N
+              subquestions:
+                quando:
+                    code: g5q13a2s1
+                    type: singlechoice
+                    sort_order: 1
+                    question: | Quando?
+                    validation: validate_sub_question
+                    answers:
+                      diariamente:
+                        code: 1
+                        answer: | Diariamente
+                        sort_order: 1
+                        default: N
+                      raramente:
+                        code: 2
+                        answer: | Raramente
+                        sort_order: 2
+                        default: N
+                      1:
+                        code: 3
+                        answer: | 1 vez/semana
+                        sort_order: 3
+                        default: N
+                      2-4:
+                        code: 4
+                        answer: | 2-4 vezes/semana
+                        sort_order: 4
+                        default: N
+                      5-6:
+                        code: 5
+                        answer: | 5-6 vezes/semana
+                        sort_order: 5
+                        default: N
+
+        hábitos_I:
+          code: g5q14
+          type: singlechoice
+          sort_order: 14
+          question: | I- Roer unha?
+          help: | Selecione apenas <b>uma</b> resposta
+          answers:
+            não:
+              code: 1
+              answer: | Não
+              sort_order: 1
+              default: Y
+            sim:
+              code: 2
+              answer: | Sim
+              sort_order: 2
+              default: N
+              subquestions:
+                quando:
+                    code: g5q14a2s1
+                    type: singlechoice
+                    sort_order: 1
+                    question: | Quando?
+                    validation: validate_sub_question
+                    answers:
+                      diariamente:
+                        code: 1
+                        answer: | Diariamente
+                        sort_order: 1
+                        default: N
+                      raramente:
+                        code: 2
+                        answer: | Raramente
+                        sort_order: 2
+                        default: N
+                      1:
+                        code: 3
+                        answer: | 1 vez/semana
+                        sort_order: 3
+                        default: N
+                      2-4:
+                        code: 4
+                        answer: | 2-4 vezes/semana
+                        sort_order: 4
+                        default: N
+                      5-6:
+                        code: 5
+                        answer: | 5-6 vezes/semana
+                        sort_order: 5
+                        default: N
+
+        hábitos_J:
+          code: g5q15
+          type: singlechoice
+          sort_order: 15
+          question: | J- Chupar dedo?
+          help: | Selecione apenas <b>uma</b> resposta
+          answers:
+            não:
+              code: 1
+              answer: | Não
+              sort_order: 1
+              default: Y
+            sim:
+              code: 2
+              answer: | Sim
+              sort_order: 2
+              default: N
+              subquestions:
+                quando:
+                    code: g5q15a2s1
+                    type: singlechoice
+                    sort_order: 1
+                    question: | Quando?
+                    validation: validate_sub_question
+                    answers:
+                      diariamente:
+                        code: 1
+                        answer: | Diariamente
+                        sort_order: 1
+                        default: N
+                      raramente:
+                        code: 2
+                        answer: | Raramente
+                        sort_order: 2
+                        default: N
+                      1:
+                        code: 3
+                        answer: | 1 vez/semana
+                        sort_order: 3
+                        default: N
+                      2-4:
+                        code: 4
+                        answer: | 2-4 vezes/semana
+                        sort_order: 4
+                        default: N
+                      5-6:
+                        code: 5
+                        answer: | 5-6 vezes/semana
+                        sort_order: 5
+                        default: N
+
+        hábitos_K:
+          code: g5q16
+          type: singlechoice
+          sort_order: 16
+          question: | K- Chupar Chupeta?
+          help: | Selecione apenas <b>uma</b> resposta
+          answers:
+            não:
+              code: 1
+              answer: | Não
+              sort_order: 1
+              default: Y
+            sim:
+              code: 2
+              answer: | Sim
+              sort_order: 2
+              default: N
+              subquestions:
+                quando:
+                    code: g5q16a2s1
+                    type: singlechoice
+                    sort_order: 1
+                    question: | Quando?
+                    validation: validate_sub_question
+                    answers:
+                      diariamente:
+                        code: 1
+                        answer: | Diariamente
+                        sort_order: 1
+                        default: N
+                      raramente:
+                        code: 2
+                        answer: | Raramente
+                        sort_order: 2
+                        default: N
+                      1:
+                        code: 3
+                        answer: | 1 vez/semana
+                        sort_order: 3
+                        default: N
+                      2-4:
+                        code: 4
+                        answer: | 2-4 vezes/semana
+                        sort_order: 4
+                        default: N
+                      5-6:
+                        code: 5
+                        answer: | 5-6 vezes/semana
+                        sort_order: 5
+                        default: N
+
+        estudou_escola_atual:
+          code: g5q17
+          type: singlechoice
+          sort_order: 17
+          question: | A criança sempre estudou na escola atual?
+          help: | Selecione apenas <b>uma</b> resposta
+          answers:
+            sim:
+              code: 1
+              answer: | Sim
+              sort_order: 1
+              default: Y
+            não:
+              code: 2
+              answer: | Não
+              sort_order: 2
+              default: N
+              subquestions:
+                sim_descrição:
+                    code: g5q17a2s1
+                    type: textfield
+                    sort_order: 1
+                    question: | Onde estudava antes?
+                    textfield_size: 75
+                    validation: validate_sub_question
+
+        dificuldade_escola:
+          code: g5q18
+          type: singlechoice
+          sort_order: 18
+          question: | A criança está tendo alguma dificuldade no aprendizado escolar?
+          help: | Selecione <b>uma</b> das respostas abaixo
+          answers:
+            na:
+              code: 1
+              answer: | N/A
+              sort_order: 1
+              default: Y
+            ignora:
+              code: 2
+              answer: | Ignora
+              sort_order: 2
+              default: N
+            não:
+              code: 3
+              answer: | Não
+              sort_order: 3
+              default: N
+            sim:
+              code: 4
+              answer: | Sim
+              sort_order: 4
+              default: N
+              subquestions:
+                dificuldade_escola_sim:
+                    code: g5q18a4s1
+                    type: multiplechoice
+                    sort_order: 1
+                    question: | Quais as dificuldades?
+                    help: | Selecione <b>todas</b> que se aplicam
+                    validation: validate_sub_question
+                    answers:
+                      leitura:
+                        code: 1
+                        answer: | Leitura
+                        sort_order: 1
+                        default: N
+                      cópia:
+                        code: 2
+                        answer: | Cópia
+                        sort_order: 2
+                        default: N
+                      escrita:
+                        code: 3
+                        answer: | Escrita
+                        sort_order: 3
+                        default: N
+                      cálculos:
+                        code: 4
+                        answer: | Não faz cálculos
+                        sort_order: 4
+                        default: N
+                      outros:
+                        code: 5
+                        answer: | Outros:
+                        sort_order: 5
+                        default: N
+                        subquestions:
+                          todos_outros:
+                            code: g5q18a4s1as15ss1
+                            type: textfield
+                            sort_order: 1
+                            help: | Por favor especifique
+                            textfield_size: 75
+                            validation: validate_sub_question
+
+        opinião_dificuldade_escola:
+          code: g5q19
+          type: multiplechoice
+          sort_order: 19
+          question: | Qual a sua opinião sobre isto? (Deixe em branco se a resposta anterior 
+              for negativa)
+          help: | Selecione <b>todas</b> que se aplicam
+          answers:
+            atenção:
+              code: 1
+              answer: | Não presta atenção
+              sort_order: 1
+              default: N
+            interessa:
+              code: 2
+              answer: | Não se interessa
+              sort_order: 2
+              default: N
+            agitado:
+              code: 3
+              answer: | É agitado
+              sort_order: 3
+              default: N
+            aprende_lentamente:
+              code: 4
+              answer: | Aprende mais lentamente
+              sort_order: 4
+              default: N
+            aprende_esquece:
+              code: 5
+              answer: | Aprende mas esquece
+              sort_order: 5
+              default: N
+            não_aprende:
+              code: 6
+              answer: | Tem atenção mas não aprende
+              sort_order: 6
+              default: N
+            outros:
+              code: 7
+              answer: | Outros:
+              sort_order: 7
+              default: N
+              subquestions:
+                todos_outros:
+                  code: g5q19a7s1
+                  type: textfield
+                  sort_order: 1
+                  help: | Por favor especifique
+                  textfield_size: 75
+                  validation: validate_sub_question
+
+        dificuldade_comportamento_escola:
+          code: g5q20
+          type: singlechoice
+          sort_order: 20
+          question: | A criança está tendo alguma dificuldade no comportamento escolar?
+          help: | Selecione <b>uma</b> das respostas abaixo
+          answers:
+            na:
+              code: 1
+              answer: | N/A
+              sort_order: 1
+              default: Y
+            ignora:
+              code: 2
+              answer: | Ignora
+              sort_order: 2
+              default: N
+            não:
+              code: 3
+              answer: | Não
+              sort_order: 3
+              default: N
+            sim:
+              code: 4
+              answer: | Sim
+              sort_order: 4
+              default: N
+              subquestions:
+                dificuldade_comportamento_escola_sim:
+                    code: g5q20a4s1
+                    type: multiplechoice
+                    sort_order: 1
+                    question: | Quais as dificuldades?
+                    help: | Selecione <b>todas</b> que se aplicam
+                    validation: validate_sub_question
+                    answers:
+                      hiperativo:
+                        code: 1
+                        answer: | Hiperatividade/Agitação
+                        sort_order: 1
+                        default: N
+                      relacionamento:
+                        code: 2
+                        answer: | Dificuldade no relacionamento social
+                        sort_order: 2
+                        default: N
+                      desatenção:
+                        code: 3
+                        answer: | Desatenção
+                        sort_order: 3
+                        default: N
+                      destrutivo:
+                        code: 4
+                        answer: | Comportamentos destrutivos
+                        sort_order: 4
+                        default: N
+                      agressividade:
+                        code: 5
+                        answer: | Agressividade
+                        sort_order: 5
+                        default: N
+
+        contato_polícia:
+          code: g5q21
+          type: singlechoice
+          sort_order: 21
+          question: | A criança já teve algum contato com a polícia?
+          help: | Selecione apenas <b>uma</b> resposta
+          answers:
+            não:
+              code: 1
+              answer: | Não
+              sort_order: 1
+              default: Y
+            sim:
+              code: 2
+              answer: | Sim
+              sort_order: 2
+              default: N
+              subquestions:
+                qual:
+                    code: g5q21a2s1
+                    type: textfield
+                    sort_order: 1
+                    question: | Qual o motivo?
+                    textfield_size: 75
+                    validation: validate_sub_question
