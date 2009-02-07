@@ -108,8 +108,8 @@ smerfform:
                   question: | Quando?
                   textfield_size: 10
                   validation: validate_sub_question, validate_date
-                  help: | A data fornecida deve ser dos tipos <b>D/M/AAAA</b> ou <b>DD/MM/AAAA</b>.
-                      <br>Por exemplo: '<b>1/1/2009</b>' ou '<b>01/01/2009</b>'.
+                  help: | A data fornecida deve ser dos tipos <b>D/M/AAAA</b> ou <b>DD/MM/AAAA</b>
+                      <br>Por exemplo: '<b>1/1/2009</b>' ou '<b>01/01/2009</b>'
 
         escola:
           code: g1q5
@@ -3376,7 +3376,7 @@ smerfform:
           type: selectionbox
           sort_order: 3
           question: | Pais vivos?
-          help: | Selecione apenas <b>uma</b> resposta
+          help: | Selecione <b>uma</b> das seguintes
           answers:
             sim:
               code: 1
@@ -3516,7 +3516,7 @@ smerfform:
           type: selectionbox
           sort_order: 6
           question: | Tipo de moradia da família:
-          help: | Selecione apenas <b>uma</b> resposta
+          help: | Selecione <b>uma</b> das seguintes
           answers:
             própria:
               code: 1
@@ -3549,7 +3549,7 @@ smerfform:
           type: selectionbox
           sort_order: 7
           question: | Local de residência da família:
-          help: | Selecione apenas <b>uma</b> resposta
+          help: | Selecione <b>uma</b> das seguintes
           answers:
             bairro:
               code: 1
@@ -3586,3 +3586,790 @@ smerfform:
               answer: | Vila
               sort_order: 7
               default: N
+
+        dormitórios:
+          code: g7q8
+          type: selectionbox
+          sort_order: 8
+          question: | Quantos dormitórios têm na casa (espaço separado por parede ou divisória)?
+          help: | Selecione <b>uma</b> das seguintes
+          answers:
+            1:
+              code: 1
+              answer: | 1
+              sort_order: 1
+              default: Y
+            2:
+              code: 2
+              answer: | 2
+              sort_order: 2
+              default: N
+            3:
+              code: 3
+              answer: | 3
+              sort_order: 3
+              default: N
+            4:
+              code: 4
+              answer: | 4
+              sort_order: 4
+              default: N
+            5:
+              code: 5
+              answer: | 5
+              sort_order: 5
+              default: N
+
+        eletrodomésticos:
+          code: g7q9
+          type: multiplechoice
+          sort_order: 9
+          question: | Posse de eletrodomésticos?
+          help: | Selecione <b>todas</b> que se aplicam
+          validation: validate_mandatory_question
+          answers:
+            rádio:
+              code: 1
+              answer: | Rádio
+              sort_order: 1
+              default: N
+            televisão:
+              code: 2
+              answer: | Televisão
+              sort_order: 2
+              default: N
+            geladeira:
+              code: 3
+              answer: | Geladeira
+              sort_order: 3
+              default: N
+            outros:
+              code: 4
+              answer: | Outros
+              sort_order: 4
+              default: N
+              subquestions:
+                sim_descrição:
+                  code: g7q9a4s1
+                  type: textfield
+                  sort_order: 1
+                  help: | Por favor especifique
+                  textfield_size: 75
+                  validation: validate_sub_question
+
+        abastecimento_água:
+          code: g7q10
+          type: singlechoice
+          sort_order: 10
+          question: | Qual é a forma de abastecimento de água na casa?
+          help: | Selecione apenas <b>uma</b> resposta
+          answers:
+            rede:
+              code: 1
+              answer: | Rede geral
+              sort_order: 1
+              default: Y
+            poço:
+              code: 2
+              answer: | Poço ou nascente (na propriedade)
+              sort_order: 2
+              default: N
+            outros:
+              code: 3
+              answer: | Outros
+              sort_order: 3
+              default: N
+              subquestions:
+                sim_descrição:
+                  code: g7q10a3s1
+                  type: textfield
+                  sort_order: 1
+                  help: | Por favor especifique
+                  textfield_size: 75
+                  validation: validate_sub_question
+
+        água_canalizada:
+          code: g7q11
+          type: singlechoice
+          sort_order: 11
+          question: | A água utilizada nesta casa chega:
+          help: | Selecione apenas <b>uma</b> resposta
+          answers:
+            cômodo:
+              code: 1
+              answer: | Canalizada em pelo menos um cômodo
+              sort_order: 1
+              default: Y
+            terreno:
+              code: 2
+              answer: | Canalizada só na propriedade ou terreno
+              sort_order: 2
+              default: N
+            outros:
+              code: 3
+              answer: | Outros
+              sort_order: 3
+              default: N
+              subquestions:
+                sim_descrição:
+                  code: g7q11a3s1
+                  type: textfield
+                  sort_order: 1
+                  help: | Por favor especifique
+                  textfield_size: 75
+                  validation: validate_sub_question
+
+        descarga:
+          code: g7q12
+          type: selectionbox
+          sort_order: 12
+          question: | Os sanitários possuem descarga?
+          help: | Selecione <b>uma</b> das seguintes
+          answers:
+            sim:
+              code: 1
+              answer: | Sim
+              sort_order: 1
+              default: Y
+            não:
+              code: 2
+              answer: | Não
+              sort_order: 2
+              default: N
+
+        ambiente_casa:
+          code: g7q13
+          type: selectionbox
+          sort_order: 13
+          question: | Como é considerado o ambiente de sua casa?
+          help: | Selecione <b>uma</b> das seguintes
+          answers:
+            tranqüilo:
+              code: 1
+              answer: | Tranqüilo
+              sort_order: 1
+              default: Y
+            agressões_verbais:
+              code: 2
+              answer: | Agressões verbais entre familiares
+              sort_order: 2
+              default: N
+            discussões:
+              code: 3
+              answer: | Freqüentes discussões
+              sort_order: 3
+              default: N
+            agressões:
+              code: 4
+              answer: | Agressões entre os familiares
+              sort_order: 4
+              default: N
+
+        ambiente_família:
+          code: g7q14
+          type: selectionbox
+          sort_order: 14
+          question: | Como é considerado o ambiente no local onde a família mora?
+          help: | Selecione <b>uma</b> das seguintes
+          answers:
+            tranqüilo:
+              code: 1
+              answer: | Tranqüilo
+              sort_order: 1
+              default: Y
+            tiroteio:
+              code: 2
+              answer: | Tiroteio
+              sort_order: 2
+              default: N
+            invasão:
+              code: 3
+              answer: | Invasão Policial
+              sort_order: 3
+              default: N
+            agressão_verbal:
+              code: 4
+              answer: | Agressão verbal
+              sort_order: 4
+              default: N
+            agressão_física:
+              code: 5
+              answer: | Agressão física
+              sort_order: 5
+              default: N
+
+        ambiente_abrigo:
+          code: g7q15
+          type: selectionbox
+          sort_order: 15
+          question: | Como é o ambiente no abrigo?
+          help: | Selecione <b>uma</b> das seguintes
+          answers:
+            tranqüilo:
+              code: 1
+              answer: | Tranqüilo
+              sort_order: 1
+              default: Y
+            agressões_verbais:
+              code: 2
+              answer: | Agressões verbais entre os moradores
+              sort_order: 2
+              default: N
+            discussões:
+              code: 3
+              answer: | Freqüentes discussões
+              sort_order: 3
+              default: N
+            agressões:
+              code: 4
+              answer: | Agressões físicas entre os moradores
+              sort_order: 4
+              default: N
+
+        deveres_iniciativa_própria:
+          code: g7q16
+          type: selectionbox
+          sort_order: 16
+          question: | O aluno faz deveres por iniciativa própria?
+          help: | Selecione <b>uma</b> das seguintes
+          answers:
+            sim:
+              code: 1
+              answer: | Sim
+              sort_order: 1
+              default: Y
+            não:
+              code: 2
+              answer: | Não
+              sort_order: 2
+              default: N
+            ignora:
+              code: 3
+              answer: | Ignora 
+              sort_order: 3
+              default: N
+            na:
+              code: 4
+              answer: | N/A
+              sort_order: 4
+              default: N
+
+        faltas_mês:
+          code: g7q17
+          type: selectionbox
+          sort_order: 17
+          question: | Quantas vezes por mês esta criança falta às aulas?
+          help: | Selecione <b>uma</b> das seguintes
+          answers:
+            não:
+              code: 1
+              answer: | Não falta
+              sort_order: 1
+              default: Y
+            <2:
+              code: 2
+              answer: | Até 2 vezes
+              sort_order: 2
+              default: N
+            <3:
+              code: 3
+              answer: | Até 3 vezes 
+              sort_order: 3
+              default: N
+            sempre:
+              code: 4
+              answer: | Podendo mata aula
+              sort_order: 4
+              default: N
+            doente:
+              code: 5
+              answer: | Falta se doente
+              sort_order: 5
+              default: N
+            responsável:
+              code: 6
+              answer: | Falta quando o responsável não leva
+              sort_order: 6
+              default: N
+
+        anos_creche:
+          code: g7q18
+          type: selectionbox
+          sort_order: 18
+          question: | Quantos anos em creche ou jardim?
+          help: | Selecione <b>uma</b> das seguintes
+          answers:
+            0:
+              code: 1
+              answer: | 0
+              sort_order: 1
+              default: Y
+            1:
+              code: 2
+              answer: | 1
+              sort_order: 2
+              default: N
+            2:
+              code: 3
+              answer: | 2
+              sort_order: 3
+              default: N
+            3:
+              code: 4
+              answer: | 3
+              sort_order: 4
+              default: N
+            ignorada:
+              code: 5
+              answer: | Ignorada
+              sort_order: 5
+              default: N
+
+        escolas_cursos:
+          code: g7q19
+          type: selectionbox
+          sort_order: 19
+          question: | O aluno freqüenta outras escolas ou cursos (línguas estrangeiras, 
+              informática, etc.)?
+          help: | Selecione <b>uma</b> das seguintes
+          answers:
+            sim:
+              code: 1
+              answer: | Sim
+              sort_order: 1
+              default: Y
+            não:
+              code: 2
+              answer: | Não
+              sort_order: 2
+              default: N
+            ignora:
+              code: 3
+              answer: | Ignora 
+              sort_order: 3
+              default: N
+            na:
+              code: 4
+              answer: | N/A
+              sort_order: 4
+              default: N
+
+        atitude_cuidador_criança_não_estuda:
+          code: g7q20
+          type: singlechoice
+          sort_order: 20
+          question: | Qual a atitude do cuidador se a criança não estuda?
+          help: | Selecione apenas <b>uma</b> resposta
+          answers:
+            proibições:
+              code: 1
+              answer: | Proibições em geral
+              sort_order: 1
+              default: Y
+            reclusão:
+              code: 2
+              answer: | Reclusão
+              sort_order: 2
+              default: N
+            agressão:
+              code: 3
+              answer: | Agressão física
+              sort_order: 3
+              default: N
+            neutra:
+              code: 4
+              answer: | Neutra
+              sort_order: 4
+              default: N
+            outra:
+              code: 5
+              answer: | Outra
+              sort_order: 5
+              default: N
+              subquestions:
+                sim_descrição:
+                  code: g7q20a5s1
+                  type: textfield
+                  sort_order: 1
+                  help: | Por favor especifique
+                  textfield_size: 75
+                  validation: validate_sub_question
+
+        elogios_cuidador_criança_estuda:
+          code: g7q21
+          type: singlechoice
+          sort_order: 21
+          question: | Recebe elogios ou prêmios (do cuidador), pelo bom desempenho na escola?
+          help: | Selecione apenas <b>uma</b> resposta
+          answers:
+            não:
+              code: 1
+              answer: | Não
+              sort_order: 1
+              default: Y
+            sim:
+              code: 2
+              answer: | Sim
+              sort_order: 2
+              default: N
+              subquestions:
+                sim_descrição:
+                  code: g7q21a2s1
+                  type: textfield
+                  sort_order: 1
+                  help: | Por favor especifique
+                  textfield_size: 75
+                  validation: validate_sub_question
+
+        cuidador_contato_professores:
+          code: g7q22
+          type: selectionbox
+          sort_order: 22
+          question: | Com que freqüência o cuidador tem contato com os professores?
+          help: | Selecione <b>uma</b> das seguintes
+          answers:
+            diariamente:
+              code: 1
+              answer: | Diariamente
+              sort_order: 1
+              default: Y
+            semanalmente:
+              code: 2
+              answer: | Semanalmente
+              sort_order: 2
+              default: N
+            mensalmente:
+              code: 3
+              answer: | Mensalmente 
+              sort_order: 3
+              default: N
+            raramente:
+              code: 4
+              answer: | Raramente
+              sort_order: 4
+              default: N
+            reuniões:
+              code: 5
+              answer: | Nas reuniões de pais 
+              sort_order: 5
+              default: N
+            professor:
+              code: 6
+              answer: | O próprio cuidador é o professor
+              sort_order: 6
+              default: N
+
+        atividades_diárias:
+          code: g7q23
+          type: multiplechoice
+          sort_order: 23
+          question: | Atividades diárias da criança (em horas, sem considerar a escola):
+          help: | Selecione <b>todas</b> que se aplicam
+          validation: validate_mandatory_question
+          answers:
+            estudos:
+              code: 1
+              answer: | Estudos
+              sort_order: 1
+              default: N
+              subquestions:
+                estudos_descrição:
+                  code: g7q23a1s1
+                  type: textfield
+                  sort_order: 1
+                  help: | Por favor especifique
+                  textfield_size: 2
+                  validation: validate_sub_question, validate_years
+            esportes:
+              code: 2
+              answer: | Esportes
+              sort_order: 2
+              default: N
+              subquestions:
+                esportes_descrição:
+                  code: g7q23a2s1
+                  type: textfield
+                  sort_order: 1
+                  help: | Por favor especifique
+                  textfield_size: 2
+                  validation: validate_sub_question, validate_years
+            tv:
+              code: 3
+              answer: | TV/Vídeo Game
+              sort_order: 3
+              default: N
+              subquestions:
+                sim_descrição:
+                  code: g7q23a3s1
+                  type: textfield
+                  sort_order: 1
+                  help: | Por favor especifique
+                  textfield_size: 2
+                  validation: validate_sub_question, validate_years
+            contatos:
+              code: 4
+              answer: | Contatos Sociais
+              sort_order: 4
+              default: N
+              subquestions:
+                sim_descrição:
+                  code: g7q23a4s1
+                  type: textfield
+                  sort_order: 1
+                  help: | Por favor especifique
+                  textfield_size: 2
+                  validation: validate_sub_question, validate_years
+            outros:
+              code: 5
+              answer: | Outros
+              sort_order: 5
+              default: N
+              subquestions:
+                sim_descrição:
+                  code: g7q23a5s1
+                  type: textfield
+                  sort_order: 1
+                  help: | Por favor especifique
+                  textfield_size: 2
+                  validation: validate_sub_question, validate_years
+
+        encaminhada_tratamento:
+          code: g7q24
+          type: singlechoice
+          sort_order: 24
+          question: | A criança já foi encaminhada para algum tratamento?
+          help: | Selecione <b>uma</b> das respostas abaixo
+          answers:
+            ignora:
+              code: 1
+              answer: | Ignora
+              sort_order: 1
+              default: Y
+            não:
+              code: 2
+              answer: | Não
+              sort_order: 2
+              default: N
+            sim:
+              code: 3
+              answer: | Sim
+              sort_order: 3
+              default: N
+              subquestions:
+                encaminhada_tratamento_sim:
+                    code: g7q24a3s1
+                    type: multiplechoice
+                    sort_order: 1
+                    help: | Selecione <b>todas</b> que se aplicam
+                    validation: validate_sub_question
+                    answers:
+                      fonoaudiológico:
+                        code: 1
+                        answer: | Fonoaudiológico
+                        sort_order: 1
+                        default: N
+                        subquestions:
+                          fonoaudiológico_idade:
+                            code: g7q24a3s1as11ss1
+                            type: textfield
+                            sort_order: 1
+                            question: | Com que idade?
+                            textfield_size: 2
+                            validation: validate_sub_question, validate_years
+                          fonoaudiológico_tempo:
+                            code: g7q24a3s1as11ss2
+                            type: textfield
+                            sort_order: 2
+                            question: | Por quanto tempo (meses)?
+                            textfield_size: 2
+                            validation: validate_sub_question, validate_years
+                      psicológico:
+                        code: 2
+                        answer: | Psicológico
+                        sort_order: 2
+                        default: N
+                        subquestions:
+                          psicológico_idade:
+                            code: g7q24a3s1as12ss1
+                            type: textfield
+                            sort_order: 1
+                            question: | Com que idade?
+                            textfield_size: 2
+                            validation: validate_sub_question, validate_years
+                          psicológico_tempo:
+                            code: g7q24a3s1as12ss2
+                            type: textfield
+                            sort_order: 2
+                            question: | Por quanto tempo (meses)?
+                            textfield_size: 2
+                            validation: validate_sub_question, validate_years
+                      neurológico:
+                        code: 3
+                        answer: | Neurológico
+                        sort_order: 3
+                        default: N
+                        subquestions:
+                          neurológico_idade:
+                            code: g7q24a3s1as13ss1
+                            type: textfield
+                            sort_order: 1
+                            question: | Com que idade?
+                            textfield_size: 2
+                            validation: validate_sub_question, validate_years
+                          neurológico_tempo:
+                            code: g7q24a3s1as13ss2
+                            type: textfield
+                            sort_order: 2
+                            question: | Por quanto tempo (meses)?
+                            textfield_size: 2
+                            validation: validate_sub_question, validate_years
+                      psiquiátrico:
+                        code: 4
+                        answer: | Psiquiátrico
+                        sort_order: 4
+                        default: N
+                        subquestions:
+                          psiquiátrico_idade:
+                            code: g7q24a3s1as14ss1
+                            type: textfield
+                            sort_order: 1
+                            question: | Com que idade?
+                            textfield_size: 2
+                            validation: validate_sub_question, validate_years
+                          psiquiátrico_tempo:
+                            code: g7q24a3s1as14ss2
+                            type: textfield
+                            sort_order: 2
+                            question: | Por quanto tempo (meses)?
+                            textfield_size: 2
+                            validation: validate_sub_question, validate_years
+                      outros:
+                        code: 5
+                        answer: | Outros:
+                        sort_order: 5
+                        default: N
+                        subquestions:
+                          todos_outros:
+                            code: g7q24a2s1as15ss1
+                            type: textfield
+                            sort_order: 1
+                            help: | Por favor especifique
+                            textfield_size: 75
+                            validation: validate_sub_question
+                          outros_idade:
+                            code: g7q24a3s1as15ss2
+                            type: textfield
+                            sort_order: 2
+                            question: | Com que idade?
+                            textfield_size: 2
+                            validation: validate_sub_question, validate_years
+                          outros_tempo:
+                            code: g7q24a3s1as15ss3
+                            type: textfield
+                            sort_order: 3
+                            question: | Por quanto tempo (meses)?
+                            textfield_size: 2
+                            validation: validate_sub_question, validate_years
+
+        submetida_tratamento:
+          code: g7q25
+          type: singlechoice
+          sort_order: 25
+          question: | A criança já foi submetida a algum tratamento?
+          help: | Selecione <b>uma</b> das respostas abaixo
+          answers:
+            ignora:
+              code: 1
+              answer: | Ignora
+              sort_order: 1
+              default: Y
+            não:
+              code: 2
+              answer: | Não
+              sort_order: 2
+              default: N
+            sim:
+              code: 3
+              answer: | Sim
+              sort_order: 3
+              default: N
+              subquestions:
+                submetida_tratamento_sim:
+                    code: g7q25a3s1
+                    type: multiplechoice
+                    sort_order: 1
+                    help: | Selecione <b>todas</b> que se aplicam
+                    validation: validate_sub_question
+                    answers:
+                      fonoaudiológico:
+                        code: 1
+                        answer: | Fonoaudiológico
+                        sort_order: 1
+                        default: N
+                        subquestions:
+                          fonoaudiológico_idade:
+                            code: g7q25a3s1as11ss1
+                            type: textfield
+                            sort_order: 1
+                            question: | Com que idade?
+                            textfield_size: 2
+                            validation: validate_sub_question, validate_years
+                      psicológico:
+                        code: 2
+                        answer: | Psicológico
+                        sort_order: 2
+                        default: N
+                        subquestions:
+                          psicológico_idade:
+                            code: g7q25a3s1as12ss1
+                            type: textfield
+                            sort_order: 1
+                            question: | Com que idade?
+                            textfield_size: 2
+                            validation: validate_sub_question, validate_years
+                      neurológico:
+                        code: 3
+                        answer: | Neurológico
+                        sort_order: 3
+                        default: N
+                        subquestions:
+                          neurológico_idade:
+                            code: g7q25a3s1as13ss1
+                            type: textfield
+                            sort_order: 1
+                            question: | Com que idade?
+                            textfield_size: 2
+                            validation: validate_sub_question, validate_years
+                      psiquiátrico:
+                        code: 4
+                        answer: | Psiquiátrico
+                        sort_order: 4
+                        default: N
+                        subquestions:
+                          psiquiátrico_idade:
+                            code: g7q25a3s1as14ss1
+                            type: textfield
+                            sort_order: 1
+                            question: | Com que idade?
+                            textfield_size: 2
+                            validation: validate_sub_question, validate_years
+                      outros:
+                        code: 5
+                        answer: | Outros:
+                        sort_order: 5
+                        default: N
+                        subquestions:
+                          todos_outros:
+                            code: g7q25a2s1as15ss1
+                            type: textfield
+                            sort_order: 1
+                            help: | Por favor especifique
+                            textfield_size: 75
+                            validation: validate_sub_question
+                          outros_idade:
+                            code: g7q25a3s1as15ss2
+                            type: textfield
+                            sort_order: 2
+                            question: | Com que idade?
+                            textfield_size: 2
+                            validation: validate_sub_question, validate_years
