@@ -24,10 +24,10 @@ smerfform:
       questions:
         sexo:
           code: g1q1
-          type: singlechoice
+          type: selectionbox
           sort_order: 1
           question: | Sexo:
-          help: | Selecione apenas <b>uma</b> resposta
+          help: | Selecione <b>uma</b> das seguintes
           answers:
             homem:
               code: 1
@@ -1619,10 +1619,10 @@ smerfform:
 
         peso_nascer:
           code: g4q8
-          type: singlechoice
+          type: selectionbox
           sort_order: 8
           question: | Com que peso esta criança nasceu?
-          help: | Selecione apenas <b>uma</b> resposta
+          help: | Selecione <b>uma</b> das seguintes
           answers:
             menos:
               code: 1
@@ -2687,3 +2687,902 @@ smerfform:
                     question: | Qual o motivo?
                     textfield_size: 75
                     validation: validate_sub_question
+
+        contato_drogas:
+          code: g5q22
+          type: singlechoice
+          sort_order: 22
+          question: | A criança já teve contato (fez uso?) com drogas?
+          help: | Selecione apenas <b>uma</b> resposta
+          answers:
+            não:
+              code: 1
+              answer: | Não
+              sort_order: 1
+              default: Y
+            sim:
+              code: 2
+              answer: | Sim
+              sort_order: 2
+              default: N
+              subquestions:
+                qual:
+                    code: g5q22a2s1
+                    type: textfield
+                    sort_order: 1
+                    question: | Quando?
+                    textfield_size: 75
+                    validation: validate_sub_question
+
+        contato_drogas_ainda:
+          code: g5q23
+          type: singlechoice
+          sort_order: 23
+          question: | Ainda faz uso?
+          help: | Selecione apenas <b>uma</b> resposta
+          answers:
+            não:
+              code: 1
+              answer: | Não
+              sort_order: 1
+              default: Y
+            sim:
+              code: 2
+              answer: | Sim
+              sort_order: 2
+              default: N
+
+    história_familiar:
+      code: 6
+      name: História Familiar da Criança
+      description: | Esta parte do questionário é dedicada aos dados coletados sobre o 
+          histórico familiar da criança...
+      questions:
+        caso_A:
+          code: g6q1
+          type: singlechoice
+          sort_order: 1
+          question: | A- Tique?
+          header: | Existe algum caso em sua família, incluindo a criança, de:
+          help: | Selecione apenas <b>uma</b> resposta
+          answers:
+            na:
+              code: 1
+              answer: | N/A
+              sort_order: 1
+              default: Y
+            ignora:
+              code: 2
+              answer: | Ignora
+              sort_order: 2
+              default: N
+            não:
+              code: 3
+              answer: | Não
+              sort_order: 3
+              default: N
+            sim:
+              code: 4
+              answer: | Sim
+              sort_order: 4
+              default: N
+              subquestions:
+                sim_descrição:
+                  code: g6q1a4s1
+                  type: textfield
+                  sort_order: 1
+                  help: | Anotar o grau de parentesco abaixo
+                  textfield_size: 75
+                  validation: validate_sub_question
+
+        caso_B:
+          code: g6q2
+          type: singlechoice
+          sort_order: 2
+          question: | B- Distúrbio Convulsivo?
+          help: | Selecione apenas <b>uma</b> resposta
+          answers:
+            na:
+              code: 1
+              answer: | N/A
+              sort_order: 1
+              default: Y
+            ignora:
+              code: 2
+              answer: | Ignora
+              sort_order: 2
+              default: N
+            não:
+              code: 3
+              answer: | Não
+              sort_order: 3
+              default: N
+            sim:
+              code: 4
+              answer: | Sim
+              sort_order: 4
+              default: N
+              subquestions:
+                sim_descrição:
+                  code: g6q2a4s1
+                  type: textfield
+                  sort_order: 1
+                  help: | Anotar o grau de parentesco abaixo
+                  textfield_size: 75
+                  validation: validate_sub_question
+
+        caso_C:
+          code: g6q3
+          type: singlechoice
+          sort_order: 3
+          question: | C- Retardo mental?
+          help: | Selecione apenas <b>uma</b> resposta
+          answers:
+            na:
+              code: 1
+              answer: | N/A
+              sort_order: 1
+              default: Y
+            ignora:
+              code: 2
+              answer: | Ignora
+              sort_order: 2
+              default: N
+            não:
+              code: 3
+              answer: | Não
+              sort_order: 3
+              default: N
+            sim:
+              code: 4
+              answer: | Sim
+              sort_order: 4
+              default: N
+              subquestions:
+                sim_descrição:
+                  code: g6q3a4s1
+                  type: textfield
+                  sort_order: 1
+                  help: | Anotar o grau de parentesco abaixo
+                  textfield_size: 75
+                  validation: validate_sub_question
+
+        caso_D:
+          code: g6q4
+          type: singlechoice
+          sort_order: 4
+          question: | D- Sintomatologia obsessivo-compulsiva (manias de limpeza, perfeição, 
+              rituais etc)?
+          help: | Selecione apenas <b>uma</b> resposta
+          answers:
+            na:
+              code: 1
+              answer: | N/A
+              sort_order: 1
+              default: Y
+            ignora:
+              code: 2
+              answer: | Ignora
+              sort_order: 2
+              default: N
+            não:
+              code: 3
+              answer: | Não
+              sort_order: 3
+              default: N
+            sim:
+              code: 4
+              answer: | Sim
+              sort_order: 4
+              default: N
+              subquestions:
+                sim_descrição:
+                  code: g6q4a4s1
+                  type: textfield
+                  sort_order: 1
+                  help: | Anotar o grau de parentesco abaixo
+                  textfield_size: 75
+                  validation: validate_sub_question
+
+        caso_E:
+          code: g6q5
+          type: singlechoice
+          sort_order: 5
+          question: | E- Medos exagerados (elevador, animais etc.)?
+          help: | Selecione apenas <b>uma</b> resposta
+          answers:
+            na:
+              code: 1
+              answer: | N/A
+              sort_order: 1
+              default: Y
+            ignora:
+              code: 2
+              answer: | Ignora
+              sort_order: 2
+              default: N
+            não:
+              code: 3
+              answer: | Não
+              sort_order: 3
+              default: N
+            sim:
+              code: 4
+              answer: | Sim
+              sort_order: 4
+              default: N
+              subquestions:
+                sim_descrição:
+                  code: g6q5a4s1
+                  type: textfield
+                  sort_order: 1
+                  help: | Anotar o grau de parentesco abaixo
+                  textfield_size: 75
+                  validation: validate_sub_question
+
+        caso_F:
+          code: g6q6
+          type: singlechoice
+          sort_order: 6
+          question: | F- Hiperatividade (agitação)?
+          help: | Selecione apenas <b>uma</b> resposta
+          answers:
+            na:
+              code: 1
+              answer: | N/A
+              sort_order: 1
+              default: Y
+            ignora:
+              code: 2
+              answer: | Ignora
+              sort_order: 2
+              default: N
+            não:
+              code: 3
+              answer: | Não
+              sort_order: 3
+              default: N
+            sim:
+              code: 4
+              answer: | Sim
+              sort_order: 4
+              default: N
+              subquestions:
+                sim_descrição:
+                  code: g6q6a4s1
+                  type: textfield
+                  sort_order: 1
+                  help: | Anotar o grau de parentesco abaixo
+                  textfield_size: 75
+                  validation: validate_sub_question
+
+        caso_G:
+          code: g6q7
+          type: singlechoice
+          sort_order: 7
+          question: | G- Dificuldade da fala?
+          help: | Selecione apenas <b>uma</b> resposta
+          answers:
+            na:
+              code: 1
+              answer: | N/A
+              sort_order: 1
+              default: Y
+            ignora:
+              code: 2
+              answer: | Ignora
+              sort_order: 2
+              default: N
+            não:
+              code: 3
+              answer: | Não
+              sort_order: 3
+              default: N
+            sim:
+              code: 4
+              answer: | Sim
+              sort_order: 4
+              default: N
+              subquestions:
+                sim_descrição:
+                  code: g6q7a4s1
+                  type: textfield
+                  sort_order: 1
+                  help: | Anotar o grau de parentesco abaixo
+                  textfield_size: 75
+                  validation: validate_sub_question
+
+        caso_H:
+          code: g6q8
+          type: singlechoice
+          sort_order: 8
+          question: | H- Dificuldade do aprendizado?
+          help: | Selecione apenas <b>uma</b> resposta
+          answers:
+            na:
+              code: 1
+              answer: | N/A
+              sort_order: 1
+              default: Y
+            ignora:
+              code: 2
+              answer: | Ignora
+              sort_order: 2
+              default: N
+            não:
+              code: 3
+              answer: | Não
+              sort_order: 3
+              default: N
+            sim:
+              code: 4
+              answer: | Sim
+              sort_order: 4
+              default: N
+              subquestions:
+                sim_descrição:
+                  code: g6q8a4s1
+                  type: textfield
+                  sort_order: 1
+                  help: | Anotar o grau de parentesco abaixo
+                  textfield_size: 75
+                  validation: validate_sub_question
+
+        caso_I:
+          code: g6q9
+          type: singlechoice
+          sort_order: 9
+          question: | I- Tratamento ou internação em clínica de saúde mental/psiquiátrica?
+          help: | Selecione apenas <b>uma</b> resposta
+          answers:
+            na:
+              code: 1
+              answer: | N/A
+              sort_order: 1
+              default: Y
+            ignora:
+              code: 2
+              answer: | Ignora
+              sort_order: 2
+              default: N
+            não:
+              code: 3
+              answer: | Não
+              sort_order: 3
+              default: N
+            sim:
+              code: 4
+              answer: | Sim
+              sort_order: 4
+              default: N
+              subquestions:
+                sim_descrição:
+                  code: g6q9a4s1
+                  type: textfield
+                  sort_order: 1
+                  help: | Anotar o grau de parentesco abaixo
+                  textfield_size: 75
+                  validation: validate_sub_question
+
+        caso_J:
+          code: g6q10
+          type: singlechoice
+          sort_order: 10
+          question: | J- Embriaguez?
+          help: | Selecione apenas <b>uma</b> resposta
+          answers:
+            na:
+              code: 1
+              answer: | N/A
+              sort_order: 1
+              default: Y
+            ignora:
+              code: 2
+              answer: | Ignora
+              sort_order: 2
+              default: N
+            não:
+              code: 3
+              answer: | Não
+              sort_order: 3
+              default: N
+            sim:
+              code: 4
+              answer: | Sim
+              sort_order: 4
+              default: N
+              subquestions:
+                sim_descrição:
+                  code: g6q10a4s1
+                  type: textfield
+                  sort_order: 1
+                  help: | Anotar o grau de parentesco abaixo
+                  textfield_size: 75
+                  validation: validate_sub_question
+
+        caso_K:
+          code: g6q11
+          type: singlechoice
+          sort_order: 11
+          question: | K- Furtos?
+          help: | Selecione apenas <b>uma</b> resposta
+          answers:
+            na:
+              code: 1
+              answer: | N/A
+              sort_order: 1
+              default: Y
+            ignora:
+              code: 2
+              answer: | Ignora
+              sort_order: 2
+              default: N
+            não:
+              code: 3
+              answer: | Não
+              sort_order: 3
+              default: N
+            sim:
+              code: 4
+              answer: | Sim
+              sort_order: 4
+              default: N
+              subquestions:
+                sim_descrição:
+                  code: g6q11a4s1
+                  type: textfield
+                  sort_order: 1
+                  help: | Anotar o grau de parentesco abaixo
+                  textfield_size: 75
+                  validation: validate_sub_question
+
+        caso_L:
+          code: g6q12
+          type: singlechoice
+          sort_order: 12
+          question: | L- Prisão?
+          help: | Selecione apenas <b>uma</b> resposta
+          answers:
+            na:
+              code: 1
+              answer: | N/A
+              sort_order: 1
+              default: Y
+            ignora:
+              code: 2
+              answer: | Ignora
+              sort_order: 2
+              default: N
+            não:
+              code: 3
+              answer: | Não
+              sort_order: 3
+              default: N
+            sim:
+              code: 4
+              answer: | Sim
+              sort_order: 4
+              default: N
+              subquestions:
+                sim_descrição:
+                  code: g6q12a4s1
+                  type: textfield
+                  sort_order: 1
+                  help: | Anotar o grau de parentesco abaixo
+                  textfield_size: 75
+                  validation: validate_sub_question
+
+        caso_M:
+          code: g6q13
+          type: singlechoice
+          sort_order: 13
+          question: | M- Roubos?
+          help: | Selecione apenas <b>uma</b> resposta
+          answers:
+            na:
+              code: 1
+              answer: | N/A
+              sort_order: 1
+              default: Y
+            ignora:
+              code: 2
+              answer: | Ignora
+              sort_order: 2
+              default: N
+            não:
+              code: 3
+              answer: | Não
+              sort_order: 3
+              default: N
+            sim:
+              code: 4
+              answer: | Sim
+              sort_order: 4
+              default: N
+              subquestions:
+                sim_descrição:
+                  code: g6q13a4s1
+                  type: textfield
+                  sort_order: 1
+                  help: | Anotar o grau de parentesco abaixo
+                  textfield_size: 75
+                  validation: validate_sub_question
+
+        caso_N:
+          code: g6q14
+          type: singlechoice
+          sort_order: 14
+          question: | N- Depressão?
+          help: | Selecione apenas <b>uma</b> resposta
+          answers:
+            na:
+              code: 1
+              answer: | N/A
+              sort_order: 1
+              default: Y
+            ignora:
+              code: 2
+              answer: | Ignora
+              sort_order: 2
+              default: N
+            não:
+              code: 3
+              answer: | Não
+              sort_order: 3
+              default: N
+            sim:
+              code: 4
+              answer: | Sim
+              sort_order: 4
+              default: N
+              subquestions:
+                sim_descrição:
+                  code: g6q14a4s1
+                  type: textfield
+                  sort_order: 1
+                  help: | Anotar o grau de parentesco abaixo
+                  textfield_size: 75
+                  validation: validate_sub_question
+
+        caso_O:
+          code: g6q15
+          type: singlechoice
+          sort_order: 15
+          question: | O- Suicídio/Tentativa de Suicídio?
+          help: | Selecione apenas <b>uma</b> resposta
+          answers:
+            na:
+              code: 1
+              answer: | N/A
+              sort_order: 1
+              default: Y
+            ignora:
+              code: 2
+              answer: | Ignora
+              sort_order: 2
+              default: N
+            não:
+              code: 3
+              answer: | Não
+              sort_order: 3
+              default: N
+            sim:
+              code: 4
+              answer: | Sim
+              sort_order: 4
+              default: N
+              subquestions:
+                sim_descrição:
+                  code: g6q15a4s1
+                  type: textfield
+                  sort_order: 1
+                  help: | Anotar o grau de parentesco abaixo
+                  textfield_size: 75
+                  validation: validate_sub_question
+
+        caso_P:
+          code: g6q16
+          type: singlechoice
+          sort_order: 16
+          question: | P- Canhotismo?
+          help: | Selecione apenas <b>uma</b> resposta
+          answers:
+            na:
+              code: 1
+              answer: | N/A
+              sort_order: 1
+              default: Y
+            ignora:
+              code: 2
+              answer: | Ignora
+              sort_order: 2
+              default: N
+            não:
+              code: 3
+              answer: | Não
+              sort_order: 3
+              default: N
+            sim:
+              code: 4
+              answer: | Sim
+              sort_order: 4
+              default: N
+              subquestions:
+                sim_descrição:
+                  code: g6q16a4s1
+                  type: textfield
+                  sort_order: 1
+                  help: | Anotar o grau de parentesco abaixo
+                  textfield_size: 75
+                  validation: validate_sub_question
+
+    sócio_econômica:
+      code: 7
+      name: Condições Sócio-Econômicas
+      description: | Esta parte do questionário é dedicada aos dados coletados sobre as 
+          condições sócio-econômicas da criança...
+      questions:
+        moradores_abrigo:
+          code: g7q1
+          type: textfield
+          sort_order: 1
+          question: | Número de moradores do abrigo:
+          textfield_size: 2
+          validation: validate_mandatory_question, validate_years
+
+        família_preservada:
+          code: g7q2
+          type: singlechoice
+          sort_order: 2
+          question: | A família está preservada?
+          help: | Selecione apenas <b>uma</b> resposta
+          answers:
+            intacta:
+              code: 1
+              answer: | Intacta
+              sort_order: 1
+              default: Y
+            mãe:
+              code: 2
+              answer: | Só com a mãe
+              sort_order: 2
+              default: N
+            pai:
+              code: 3
+              answer: | Só com o pai
+              sort_order: 3
+              default: N
+            separados:
+              code: 4
+              answer: | Pais separados
+              sort_order: 4
+              default: N
+            parente:
+              code: 5
+              answer: | Mora com parente
+              sort_order: 5
+              default: N
+              subquestions:
+                sim_descrição:
+                  code: g7q2a5s1
+                  type: textfield
+                  sort_order: 1
+                  question: | Qual?
+                  textfield_size: 75
+                  validation: validate_sub_question
+
+        pais_vivos:
+          code: g7q3
+          type: selectionbox
+          sort_order: 3
+          question: | Pais vivos?
+          help: | Selecione apenas <b>uma</b> resposta
+          answers:
+            sim:
+              code: 1
+              answer: | Sim
+              sort_order: 1
+              default: Y
+            pai_morto:
+              code: 2
+              answer: | Pai morto
+              sort_order: 2
+              default: N
+            pai_ignorado:
+              code: 3
+              answer: | Pai ignorado
+              sort_order: 3
+              default: N
+            mãe_morta:
+              code: 4
+              answer: | Mãe morta
+              sort_order: 4
+              default: N
+            mãe_ignorada:
+              code: 5
+              answer: | Mãe ignorada
+              sort_order: 5
+              default: N
+            pai_mãe_mortos:
+              code: 6
+              answer: | Pai e mãe mortos
+              sort_order: 6
+              default: N
+
+        grau_estudo_mãe:
+          code: g7q4
+          type: singlechoice
+          sort_order: 4
+          question: | Que grau de estudo a mãe biológica alcançou?
+          help: | Selecione apenas <b>uma</b> resposta
+          answers:
+            ignorado:
+              code: 1
+              answer: | Ignorado
+              sort_order: 1
+              default: Y
+            analfabeta:
+              code: 2
+              answer: | Analfabeta
+              sort_order: 2
+              default: N
+            assina_nome:
+              code: 3
+              answer: | Assina o nome
+              sort_order: 3
+              default: N
+            2_incompleto:
+              code: 4
+              answer: | 2° grau incompleto
+              sort_order: 4
+              default: N
+            3_incompleto:
+              code: 5
+              answer: | 3° grau incompleto
+              sort_order: 5
+              default: N
+            3:
+              code: 6
+              answer: | 3° grau
+              sort_order: 6
+              default: N
+            outro:
+              code: 7
+              answer: | Outro
+              sort_order: 7
+              default: N
+              subquestions:
+                sim_descrição:
+                  code: g7q4a7s1
+                  type: textfield
+                  sort_order: 1
+                  question: | Qual?
+                  textfield_size: 75
+                  validation: validate_sub_question
+
+        grau_estudo_pai:
+          code: g7q5
+          type: singlechoice
+          sort_order: 5
+          question: | Que grau de estudo o pai biológico alcançou?
+          help: | Selecione apenas <b>uma</b> resposta
+          answers:
+            ignorado:
+              code: 1
+              answer: | Ignorado
+              sort_order: 1
+              default: Y
+            analfabeto:
+              code: 2
+              answer: | Analfabeto
+              sort_order: 2
+              default: N
+            assina_nome:
+              code: 3
+              answer: | Assina o nome
+              sort_order: 3
+              default: N
+            2_incompleto:
+              code: 4
+              answer: | 2° grau incompleto
+              sort_order: 4
+              default: N
+            3_incompleto:
+              code: 5
+              answer: | 3° grau incompleto
+              sort_order: 5
+              default: N
+            3:
+              code: 6
+              answer: | 3° grau
+              sort_order: 6
+              default: N
+            outro:
+              code: 7
+              answer: | Outro
+              sort_order: 7
+              default: N
+              subquestions:
+                sim_descrição:
+                  code: g7q5a7s1
+                  type: textfield
+                  sort_order: 1
+                  question: | Qual?
+                  textfield_size: 75
+                  validation: validate_sub_question
+
+        moradia_família:
+          code: g7q6
+          type: selectionbox
+          sort_order: 6
+          question: | Tipo de moradia da família:
+          help: | Selecione apenas <b>uma</b> resposta
+          answers:
+            própria:
+              code: 1
+              answer: | Própria
+              sort_order: 1
+              default: Y
+            alugada:
+              code: 2
+              answer: | Alugada
+              sort_order: 2
+              default: N
+            herdada:
+              code: 3
+              answer: | Herdada
+              sort_order: 3
+              default: N
+            favor:
+              code: 4
+              answer: | De favor
+              sort_order: 4
+              default: N
+            invasão:
+              code: 5
+              answer: | Invasão
+              sort_order: 5
+              default: N
+
+        local_moradia_família:
+          code: g7q7
+          type: selectionbox
+          sort_order: 7
+          question: | Local de residência da família:
+          help: | Selecione apenas <b>uma</b> resposta
+          answers:
+            bairro:
+              code: 1
+              answer: | Bairro comum
+              sort_order: 1
+              default: Y
+            favela:
+              code: 2
+              answer: | Favela
+              sort_order: 2
+              default: N
+            morro:
+              code: 3
+              answer: | Morro
+              sort_order: 3
+              default: N
+            conjunto:
+              code: 4
+              answer: | Conjunto residencial
+              sort_order: 4
+              default: N
+            militar:
+              code: 5
+              answer: | Vila militar
+              sort_order: 5
+              default: N
+            comunitário:
+              code: 6
+              answer: | Bairro comunitário
+              sort_order: 6
+              default: N
+            vila:
+              code: 7
+              answer: | Vila
+              sort_order: 7
+              default: N
