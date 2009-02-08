@@ -1,0 +1,962 @@
+--- 
+smerfform:
+  name: Questionário - Aluno(a) 4ª Série EF
+  welcome: | <b>Bem Vindo:</b>
+    <p>Obrigado por responder este questionário de anamnese da Plataforma T.U.I.A.</p>
+    <b>DECLARAÇÃO DE PRIVACIDADE</b>
+    <p>Nós manteremos todas as informações que você fornecer privadas e não
+    as compatilharemos com mais ninguém...</p>
+
+  thank_you: | <p><b>Obrigado por fornecer seus dados!</b></p>
+    <p>Se você quiser discutir esse questionário, por favor contacte 
+    a equipe da Plataforma T.U.I.A.<br>
+    E-mail: <A HREF=\"mailto:adm.tuia@gmail.com\">Equipe T.U.I.A.</A></p>
+    Janeiro 2009
+
+  group_sort_order_field: code
+
+  groups:
+    caracterização:
+      code: 1
+      name: Caracterização
+      description: | Este questionário é dedicado aos dados coletados sobre os alunos da Quarta 
+          Série do Ensino Fundamental.
+      questions:
+        sexo:
+          code: g1q1
+          type: selectionbox
+          sort_order: 1
+          question: | Sexo:
+          help: | Selecione <b>uma</b> das seguintes
+          answers:
+            homem:
+              code: 1
+              answer: | Masculino
+              sort_order: 1
+              default: Y
+            mulher:
+              code: 2
+              answer: | Feminino
+              sort_order: 2
+              default: N
+
+        etnia:
+          code: g1q2
+          type: selectionbox
+          sort_order: 2
+          question: | Como você se considera?
+          help: | Selecione <b>uma</b> das seguintes
+          answers:
+            branca:
+              code: 1
+              answer: | Branco(a)
+              sort_order: 1
+              default: Y
+            negra:
+              code: 2
+              answer: | Negro(a)
+              sort_order: 2
+              default: N
+            parda:
+              code: 3
+              answer: | Pardo(a)
+              sort_order: 3
+              default: N
+            amarela:
+              code: 4
+              answer: | Amarelo(a)
+              sort_order: 4
+              default: N
+            indígena:
+              code: 5
+              answer: | Indígena
+              sort_order: 5
+              default: N
+
+        idade:
+          code: g1q3
+          type: selectionbox
+          sort_order: 3
+          question: | Qual a sua idade?
+          help: | Selecione <b>uma</b> das seguintes
+          answers:
+            8:
+              code: 1
+              answer: | 8 anos
+              sort_order: 1
+              default: Y
+            9:
+              code: 2
+              answer: | 9 anos
+              sort_order: 2
+              default: N
+            10:
+              code: 3
+              answer: | 10 anos
+              sort_order: 3
+              default: N
+            11:
+              code: 4
+              answer: | 11 anos
+              sort_order: 4
+              default: N
+            12:
+              code: 5
+              answer: | 12 anos
+              sort_order: 5
+              default: N
+            13:
+              code: 6
+              answer: | 13 anos
+              sort_order: 6
+              default: N
+            14:
+              code: 7
+              answer: | 14 anos
+              sort_order: 7
+              default: N
+            15:
+              code: 8
+              answer: | 15 anos ou mais
+              sort_order: 8
+              default: N
+
+        aniversário:
+          code: g1q4
+          type: selectionbox
+          sort_order: 4
+          question: | Você ainda vai fazer aniversário até o final deste ano?
+          help: | Selecione <b>uma</b> das seguintes
+          answers:
+            sim:
+              code: 1
+              answer: | Sim, eu vou fazer aniversário até o final deste ano
+              sort_order: 1
+              default: Y
+            não:
+              code: 2
+              answer: | Não, eu já fiz aniversário neste ano
+              sort_order: 2
+              default: N
+
+        mês_aniversário:
+          code: g1q5
+          type: selectionbox
+          sort_order: 5
+          question: | Qual é o mês do seu aniversário?
+          help: | Selecione <b>uma</b> das seguintes
+          answers:
+            1:
+              code: 1
+              answer: | Janeiro
+              sort_order: 1
+              default: Y
+            2:
+              code: 2
+              answer: | Fevereiro
+              sort_order: 2
+              default: N
+            3:
+              code: 3
+              answer: | Março
+              sort_order: 3
+              default: N
+            4:
+              code: 4
+              answer: | Abril
+              sort_order: 4
+              default: N
+            5:
+              code: 5
+              answer: | Maio
+              sort_order: 5
+              default: N
+            6:
+              code: 6
+              answer: | Junho
+              sort_order: 6
+              default: N
+            7:
+              code: 7
+              answer: | Julho
+              sort_order: 7
+              default: N
+            8:
+              code: 8
+              answer: | Agosto
+              sort_order: 8
+              default: N
+            9:
+              code: 9
+              answer: | Setembro
+              sort_order: 9
+              default: N
+            10:
+              code: 10
+              answer: | Outubro
+              sort_order: 10
+              default: N
+            11:
+              code: 11
+              answer: | Novembro
+              sort_order: 11
+              default: N
+            12:
+              code: 12
+              answer: | Dezembro
+              sort_order: 12
+              default: N
+
+        televisão:
+          code: g1q6
+          type: singlechoice
+          sort_order: 6
+          question: | Na sua casa tem televisão em cores?
+          help: | Selecione apenas <b>uma</b> resposta
+          answers:
+            não:
+              code: 1
+              answer: | Não
+              sort_order: 1
+              default: Y
+            sim:
+              code: 2
+              answer: | Sim
+              sort_order: 2
+              default: N
+              subquestions:
+                quantas:
+                  code: g1q6a2s1
+                  type: singlechoice
+                  sort_order: 1
+                  question: | Quantas?
+                  validation: validate_sub_question
+                  answers:
+                    1:
+                      code: 1
+                      answer: | 1
+                      sort_order: 1
+                      default: N
+                    2:
+                      code: 2
+                      answer: | 2
+                      sort_order: 2
+                      default: N
+                    3:
+                      code: 3
+                      answer: | 3
+                      sort_order: 3
+                      default: N
+                    4:
+                      code: 4
+                      answer: | 4 ou mais
+                      sort_order: 4
+                      default: N
+
+        rádio:
+          code: g1q7
+          type: singlechoice
+          sort_order: 7
+          question: | Na sua casa tem rádio?
+          help: | Selecione apenas <b>uma</b> resposta
+          answers:
+            não:
+              code: 1
+              answer: | Não
+              sort_order: 1
+              default: Y
+            sim:
+              code: 2
+              answer: | Sim
+              sort_order: 2
+              default: N
+              subquestions:
+                quantas:
+                  code: g1q7a2s1
+                  type: singlechoice
+                  sort_order: 1
+                  question: | Quantos?
+                  validation: validate_sub_question
+                  answers:
+                    1:
+                      code: 1
+                      answer: | 1
+                      sort_order: 1
+                      default: N
+                    2:
+                      code: 2
+                      answer: | 2
+                      sort_order: 2
+                      default: N
+                    3:
+                      code: 3
+                      answer: | 3
+                      sort_order: 3
+                      default: N
+                    4:
+                      code: 4
+                      answer: | 4 ou mais
+                      sort_order: 4
+                      default: N
+
+        videocassete:
+          code: g1q8
+          type: selectionbox
+          sort_order: 8
+          question: | Na sua casa tem videocassete?
+          help: | Selecione <b>uma</b> das seguintes
+          answers:
+            sim:
+              code: 1
+              answer: | Sim
+              sort_order: 1
+              default: Y
+            não:
+              code: 2
+              answer: | Não
+              sort_order: 2
+              default: N
+
+        banheiro:
+          code: g1q9
+          type: singlechoice
+          sort_order: 9
+          question: | Dentro de sua casa tem banheiro?
+          help: | Selecione apenas <b>uma</b> resposta
+          answers:
+            não:
+              code: 1
+              answer: | Não
+              sort_order: 1
+              default: Y
+            sim:
+              code: 2
+              answer: | Sim
+              sort_order: 2
+              default: N
+              subquestions:
+                quantas:
+                  code: g1q9a2s1
+                  type: singlechoice
+                  sort_order: 1
+                  question: | Quantos?
+                  validation: validate_sub_question
+                  answers:
+                    1:
+                      code: 1
+                      answer: | 1
+                      sort_order: 1
+                      default: N
+                    2:
+                      code: 2
+                      answer: | 2
+                      sort_order: 2
+                      default: N
+                    3:
+                      code: 3
+                      answer: | 3 ou mais
+                      sort_order: 3
+                      default: N
+
+        empregada:
+          code: g1q10
+          type: singlechoice
+          sort_order: 10
+          question: | Na sua casa trabalha alguma empregada doméstica?
+          help: | Selecione apenas <b>uma</b> resposta
+          answers:
+            não:
+              code: 1
+              answer: | Não
+              sort_order: 1
+              default: Y
+            sim:
+              code: 2
+              answer: | Sim
+              sort_order: 2
+              default: N
+              subquestions:
+                quantas:
+                  code: g1q10a2s1
+                  type: singlechoice
+                  sort_order: 1
+                  question: | Quantas?
+                  validation: validate_sub_question
+                  answers:
+                    1-2:
+                      code: 1
+                      answer: | Diarista (faxineira, etc.) uma ou duas vezes por semana
+                      sort_order: 1
+                      default: N
+                    1:
+                      code: 2
+                      answer: | Uma, todos os dias
+                      sort_order: 2
+                      default: N
+                    2+:
+                      code: 3
+                      answer: | Duas ou mais, todos os dias
+                      sort_order: 3
+                      default: N
+
+        moram_casa:
+          code: g1q11
+          type: selectionbox
+          sort_order: 11
+          question: | Além de você, quantas pessoas moram em sua casa?
+          help: | Selecione <b>uma</b> das seguintes
+          answers:
+            0:
+              code: 1
+              answer: | 0
+              sort_order: 1
+              default: Y
+            1:
+              code: 2
+              answer: | 1
+              sort_order: 2
+              default: N
+            2:
+              code: 3
+              answer: | 2
+              sort_order: 3
+              default: N
+            3:
+              code: 4
+              answer: | 3
+              sort_order: 4
+              default: N
+            4:
+              code: 5
+              answer: | 4
+              sort_order: 5
+              default: N
+            5:
+              code: 6
+              answer: | 5
+              sort_order: 6
+              default: N
+            6:
+              code: 7
+              answer: | 6
+              sort_order: 7
+              default: N
+            7:
+              code: 8
+              answer: | 7
+              sort_order: 8
+              default: N
+            8:
+              code: 9
+              answer: | 8
+              sort_order: 9
+              default: N
+            9:
+              code: 10
+              answer: | 9
+              sort_order: 10
+              default: N
+            10+:
+              code: 11
+              answer: | 10 ou mais
+              sort_order: 11
+              default: N
+
+        mora_mãe:
+          code: g1q12
+          type: selectionbox
+          sort_order: 12
+          question: | Você mora com a sua mãe?
+          help: | Selecione <b>uma</b> das seguintes
+          answers:
+            sim:
+              code: 1
+              answer: | Sim
+              sort_order: 1
+              default: Y
+            não:
+              code: 2
+              answer: | Não
+              sort_order: 2
+              default: N
+            responsável:
+              code: 3
+              answer: | Não. Moro com outra mulher responsável por mim
+              sort_order: 3
+              default: N
+
+        mãe_letrada:
+          code: g1q13
+          type: selectionbox
+          sort_order: 13
+          question: | Sua mãe sabe ler e escrever?
+          help: | Selecione <b>uma</b> das seguintes
+          answers:
+            sim:
+              code: 1
+              answer: | Sim
+              sort_order: 1
+              default: Y
+            não:
+              code: 2
+              answer: | Não
+              sort_order: 2
+              default: N
+            não_sei:
+              code: 3
+              answer: | Não sei
+              sort_order: 3
+              default: N
+
+        mãe_série:
+          code: g1q14
+          type: selectionbox
+          sort_order: 14
+          question: | Até que série sua mãe estudou?
+          help: | Selecione <b>uma</b> das seguintes
+          answers:
+            nunca:
+              code: 1
+              answer: | Nunca estudou
+              sort_order: 1
+              default: Y
+            primário_incompleto:
+              code: 2
+              answer: | Não completou a 4ª série (antigo primário)
+              sort_order: 2
+              default: N
+            primário_completo:
+              code: 3
+              answer: | Completou a 4ª série (antigo primário)
+              sort_order: 3
+              default: N
+            ginásio_incompleto:
+              code: 4
+              answer: | Não completou a 8ª série (antigo ginásio)
+              sort_order: 4
+              default: N
+            ginásio_completo:
+              code: 5
+              answer: | Completou a 8ª série (antigo ginásio)
+              sort_order: 5
+              default: N
+            2_grau_incompleto:
+              code: 6
+              answer: | Não completou o Ensino Médio (antigo 2º grau)
+              sort_order: 6
+              default: N
+            2_grau_completo:
+              code: 7
+              answer: | Completou o Ensino Médio (antigo 2º grau)
+              sort_order: 7
+              default: N
+            faculdade_incompleto:
+              code: 8
+              answer: | Começou, mas não completou, a Faculdade
+              sort_order: 8
+              default: N
+            faculdade_completo:
+              code: 9
+              answer: | Completou a Faculdade
+              sort_order: 9
+              default: N
+            não_sei:
+              code: 10
+              answer: | Não sei
+              sort_order: 10
+              default: N
+
+        mãe_lendo:
+          code: g1q15
+          type: selectionbox
+          sort_order: 15
+          question: | Você vê sua mãe lendo?
+          help: | Selecione <b>uma</b> das seguintes
+          answers:
+            sim:
+              code: 1
+              answer: | Sim
+              sort_order: 1
+              default: Y
+            não:
+              code: 2
+              answer: | Não
+              sort_order: 2
+              default: N
+
+        mora_pai:
+          code: g1q16
+          type: selectionbox
+          sort_order: 16
+          question: | Você mora com seu pai?
+          help: | Selecione <b>uma</b> das seguintes
+          answers:
+            sim:
+              code: 1
+              answer: | Sim
+              sort_order: 1
+              default: Y
+            não:
+              code: 2
+              answer: | Não
+              sort_order: 2
+              default: N
+            responsável:
+              code: 3
+              answer: | Não. Moro com outro homem responsável por mim
+              sort_order: 3
+              default: N
+
+        pai_letrado:
+          code: g1q17
+          type: selectionbox
+          sort_order: 17
+          question: | Seu pai sabe ler e escrever?
+          help: | Selecione <b>uma</b> das seguintes
+          answers:
+            sim:
+              code: 1
+              answer: | Sim
+              sort_order: 1
+              default: Y
+            não:
+              code: 2
+              answer: | Não
+              sort_order: 2
+              default: N
+            não_sei:
+              code: 3
+              answer: | Não sei
+              sort_order: 3
+              default: N
+
+        pai_série:
+          code: g1q18
+          type: selectionbox
+          sort_order: 18
+          question: | Até que série seu pai estudou?
+          help: | Selecione <b>uma</b> das seguintes
+          answers:
+            nunca:
+              code: 1
+              answer: | Nunca estudou
+              sort_order: 1
+              default: Y
+            primário_incompleto:
+              code: 2
+              answer: | Não completou a 4ª série (antigo primário)
+              sort_order: 2
+              default: N
+            primário_completo:
+              code: 3
+              answer: | Completou a 4ª série (antigo primário)
+              sort_order: 3
+              default: N
+            ginásio_incompleto:
+              code: 4
+              answer: | Não completou a 8ª série (antigo ginásio)
+              sort_order: 4
+              default: N
+            ginásio_completo:
+              code: 5
+              answer: | Completou a 8ª série (antigo ginásio)
+              sort_order: 5
+              default: N
+            2_grau_incompleto:
+              code: 6
+              answer: | Não completou o Ensino Médio (antigo 2º grau)
+              sort_order: 6
+              default: N
+            2_grau_completo:
+              code: 7
+              answer: | Completou o Ensino Médio (antigo 2º grau)
+              sort_order: 7
+              default: N
+            faculdade_incompleto:
+              code: 8
+              answer: | Começou, mas não completou, a Faculdade
+              sort_order: 8
+              default: N
+            faculdade_completo:
+              code: 9
+              answer: | Completou a Faculdade
+              sort_order: 9
+              default: N
+            não_sei:
+              code: 10
+              answer: | Não sei
+              sort_order: 10
+              default: N
+
+        pai_lendo:
+          code: g1q19
+          type: selectionbox
+          sort_order: 19
+          question: | Você vê seu pai lendo?
+          help: | Selecione <b>uma</b> das seguintes
+          answers:
+            sim:
+              code: 1
+              answer: | Sim
+              sort_order: 1
+              default: Y
+            não:
+              code: 2
+              answer: | Não
+              sort_order: 2
+              default: N
+
+        teatro:
+          code: g1q20
+          type: selectionbox
+          sort_order: 20
+          question: | Você costuma ir ao teatro?
+          help: | Selecione <b>uma</b> das seguintes
+          answers:
+            sempre:
+              code: 1
+              answer: | Sempre ou quase sempre
+              sort_order: 1
+              default: Y
+            quando:
+              code: 2
+              answer: | De vez em quando
+              sort_order: 2
+              default: N
+            nunca:
+              code: 3
+              answer: | Nunca ou quase nunca
+              sort_order: 3
+              default: N
+
+        música:
+          code: g1q21
+          type: selectionbox
+          sort_order: 21
+          question: | Você costuma ir a shows de música?
+          help: | Selecione <b>uma</b> das seguintes
+          answers:
+            sempre:
+              code: 1
+              answer: | Sempre ou quase sempre
+              sort_order: 1
+              default: Y
+            quando:
+              code: 2
+              answer: | De vez em quando
+              sort_order: 2
+              default: N
+            nunca:
+              code: 3
+              answer: | Nunca ou quase nunca
+              sort_order: 3
+              default: N
+
+        tempo_tv:
+          code: g1q22
+          type: selectionbox
+          sort_order: 22
+          question: | Em dia de aula, quanto tempo você fica vendo TV?
+          help: | Selecione <b>uma</b> das seguintes
+          answers:
+            1:
+              code: 1
+              answer: | 1 hora ou menos
+              sort_order: 1
+              default: Y
+            2:
+              code: 2
+              answer: | 2 horas
+              sort_order: 2
+              default: N
+            3:
+              code: 3
+              answer: | 3 horas
+              sort_order: 3
+              default: N
+            4:
+              code: 4
+              answer: | 4 horas ou mais
+              sort_order: 4
+              default: N
+            não:
+              code: 5
+              answer: | Não vejo televisão
+              sort_order: 5
+              default: N
+
+        tempo_doméstico:
+          code: g1q23
+          type: selectionbox
+          sort_order: 23
+          question: | Em dia de aula, quanto tempo você fica fazendo trabalhos domésticos em casa?
+          help: | Selecione <b>uma</b> das seguintes
+          answers:
+            1:
+              code: 1
+              answer: | 1 hora ou menos
+              sort_order: 1
+              default: Y
+            2:
+              code: 2
+              answer: | 2 horas
+              sort_order: 2
+              default: N
+            3:
+              code: 3
+              answer: | 3 horas
+              sort_order: 3
+              default: N
+            4:
+              code: 4
+              answer: | 4 horas ou mais
+              sort_order: 4
+              default: N
+            não:
+              code: 5
+              answer: | Não faço trabalhos domésticos
+              sort_order: 5
+              default: N
+
+        tempo_trabalho:
+          code: g1q24
+          type: selectionbox
+          sort_order: 24
+          question: | Em dia de aula, quanto tempo você trabalha fora de casa?
+          help: | Selecione <b>uma</b> das seguintes
+          answers:
+            4:
+              code: 1
+              answer: | Até 4 horas
+              sort_order: 1
+              default: Y
+            5:
+              code: 2
+              answer: | De 5 a 6 horas
+              sort_order: 2
+              default: N
+            6:
+              code: 3
+              answer: | Mais de 6 horas
+              sort_order: 3
+              default: N
+            não:
+              code: 4
+              answer: | Não trabalho fora de casa
+              sort_order: 4
+              default: N
+
+        almoço_janta:
+          code: g1q25
+          type: selectionbox
+          sort_order: 25
+          question: | Seus pais ou responsáveis almoçam ou jantam com você?
+          help: | Selecione <b>uma</b> das seguintes
+          answers:
+            sempre:
+              code: 1
+              answer: | Sempre ou quase sempre
+              sort_order: 1
+              default: Y
+            quando:
+              code: 2
+              answer: | De vez em quando
+              sort_order: 2
+              default: N
+            nunca:
+              code: 3
+              answer: | Nunca ou quase nunca
+              sort_order: 3
+              default: N
+
+        pais_música:
+          code: g1q26
+          type: selectionbox
+          sort_order: 26
+          question: | Seus pais ou responsáveis ouvem música com você?
+          help: | Selecione <b>uma</b> das seguintes
+          answers:
+            sempre:
+              code: 1
+              answer: | Sempre ou quase sempre
+              sort_order: 1
+              default: Y
+            quando:
+              code: 2
+              answer: | De vez em quando
+              sort_order: 2
+              default: N
+            nunca:
+              code: 3
+              answer: | Nunca ou quase nunca
+              sort_order: 3
+              default: N
+
+        pais_livros:
+          code: g1q27
+          type: selectionbox
+          sort_order: 27
+          question: | Seus pais ou responsáveis conversam sobre livros com você?
+          help: | Selecione <b>uma</b> das seguintes
+          answers:
+            sempre:
+              code: 1
+              answer: | Sempre ou quase sempre
+              sort_order: 1
+              default: Y
+            quando:
+              code: 2
+              answer: | De vez em quando
+              sort_order: 2
+              default: N
+            nunca:
+              code: 3
+              answer: | Nunca ou quase nunca
+              sort_order: 3
+              default: N
+
+        pais_filmes:
+          code: g1q28
+          type: selectionbox
+          sort_order: 28
+          question: | Seus pais ou responsáveis conversam sobre filmes com você?
+          help: | Selecione <b>uma</b> das seguintes
+          answers:
+            sempre:
+              code: 1
+              answer: | Sempre ou quase sempre
+              sort_order: 1
+              default: Y
+            quando:
+              code: 2
+              answer: | De vez em quando
+              sort_order: 2
+              default: N
+            nunca:
+              code: 3
+              answer: | Nunca ou quase nunca
+              sort_order: 3
+              default: N
+
+        pais_tv:
+          code: g1q29
+          type: selectionbox
+          sort_order: 29
+          question: | Seus pais ou responsáveis conversam sobre programas de TV com você?
+          help: | Selecione <b>uma</b> das seguintes
+          answers:
+            sempre:
+              code: 1
+              answer: | Sempre ou quase sempre
+              sort_order: 1
+              default: Y
+            quando:
+              code: 2
+              answer: | De vez em quando
+              sort_order: 2
+              default: N
+            nunca:
+              code: 3
+              answer: | Nunca ou quase nunca
+              sort_order: 3
+              default: N
