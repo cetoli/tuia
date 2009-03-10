@@ -75,7 +75,7 @@ class DocumentoController < ApplicationController
         @artigo.attributes = params[:artigo]
         unless @artigo.nome.eql?@nome
           @artigo.isresumo = false
-          @artigo.update
+          @artigo.save(false)
         end
       end
       if @documento.update_attributes(params[:documento])
@@ -99,7 +99,7 @@ class DocumentoController < ApplicationController
     @documento = Documento.find(params[:id])
     @artigo = Artigo.find(@documento.artigo_id)
     @artigo.usado = false
-    if @artigo.update
+    if @artigo.save(false)
       @documento.destroy
       flash[:message] = 'Documento excluído com sucesso!'
     else
@@ -111,7 +111,7 @@ class DocumentoController < ApplicationController
   def aprovar
     @documento = Documento.find(params[:id])
     @documento.aprovado = true
-    if @documento.update
+    if @documento.save(false)
       flash[:message] = 'Documento aprovado com sucesso!'
       redirect_to :action => 'show', :id => @documento
     else
@@ -153,7 +153,7 @@ class DocumentoController < ApplicationController
         @artigo.attributes = params[:artigo]
         unless @artigo.nome.eql?@nome
           @artigo.isresumo = false
-          @artigo.update
+          @artigo.save(false)
         end
       end
       if @documento.update_attributes(params[:documento])

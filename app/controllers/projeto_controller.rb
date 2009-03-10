@@ -87,7 +87,7 @@ class ProjetoController < ApplicationController
   def aprovar
     @projeto = Projeto.find(params[:id])
     @projeto.aprovado = true
-    if @projeto.update
+    if @projeto.save(false)
       flash[:message] = 'Projeto aprovado com sucesso!'
       redirect_to :action => 'show', :id => @projeto
     else
