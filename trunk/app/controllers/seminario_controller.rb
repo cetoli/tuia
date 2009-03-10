@@ -63,7 +63,7 @@ class SeminarioController < ApplicationController
   def aprovar
     @seminario = Seminario.find(params[:id])
     @seminario.aprovado = true
-    if @seminario.update
+    if @seminario.save(false)
       flash[:message] = 'Seminário aprovado com sucesso!'
       redirect_to :action => 'list'
     else
